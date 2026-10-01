@@ -1,0 +1,33 @@
+---
+import AudienceSplit from '../components/AudienceSplit.astro';
+import Audiences from '../components/Audiences.astro';
+import Cameroon from '../components/Cameroon.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import MobileApp from '../components/MobileApp.astro';
+import ProductShowcase from '../components/ProductShowcase.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = getHomepage('fr');
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <div id="accueil">
+    <SiteHeader nav={page.nav} access={page.hero.access} />
+    <main id="contenu">
+      <Hero hero={page.hero} />
+      <Audiences audiences={page.audiences} />
+      <ProductShowcase product={page.product} />
+      <HowItWorks steps={page.steps} />
+      <AudienceSplit professionals={page.professionals} organisations={page.organisations} />
+      <Cameroon cameroon={page.cameroon} />
+      <MobileApp mobile={page.mobile} />
+      <FinalCta finale={page.finale} />
+    </main>
+    <SiteFooter footer={page.footer} />
+  </div>
+</BaseLayout>

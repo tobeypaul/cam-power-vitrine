@@ -1,0 +1,33 @@
+---
+import profileCard from '../assets/screens/profile-card.png';
+import screenOffers from '../assets/screens/screen-offers.png';
+import screenRecruit from '../assets/screens/screen-recruit.png';
+import PhoneFrame from './PhoneFrame.astro';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  product: HomepageContent['product'];
+}
+
+const { product } = Astro.props;
+---
+
+<section class="action" id="action" aria-labelledby="action-title">
+  <div class="wrap">
+    <h2 id="action-title">{product.title}</h2>
+    <p class="dek">{product.dek}</p>
+    <div class="stage">
+      <ul class="calls left">
+        {product.left.map((item) => <li>{item}</li>)}
+      </ul>
+      <div class="trio">
+        <PhoneFrame src={profileCard} alt="Carte de profil dans l’application CamPower" variant="profile" />
+        <PhoneFrame src={screenOffers} alt="Écran des offres dans l’application CamPower" variant="offers" />
+        <PhoneFrame src={screenRecruit} alt="Écran de recrutement dans l’application CamPower" />
+      </div>
+      <ul class="calls right">
+        {product.right.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

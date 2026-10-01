@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import profileCard from '../assets/screens/profile-card.png';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  professionals: HomepageContent['professionals'];
+  organisations: HomepageContent['organisations'];
+}
+
+const { professionals, organisations } = Astro.props;
+---
+
+<section class="split">
+  <div class="split-col" id={professionals.id}>
+    <div class="inner">
+      <p class="kicker">{professionals.kicker}</p>
+      <h2>
+        {professionals.titleLines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </h2>
+      <p class="support">{professionals.support}</p>
+      <figure class="idcard">
+        <Image
+          src={profileCard}
+          alt="Carte de profil dans l’application CamPower"
+          widths={[250, 500]}
+          sizes="250px"
+          quality={80}
+        />
+      </figure>
+      <a class="btn btn-line" href={professionals.cta.href}>{professionals.cta.label}</a>
+    </div>
+  </div>
+  <div class="split-col split-r" id={organisations.id}>
+    <div class="inner">
+      <p class="kicker">{organisations.kicker}</p>
+      <h2>{organisations.title}</h2>
+      <p class="support">{organisations.support}</p>
+      <a class="btn btn-primary" href={organisations.cta.href}>{organisations.cta.label}</a>
+    </div>
+  </div>
+</section>

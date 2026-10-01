@@ -1,0 +1,45 @@
+---
+import Logo from './Logo.astro';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  footer: HomepageContent['footer'];
+}
+
+const { footer } = Astro.props;
+---
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <Logo href="#accueil" label="CamPower" />
+        <p class="tagline">{footer.tagline}</p>
+      </div>
+      {footer.columns.map((column, index) => (
+        <div>
+          <h2>{column.title}</h2>
+          {column.links.map((link) => (
+            <a
+              href={link.href}
+              id={index === footer.columns.length - 1 && link.label === 'Mentions légales' ? 'mentions' : undefined}
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {link.label}
+              {link.external && <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>}
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+    <div class="foot-base">
+      <a href={footer.email.href}>{footer.email.label}</a>
+      <span>{footer.location}</span>
+      <a href={footer.linkedIn.href} target="_blank" rel="noopener noreferrer">
+        {footer.linkedIn.label}
+        <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+      </a>
+      <span class="grow">{footer.copyright}</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,52 @@
+---
+import screenOffers from '../assets/screens/screen-offers.png';
+import screenRecruit from '../assets/screens/screen-recruit.png';
+import Arrow from './Arrow.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  hero: HomepageContent['hero'];
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 id="hero-title">
+        {hero.titleLines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </h1>
+      <p class="lead">{hero.lead}</p>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href={hero.discover.href}>{hero.discover.label}</a>
+        <a class="btn btn-primary" href={hero.access.href}>{hero.access.label} <Arrow /></a>
+      </div>
+      <ul class="signals">
+        {hero.signals.map((signal) => <li>{signal}</li>)}
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <PhoneFrame src={screenRecruit} alt="" frameClass="back" eager variant="default" />
+      <PhoneFrame
+        src={screenOffers}
+        alt="Écran de l’application CamPower montrant des offres"
+        frameClass="front"
+        eager
+        variant="offers"
+      />
+      <aside class="chip">
+        <span class="chip-k">{hero.chip.kicker}</span>
+        <strong>{hero.chip.title}</strong>
+        <em>{hero.chip.meta}</em>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+import Arrow from './Arrow.astro';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  finale: HomepageContent['finale'];
+}
+
+const { finale } = Astro.props;
+---
+
+<section class="finale" aria-labelledby="finale-title">
+  <h2 id="finale-title">{finale.title}</h2>
+  <p>{finale.support}</p>
+  <a class="btn btn-primary" href={finale.cta.href}>{finale.cta.label} <Arrow /></a>
+</section>

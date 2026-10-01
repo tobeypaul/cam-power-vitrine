@@ -1,0 +1,23 @@
+---
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  steps: HomepageContent['steps'];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="steps" aria-labelledby="how">
+  <div class="wrap">
+    <h2 id="how">{steps.title}</h2>
+    <ol class="step-row">
+      {steps.items.map((item, index) => (
+        <li class="step">
+          <span class="num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <p>{item}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

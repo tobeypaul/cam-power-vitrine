@@ -1,0 +1,14 @@
+---
+import logo from '../assets/brand/logo.png';
+
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = '#accueil', label = 'CamPower, accueil' } = Astro.props;
+---
+
+<a class="brand" href={href} aria-label={label}>
+  <img src={logo.src} width={logo.width} height={logo.height} alt="" />
+</a>

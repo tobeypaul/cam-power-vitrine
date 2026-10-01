@@ -1,0 +1,33 @@
+---
+import screenFeed from '../assets/screens/screen-feed.png';
+import PhoneFrame from './PhoneFrame.astro';
+import type { HomepageContent } from '../content/types';
+
+interface Props {
+  mobile: HomepageContent['mobile'];
+}
+
+const { mobile } = Astro.props;
+---
+
+<section class="anywhere" aria-labelledby="anywhere-title">
+  <div class="wrap anywhere-grid">
+    <div class="anywhere-phone">
+      <PhoneFrame src={screenFeed} alt="Fil d’actualité dans l’application CamPower" />
+    </div>
+    <div class="anywhere-copy">
+      <h2 id="anywhere-title">{mobile.title}</h2>
+      <p class="dek">{mobile.dek}</p>
+      <a class="play" href={mobile.storeHref} target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true">
+          <path d="M2 1.8c0-1 1.1-1.6 2-1.1L20.2 10c.9.5.9 1.8 0 2.3L4 22.6c-.9.5-2-.1-2-1.1V1.8z" fill="#fff"></path>
+        </svg>
+        <span>
+          <small>{mobile.storeKicker}</small>
+          <strong>{mobile.storeName}</strong>
+          <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
