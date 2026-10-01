@@ -4,16 +4,17 @@ import type { HomepageContent } from '../content/types';
 
 interface Props {
   footer: HomepageContent['footer'];
+  homeHref?: string;
 }
 
-const { footer } = Astro.props;
+const { footer, homeHref = '#accueil' } = Astro.props;
 ---
 
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <Logo href="#accueil" label="CamPower" />
+        <Logo href={homeHref} label="CamPower" />
         <p class="tagline">{footer.tagline}</p>
       </div>
       {footer.columns.map((column, index) => (

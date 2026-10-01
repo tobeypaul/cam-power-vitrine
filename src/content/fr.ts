@@ -14,11 +14,11 @@ export const homepageFr: HomepageContent = {
       'CamPower connecte les talents, les entreprises, les compétences et les opportunités au Cameroun. Développez votre réseau professionnel, trouvez des opportunités, recrutez ou proposez une mission.',
   },
   nav: [
-    { label: 'Découvrir', href: '#besoins' },
-    { label: 'Talents', href: '#talents' },
-    { label: 'Entreprises', href: '#entreprises' },
-    { label: 'Missions', href: '#missions' },
-    { label: 'À propos', href: '#apropos' },
+    { label: 'Découvrir', href: '/decouvrir/' },
+    { label: 'Talents', href: '/talents/' },
+    { label: 'Entreprises', href: '/entreprises/' },
+    { label: 'Missions' },
+    { label: 'À propos' },
   ],
   hero: {
     eyebrow: 'Plateforme professionnelle · Cameroun',
@@ -122,8 +122,8 @@ export const homepageFr: HomepageContent = {
         title: 'Découvrir',
         links: [
           { label: 'À propos', href: '#apropos' },
-          { label: 'Talents', href: '#talents' },
-          { label: 'Entreprises', href: '#entreprises' },
+          { label: 'Talents', href: '/talents/' },
+          { label: 'Entreprises', href: '/entreprises/' },
           { label: 'Missions', href: '#missions' },
         ],
       },

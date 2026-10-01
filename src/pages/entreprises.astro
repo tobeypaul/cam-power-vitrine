@@ -1,0 +1,211 @@
+---
+import screenRecruit from '../assets/screens/screen-recruit.png';
+import Arrow from '../components/Arrow.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getEntreprises, getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/entreprises.css';
+
+const home = getHomepage('fr');
+const page = getEntreprises('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="entreprises">
+    <section class="hero" aria-labelledby="entreprises-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">{page.hero.eyebrow}</p>
+          <h1 id="entreprises-title">{page.hero.title}</h1>
+          <p class="lead">{page.hero.lead}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+            <a class="link-more" href={page.hero.explore.href}>
+              {page.hero.explore.label}
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <aside class="relation" aria-label="Pour votre organisation">
+          <p class="kicker">{page.hero.panelKicker}</p>
+          <p class="relation-line">{page.hero.panelLine}</p>
+          <ol class="flow">
+            {page.hero.flow.map((item) => (
+              <li><strong>{item.label}</strong><span>{item.text}</span></li>
+            ))}
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="presence" id="presence" aria-labelledby="presence-title">
+      <div class="wrap">
+        <div class="presence-grid">
+          <div>
+            <p class="kicker">{page.presence.kicker}</p>
+            <h2 id="presence-title">{page.presence.title}</h2>
+          </div>
+          <div>
+            <p class="support">{page.presence.support}</p>
+            <ul class="marks">
+              {page.presence.marks.map((mark) => (
+                <li><strong>{mark.label}</strong><span>{mark.text}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <section class="need" id="besoin" aria-labelledby="need-title">
+          <p class="kicker">{page.need.kicker}</p>
+          <h2 id="need-title">{page.need.title}</h2>
+          <p class="support">{page.need.support}</p>
+          <div class="fork">
+            <p class="fork-root"><i aria-hidden="true"></i> {page.need.root}</p>
+            <div class="fork-split">
+              {page.need.branches.map((branch) => (
+                <article>
+                  <h3>{branch.title}</h3>
+                  <p>{branch.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="discovery" id="talents" aria-labelledby="discovery-title">
+      <div class="wrap discovery-grid">
+        <figure>
+          <PhoneFrame src={screenRecruit} alt={page.talents.imageAlt} />
+          <figcaption class="phone-note">{page.talents.note}</figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">{page.talents.eyebrow}</p>
+          <h2 id="discovery-title">{page.talents.title}</h2>
+          <p class="support">{page.talents.support}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="routes" id="recrutement" aria-labelledby="routes-title">
+      <div class="wrap">
+        <p class="eyebrow">{page.routes.eyebrow}</p>
+        <h2 id="routes-title">{page.routes.title}</h2>
+        <p class="origin">{page.routes.origin}</p>
+        <div class="route-grid">
+          <article class="route route-hire">
+            <p class="kicker">{page.routes.hire.kicker}</p>
+            <h3>{page.routes.hire.title}</h3>
+            <p class="idea">{page.routes.hire.idea}</p>
+            <p>{page.routes.hire.text}</p>
+            <p class="route-foot">{page.routes.hire.foot}</p>
+          </article>
+          <article class="route route-mission">
+            <p class="kicker">{page.routes.mission.kicker}</p>
+            <h3>{page.routes.mission.title}</h3>
+            <p class="idea">{page.routes.mission.idea}</p>
+            <p>{page.routes.mission.text}</p>
+            <p class="route-foot">{page.routes.mission.foot}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="community" aria-labelledby="community-title">
+      <div class="wrap">
+        <h2 id="community-title">{page.community.title}</h2>
+        <p class="support">{page.community.support}</p>
+        <ul class="same">
+          {page.community.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="network" aria-labelledby="network-title">
+      <div class="wrap net-grid">
+        <div>
+          <p class="kicker">{page.network.kicker}</p>
+          <h2 id="network-title">{page.network.title}</h2>
+          <p class="support">{page.network.support}</p>
+        </div>
+        <figure class="net-panel" aria-hidden="true">
+          <svg viewBox="0 0 520 300">
+            <g fill="none" stroke="#16803C" stroke-width="1.5" stroke-linecap="round">
+              <path d="M230 146 L230 48"></path>
+              <path d="M230 146 L110 72"></path>
+              <path d="M230 146 L360 70"></path>
+              <path d="M230 146 L430 150"></path>
+              <path d="M230 146 L390 240"></path>
+              <path d="M230 146 L120 236"></path>
+              <path d="M230 146 L64 168"></path>
+              <path d="M110 72 L230 48" stroke-opacity="0.5"></path>
+              <path d="M360 70 L430 150" stroke-opacity="0.5"></path>
+              <path d="M120 236 L64 168" stroke-opacity="0.5"></path>
+            </g>
+            <g fill="#fff" stroke="#1B3A8A" stroke-width="2">
+              <circle cx="230" cy="48" r="8"></circle>
+              <circle cx="110" cy="72" r="8"></circle>
+              <circle cx="430" cy="150" r="8"></circle>
+              <circle cx="390" cy="240" r="8"></circle>
+              <circle cx="120" cy="236" r="8"></circle>
+              <circle cx="64" cy="168" r="8"></circle>
+            </g>
+            <circle cx="360" cy="70" r="8" fill="#F5C518" stroke="#E2B40A" stroke-width="2"></circle>
+            <circle cx="230" cy="146" r="28" fill="#1B3A8A"></circle>
+            <rect x="176" y="182" width="108" height="26" rx="6" fill="#fff"></rect>
+            <text x="230" y="200" text-anchor="middle">Entreprise</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="life" id="parcours" aria-labelledby="life-title">
+      <div class="wrap">
+        <h2 id="life-title">{page.lifecycle.title}</h2>
+        <p class="support">{page.lifecycle.support}</p>
+        <ol class="life-steps">
+          {page.lifecycle.steps.map((step) => (
+            <li><strong>{step.label}</strong><span>{step.text}</span></li>
+          ))}
+        </ol>
+        <p class="life-note">{page.lifecycle.note}</p>
+      </div>
+    </section>
+
+    <section class="place" aria-labelledby="cameroon-title">
+      <div class="wrap place-grid">
+        <div>
+          <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2 id="cameroon-title">{page.cameroon.title}</h2>
+          <p class="support">{page.cameroon.support}</p>
+        </div>
+        <svg class="cmap" viewBox="0 0 160 220" aria-hidden="true">
+          <path fill="#1B3A8A" fill-opacity="0.16" stroke="#1B3A8A" stroke-opacity="0.55" stroke-width="1.6" d="M 125.4 4.0 L 133.4 16.2 L 134.7 28.8 L 134.0 41.5 L 145.0 58.8 L 133.7 58.6 L 128.0 60.0 L 118.8 58.0 L 114.4 67.0 L 126.3 78.2 L 135.1 81.4 L 138.0 89.3 L 144.3 102.4 L 141.2 107.6 L 131.0 126.9 L 126.2 130.3 L 124.6 145.1 L 126.6 153.1 L 125.0 158.8 L 134.5 168.7 L 136.3 175.6 L 143.7 185.4 L 153.0 191.5 L 153.9 200.2 L 156.0 205.7 L 154.5 216.0 L 138.5 211.5 L 122.2 206.5 L 96.7 205.7 L 94.2 204.7 L 82.2 207.1 L 69.9 204.6 L 60.3 205.8 L 27.4 205.4 L 30.4 190.4 L 22.5 177.8 L 13.3 174.6 L 9.2 166.0 L 4.0 163.3 L 4.2 158.0 L 9.4 144.5 L 19.0 126.2 L 24.9 126.0 L 36.9 114.9 L 44.6 114.5 L 55.9 122.4 L 69.8 115.9 L 71.7 108.0 L 76.2 100.4 L 79.4 90.7 L 90.2 82.9 L 94.2 69.5 L 98.5 65.3 L 101.4 55.4 L 106.7 43.2 L 123.7 28.5 L 124.8 22.2 L 127.0 18.7 L 119.0 11.2 L 119.7 5.1 L 125.4 4.0 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="finale" aria-labelledby="finale-title">
+      <h2 id="finale-title">{page.finale.title}</h2>
+      <p>{page.finale.support}</p>
+      <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" />
+</BaseLayout>

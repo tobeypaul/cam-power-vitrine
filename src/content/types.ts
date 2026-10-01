@@ -4,12 +4,18 @@ export interface LinkItem {
   external?: boolean;
 }
 
+export interface NavItem {
+  label: string;
+  href?: string;
+  current?: boolean;
+}
+
 export interface HomepageContent {
   meta: {
     title: string;
     description: string;
   };
-  nav: LinkItem[];
+  nav: NavItem[];
   hero: {
     eyebrow: string;
     titleLines: string[];
@@ -86,5 +92,221 @@ export interface HomepageContent {
     location: string;
     linkedIn: LinkItem;
     copyright: string;
+  };
+}
+
+export interface DecouvrirContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    titleLines: string[];
+    lead: string;
+    ecosystem: LinkItem;
+    spine: string[];
+    spineNote: string;
+  };
+  possibilities: {
+    titleLines: string[];
+    dek: string;
+    steps: string[];
+  };
+  identity: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  network: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  opportunities: {
+    eyebrow: string;
+    title: string;
+    support: string;
+  };
+  meeting: {
+    title: string;
+    dek: string;
+    professionalsTitle: string;
+    professionalsBody: string;
+    organisationsTitle: string;
+    organisationsBody: string;
+  };
+  missions: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    leftTitle: string;
+    leftBody: string;
+    rightTitle: string;
+    rightBody: string;
+  };
+  ecosystem: {
+    title: string;
+    dek: string;
+    chain: string[];
+  };
+  cameroon: {
+    title: string;
+    dek: string;
+  };
+  daily: {
+    title: string;
+    support: string;
+    storeKicker: string;
+    storeName: string;
+    storeHref: string;
+  };
+  finale: {
+    title: string;
+    support: string;
+  };
+}
+
+export interface EntreprisesContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    explore: LinkItem;
+    panelKicker: string;
+    panelLine: string;
+    flow: Array<{ label: string; text: string }>;
+  };
+  presence: {
+    kicker: string;
+    title: string;
+    support: string;
+    marks: Array<{ label: string; text: string }>;
+  };
+  need: {
+    kicker: string;
+    title: string;
+    support: string;
+    root: string;
+    branches: Array<{ title: string; text: string }>;
+  };
+  talents: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    note: string;
+    imageAlt: string;
+  };
+  routes: {
+    eyebrow: string;
+    title: string;
+    origin: string;
+    hire: { kicker: string; title: string; idea: string; text: string; foot: string };
+    mission: { kicker: string; title: string; idea: string; text: string; foot: string };
+  };
+  community: {
+    title: string;
+    support: string;
+    items: string[];
+  };
+  network: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  lifecycle: {
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    note: string;
+  };
+  cameroon: {
+    title: string;
+    support: string;
+  };
+  finale: {
+    title: string;
+    support: string;
+  };
+}
+
+export interface TalentsContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    explore: LinkItem;
+    panelKicker: string;
+    panelLine: string;
+    dimensions: Array<{ label: string; text: string }>;
+  };
+  identity: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  skills: {
+    kicker: string;
+    title: string;
+    support: string;
+    items: Array<{ label: string; text: string }>;
+  };
+  network: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  opportunities: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    root: string;
+    branches: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  routes: {
+    eyebrow: string;
+    title: string;
+    employment: { kicker: string; title: string; text: string };
+    missions: { kicker: string; title: string; text: string };
+  };
+  organisations: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    sides: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  lifecycle: {
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    note: string;
+  };
+  cameroon: {
+    title: string;
+    support: string;
+  };
+  daily: {
+    title: string;
+    support: string;
+    storeKicker: string;
+    storeName: string;
+    storeHref: string;
+  };
+  finale: {
+    title: string;
+    support: string;
   };
 }

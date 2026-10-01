@@ -1,26 +1,33 @@
 ---
 import Arrow from './Arrow.astro';
 import Logo from './Logo.astro';
-import type { LinkItem } from '../content/types';
+import type { LinkItem, NavItem } from '../content/types';
 
 interface Props {
-  nav: LinkItem[];
+  nav: NavItem[];
   access: LinkItem;
+  logoHref?: string;
 }
 
-const { nav, access } = Astro.props;
+const { nav, access, logoHref } = Astro.props;
 ---
 
 <header class="site-header" data-site-header>
   <div class="bar wrap">
-    <Logo />
+    {logoHref ? <Logo href={logoHref} /> : <Logo />}
     <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
       <span class="nav-toggle-bars"></span>
       <span class="sr-only" data-nav-label>Ouvrir le menu</span>
     </button>
     <a class="btn btn-primary" href={access.href}>{access.label} <Arrow /></a>
     <nav id="site-nav" class="nav" data-site-nav aria-label="Navigation principale">
-      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {nav.map((item) =>
+        item.href ? (
+          <a href={item.href} aria-current={item.current ? 'page' : undefined}>{item.label}</a>
+        ) : (
+          <span>{item.label}</span>
+        )
+      )}
     </nav>
   </div>
 </header>

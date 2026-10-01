@@ -1,0 +1,397 @@
+.entreprises { --pro: #f3f7f4; }
+.entreprises h1 { line-height: 1.08; }
+.entreprises h2,
+.entreprises h3 {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.entreprises h2 { font-size: 40px; }
+.entreprises .kicker { margin-bottom: 14px; }
+.entreprises .support {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40em;
+}
+.entreprises figure { margin: 0; }
+
+.entreprises .hero { padding: 56px 0 72px; }
+.entreprises .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(460px, 1.15fr) 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+.entreprises .lead { max-width: 38em; }
+.entreprises .hero-actions { align-items: center; }
+.entreprises .link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.entreprises .link-more svg { width: 16px; height: 16px; }
+
+.entreprises .relation {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px 28px 32px;
+}
+.entreprises .relation-line {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.entreprises .flow {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+}
+.entreprises .flow::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: var(--green);
+}
+.entreprises .flow li { position: relative; padding-top: 28px; }
+.entreprises .flow li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--green);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+.entreprises .flow li:nth-child(2)::before { background: var(--yellow); border-color: #e2b40a; }
+.entreprises .flow strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.entreprises .flow span {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.entreprises .presence { background: var(--surface); padding: 88px 0; }
+.entreprises .presence-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+.entreprises .presence h2,
+.entreprises .need h2 { font-size: 32px; max-width: 16em; }
+.entreprises .marks { margin-top: 28px; }
+.entreprises .marks li {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+}
+.entreprises .marks strong {
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.entreprises .marks span { color: var(--muted); font-size: 16px; }
+.entreprises .need {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.entreprises .fork { margin-top: 28px; }
+.entreprises .fork-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.entreprises .fork-root i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.entreprises .fork-split {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  border-top: 2px solid var(--green);
+  padding-top: 16px;
+}
+.entreprises .fork-split::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: -22px;
+  width: 2px;
+  height: 22px;
+  background: var(--green);
+}
+.entreprises .fork-split article {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+}
+.entreprises .fork-split h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.entreprises .fork-split p {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.entreprises .discovery { padding: 88px 0; }
+.entreprises .discovery-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.entreprises .discovery h2 { max-width: 16em; }
+.entreprises .discovery .phone { width: 250px; }
+.entreprises .phone-note {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+  text-align: center;
+  max-width: 250px;
+}
+
+.entreprises .routes { background: var(--surface); padding: 88px 0 96px; }
+.entreprises .routes h2 { max-width: 18em; }
+.entreprises .origin {
+  margin-top: 18px;
+  max-width: 40em;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.entreprises .route-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.entreprises .route {
+  border-radius: 18px;
+  padding: 36px 36px 40px;
+  min-height: 260px;
+}
+.entreprises .route h3 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.entreprises .route .idea {
+  margin-top: 16px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.entreprises .route p { margin-top: 10px; font-size: 17px; line-height: 1.5; }
+.entreprises .route-hire { background: #fff; border: 1px solid var(--line); }
+.entreprises .route-hire h3,
+.entreprises .route-hire .idea { color: var(--ink); }
+.entreprises .route-hire p { color: var(--text); }
+.entreprises .route-mission { background: var(--navy); }
+.entreprises .route-mission .kicker { color: rgba(255, 255, 255, 0.78); }
+.entreprises .route-mission h3,
+.entreprises .route-mission .idea { color: #fff; }
+.entreprises .route-mission p { color: rgba(255, 255, 255, 0.9); }
+.entreprises .route .route-foot { margin-top: 22px; font-size: 15px; font-weight: 600; color: var(--green-ink); }
+.entreprises .route-mission .route-foot { color: rgba(255, 255, 255, 0.78); }
+
+.entreprises .community { padding: 80px 0; }
+.entreprises .community h2 { max-width: 16em; }
+.entreprises .community .support { max-width: 44em; }
+.entreprises .same {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+.entreprises .same li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.entreprises .same li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.entreprises .network { background: var(--pro); padding: 88px 0; }
+.entreprises .net-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+.entreprises .network h2 { font-size: 36px; }
+.entreprises .net-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 8px 12px 0;
+}
+.entreprises .net-panel svg { width: 100%; height: auto; }
+.entreprises .net-panel text {
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+
+.entreprises .life { background: var(--navy-deep); color: #fff; padding: 96px 0; }
+.entreprises .life h2 { color: #fff; max-width: 16em; }
+.entreprises .life .support { color: rgba(255, 255, 255, 0.86); max-width: 44em; }
+.entreprises .life-steps {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.entreprises .life-steps::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 4%;
+  height: 2px;
+  background: rgba(22, 128, 60, 0.9);
+}
+.entreprises .life-steps li { position: relative; padding-top: 32px; }
+.entreprises .life-steps li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 6px var(--navy-deep);
+}
+.entreprises .life-steps strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.entreprises .life-steps span {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+.entreprises .life-note {
+  margin-top: 28px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 46em;
+}
+
+.entreprises .place { background: var(--surface); padding: 88px 0; }
+.entreprises .place-grid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 48px;
+  align-items: center;
+}
+.entreprises .place h2 { max-width: 14em; }
+.entreprises .place .cmap { width: 150px; height: 206px; margin: 0 auto; }
+
+.entreprises .finale h2 { font-size: 42px; }
+
+@media (max-width: 980px) {
+  .entreprises .hero-grid,
+  .entreprises .presence-grid,
+  .entreprises .discovery-grid,
+  .entreprises .route-grid,
+  .entreprises .net-grid,
+  .entreprises .place-grid,
+  .entreprises .fork-split,
+  .entreprises .flow,
+  .entreprises .life-steps { grid-template-columns: 1fr; }
+  .entreprises .flow::before,
+  .entreprises .life-steps::before,
+  .entreprises .fork-split::before { display: none; }
+  .entreprises .flow li,
+  .entreprises .life-steps li { padding-top: 0; padding-left: 28px; }
+  .entreprises .flow li::before,
+  .entreprises .life-steps li::before { top: 2px; }
+  .entreprises .marks li { grid-template-columns: 1fr; gap: 4px; }
+  .entreprises .discovery .phone { margin: 0 auto; }
+  .entreprises h1 { font-size: 40px; }
+  .entreprises h2,
+  .entreprises .finale h2,
+  .entreprises .presence h2,
+  .entreprises .need h2,
+  .entreprises .route h3,
+  .entreprises .relation-line { font-size: 32px; }
+}
+
+@media (max-width: 640px) {
+  .entreprises .presence,
+  .entreprises .discovery,
+  .entreprises .routes,
+  .entreprises .community,
+  .entreprises .network,
+  .entreprises .life,
+  .entreprises .place { padding: 64px 0; }
+  .entreprises .route { padding: 28px 24px 32px; min-height: 0; }
+}
