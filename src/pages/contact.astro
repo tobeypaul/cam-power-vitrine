@@ -1,0 +1,116 @@
+---
+import Arrow from '../components/Arrow.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getContact, getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/contact.css';
+
+const home = getHomepage('fr');
+const page = getContact('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={home.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="contact">
+    <section class="hero" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="kicker">{page.hero.eyebrow}</p>
+        <h1 id="contact-title">{page.hero.title}</h1>
+        <p class="lead">{page.hero.lead}</p>
+      </div>
+    </section>
+
+    <section class="intents" id="motifs" aria-labelledby="intents-title">
+      <div class="wrap">
+        <h2 id="intents-title">{page.intents.title}</h2>
+        <p class="dek">{page.intents.dek}</p>
+        <div class="intent-grid" role="group" aria-label="Motif du message">
+          {page.intents.items.map((item) => (
+            <button class="intent" type="button" data-subject={item.subject} aria-pressed="false">
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+              <span class="go">{page.intents.choose}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="write" id="ecrire" aria-labelledby="write-title">
+      <div class="wrap">
+        <h2 id="write-title">{page.email.title}</h2>
+        <p class="dek">{page.email.dek}</p>
+        <a class="address" id="address" href={page.email.href}>{page.email.address}</a>
+        <div class="write-actions">
+          <a class="btn btn-primary" id="write-cta" href={page.email.href}>{page.email.cta} <Arrow /></a>
+          <p class="subject" id="subject-note" aria-live="polite">{page.email.optional}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bridges" aria-label="Aide et présence LinkedIn">
+      <div class="wrap bridge-grid">
+        <article class="bridge bridge-aide">
+          <h2>{page.aide.title}</h2>
+          <p>{page.aide.support}</p>
+          <a class="text-link" href={page.aide.href}>{page.aide.cta} <Arrow /></a>
+        </article>
+        <article class="bridge bridge-social">
+          <h2>{page.linkedin.title}</h2>
+          <p>{page.linkedin.support}</p>
+          <a class="text-link" href={page.linkedin.href} target="_blank" rel="noopener noreferrer">
+            {page.linkedin.cta} <Arrow />
+            <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="final" aria-labelledby="final-title">
+      <div class="wrap">
+        <div class="final-band">
+          <h2 id="final-title">{page.application.title}</h2>
+          <a class="btn btn-primary" href={page.application.href}>{page.application.cta} <Arrow /></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" currentPath="/contact/" />
+</BaseLayout>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.contact .intent'));
+  const cta = document.getElementById('write-cta');
+  const note = document.getElementById('subject-note');
+  const base = 'mailto:contact@cam-power.net';
+  const optional = 'Aucun motif n’est obligatoire.';
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (cta && note) {
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const subject = button.dataset.subject || '';
+        const on = button.getAttribute('aria-pressed') === 'true';
+        for (const other of buttons) other.setAttribute('aria-pressed', 'false');
+        if (on) {
+          cta.setAttribute('href', base);
+          note.textContent = optional;
+          return;
+        }
+        button.setAttribute('aria-pressed', 'true');
+        cta.setAttribute('href', `${base}?subject=${encodeURIComponent(subject)}`);
+        note.textContent = `Objet proposé : ${subject}. L’adresse reste contact@cam-power.net.`;
+        document.getElementById('ecrire')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+  }
+</script>

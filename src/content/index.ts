@@ -1,4 +1,5 @@
 import { aideFr } from './aide';
+import { contactFr } from './contact';
 import { aproposFr } from './a-propos';
 import { decouvrirFr } from './decouvrir';
 import { entreprisesFr } from './entreprises';
@@ -7,6 +8,7 @@ import { missionsFr } from './missions';
 import { talentsFr } from './talents';
 import type {
   AideContent,
+  ContactContent,
   AProposContent,
   DecouvrirContent,
   EntreprisesContent,
@@ -91,6 +93,18 @@ const aideCatalogs: Record<string, AideContent> = {
 
 export function getAide(locale: string = defaultLocale): AideContent {
   const content = aideCatalogs[locale];
+  if (!content) {
+    throw new Error(`Unsupported locale: ${locale}`);
+  }
+  return content;
+}
+
+const contactCatalogs: Record<string, ContactContent> = {
+  fr: contactFr,
+};
+
+export function getContact(locale: string = defaultLocale): ContactContent {
+  const content = contactCatalogs[locale];
   if (!content) {
     throw new Error(`Unsupported locale: ${locale}`);
   }

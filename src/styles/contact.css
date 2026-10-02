@@ -1,0 +1,117 @@
+.contact h1 { font-size: 52px; line-height: 1.05; letter-spacing: -0.04em; }
+.contact h2 {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.contact .kicker { margin-bottom: 12px; }
+.contact .lead { margin-top: 16px; max-width: 38em; font-size: 18px; line-height: 1.55; }
+.contact .dek { margin-top: 12px; max-width: 40em; color: var(--muted); font-size: 17px; }
+
+.contact .hero { padding: 56px 0 36px; }
+
+.contact .intents { padding: 12px 0 72px; }
+.contact .intent-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.contact .intent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  min-height: 168px;
+  padding: 20px 18px 18px;
+  text-align: left;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  cursor: pointer;
+}
+.contact .intent:hover { border-color: #c5d0de; }
+.contact .intent[aria-pressed="true"] {
+  border-color: var(--navy);
+  box-shadow: inset 0 0 0 1px var(--navy);
+  background: #f3f7f4;
+}
+.contact .intent strong {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.contact .intent span { font-size: 15px; line-height: 1.4; color: var(--muted); }
+.contact .intent .go { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--green-ink); }
+
+.contact .write { background: var(--navy-deep); color: #fff; padding: 72px 0; }
+.contact .write h2 { color: #fff; }
+.contact .write .dek { color: rgba(255, 255, 255, 0.78); }
+.contact .address {
+  display: inline-block;
+  margin-top: 22px;
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  color: #fff;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.contact .write-actions { display: flex; flex-wrap: wrap; gap: 16px 22px; align-items: center; margin-top: 24px; }
+.contact .subject { margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.78); }
+
+.contact .bridges { padding: 72px 0; }
+.contact .bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact .bridge { border-radius: 16px; padding: 28px 28px 24px; }
+.contact .bridge-aide { background: var(--surface); }
+.contact .bridge-social { background: #fff; border: 1px solid var(--line); }
+.contact .bridge h2 { font-size: 28px; max-width: 12em; }
+.contact .bridge p { margin-top: 12px; color: var(--muted); font-size: 17px; max-width: 32em; }
+.contact .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  color: var(--green-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  min-height: 48px;
+}
+.contact .text-link svg { width: 16px; height: 16px; }
+
+.contact .final { padding: 8px 0 80px; }
+.contact .final-band {
+  background: #f3f7f4;
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact .final h2 { font-size: 24px; max-width: 16em; }
+
+footer .foot a[aria-current="page"] { color: #fff; font-weight: 600; }
+
+@media (max-width: 980px) {
+  .contact .intent-grid,
+  .contact .bridge-grid { grid-template-columns: 1fr 1fr; }
+  .contact h1 { font-size: 40px; }
+  .contact .address { font-size: 24px; }
+}
+@media (max-width: 640px) {
+  .contact .intent-grid,
+  .contact .bridge-grid { grid-template-columns: 1fr; }
+  .contact .final-band { align-items: flex-start; }
+  .contact h1 { font-size: 36px; }
+  .contact .address { font-size: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact { scroll-behavior: auto; }
+}

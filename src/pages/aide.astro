@@ -47,7 +47,7 @@ const footer = {
           </div>
           <p class="hint">{page.hero.hint}</p>
           <p class="empty" id="aide-empty" role="status" hidden>
-            {page.hero.empty} <a href="#contact">{page.hero.emptyLink}</a>
+            {page.hero.empty} <a href="/contact/">{page.hero.emptyLink}</a>
           </p>
         </form>
       </div>
@@ -130,7 +130,7 @@ const footer = {
         <p>{page.escalation.support}</p>
         <div class="escalate-actions">
           <a class="btn btn-primary" href={page.escalation.contactHref}>{page.escalation.contactLabel}</a>
-          <a class="mail" href={page.escalation.contactHref}>{page.escalation.emailLabel}</a>
+          <a class="mail" href={`mailto:${page.escalation.emailLabel}`}>{page.escalation.emailLabel}</a>
           <a class="btn btn-quiet" href={page.escalation.accessHref}>{page.escalation.accessLabel}</a>
         </div>
       </div>

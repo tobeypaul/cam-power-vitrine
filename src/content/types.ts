@@ -504,3 +504,47 @@ export interface AideContent {
     accessHref: string;
   };
 }
+
+export interface ContactContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+  };
+  intents: {
+    title: string;
+    dek: string;
+    choose: string;
+    items: Array<{ title: string; text: string; subject: string }>;
+  };
+  email: {
+    title: string;
+    dek: string;
+    address: string;
+    href: string;
+    cta: string;
+    optional: string;
+    subjectPrefix: string;
+  };
+  aide: {
+    title: string;
+    support: string;
+    cta: string;
+    href: string;
+  };
+  linkedin: {
+    title: string;
+    support: string;
+    cta: string;
+    href: string;
+  };
+  application: {
+    title: string;
+    cta: string;
+    href: string;
+  };
+}
