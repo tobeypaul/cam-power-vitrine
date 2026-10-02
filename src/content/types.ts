@@ -563,6 +563,83 @@ export interface ConfidentialiteContent {
   };
 }
 
+export interface ConditionsContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    scope: string;
+    title: string;
+    lead: string;
+    support: string;
+  };
+  scope: {
+    title: string;
+    coveredLabel: string;
+    coveredTitle: string;
+    coveredText: string;
+    outsideLabel: string;
+    outsideTitle: string;
+    outsideText: string;
+  };
+  purpose: {
+    title: string;
+    lead: string;
+    items: Array<{ title: string; text: string }>;
+    infoTitle: string;
+    infoText: string;
+  };
+  use: {
+    title: string;
+    lead: string;
+    items: string[];
+    indexing: string;
+  };
+  ip: {
+    title: string;
+    lead: string;
+    support: string;
+    thirdParty: string;
+  };
+  leave: {
+    title: string;
+    lead: string;
+    destinations: Array<{ title: string; text: string }>;
+    appTitle: string;
+    appParagraphs: string[];
+  };
+  availability: {
+    title: string;
+    items: Array<{ title: string; text: string }>;
+  };
+  limits: {
+    title: string;
+    lead: string;
+    items: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  privacy: {
+    title: string;
+    text: string;
+    href: string;
+    pathLabel: string;
+    cta: string;
+  };
+  law: {
+    title: string;
+    text: string;
+  };
+  questions: {
+    title: string;
+    support: string;
+    address: string;
+    href: string;
+    cta: string;
+  };
+}
+
 export interface ContactContent {
   meta: {
     title: string;

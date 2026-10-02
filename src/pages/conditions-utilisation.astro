@@ -1,0 +1,179 @@
+---
+import Arrow from '../components/Arrow.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getConditions, getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/conditions.css';
+
+const home = getHomepage('fr');
+const page = getConditions('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={home.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="conditions">
+    <section class="hero" aria-labelledby="conditions-title">
+      <div class="wrap">
+        <div class="eyebrow">
+          <p class="kicker">{page.hero.eyebrow}</p>
+          <p class="pill">{page.hero.scope}</p>
+        </div>
+        <h1 id="conditions-title">{page.hero.title}</h1>
+        <p class="lead">{page.hero.lead}</p>
+        <p class="support">{page.hero.support}</p>
+      </div>
+    </section>
+
+    <section class="scope" aria-labelledby="scope-title">
+      <div class="wrap">
+        <h2 id="scope-title">{page.scope.title}</h2>
+        <div class="scope-grid">
+          <article class="scope-card scope-in">
+            <p class="scope-label">{page.scope.coveredLabel}</p>
+            <h3>{page.scope.coveredTitle}</h3>
+            <p>{page.scope.coveredText}</p>
+          </article>
+          <article class="scope-card scope-out">
+            <p class="scope-label">{page.scope.outsideLabel}</p>
+            <h3>{page.scope.outsideTitle}</h3>
+            <p>{page.scope.outsideText}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="purpose" aria-labelledby="purpose-title">
+      <div class="wrap">
+        <h2 id="purpose-title">{page.purpose.title}</h2>
+        <p class="lead">{page.purpose.lead}</p>
+        <div class="point-grid">
+          {page.purpose.items.map((item) => (
+            <article class="point">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <div class="info-band">
+          <h3>{page.purpose.infoTitle}</h3>
+          <p>{page.purpose.infoText}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="use" aria-labelledby="use-title">
+      <div class="wrap">
+        <h2 id="use-title">{page.use.title}</h2>
+        <p class="lead">{page.use.lead}</p>
+        <ul class="use-list">
+          {page.use.items.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="note">{page.use.indexing}</p>
+      </div>
+    </section>
+
+    <section class="ip" aria-labelledby="ip-title">
+      <div class="wrap">
+        <h2 id="ip-title">{page.ip.title}</h2>
+        <p class="lead">{page.ip.lead}</p>
+        <p class="support">{page.ip.support}</p>
+        <p class="aside">{page.ip.thirdParty}</p>
+      </div>
+    </section>
+
+    <section class="leave" aria-labelledby="leave-title">
+      <div class="wrap">
+        <h2 id="leave-title">{page.leave.title}</h2>
+        <p class="lead">{page.leave.lead}</p>
+        <div class="dest-grid">
+          {page.leave.destinations.map((item) => (
+            <article class="dest">
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+            </article>
+          ))}
+        </div>
+        <div class="app-note">
+          <h3>{page.leave.appTitle}</h3>
+          {page.leave.appParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="avail" aria-labelledby="avail-title">
+      <div class="wrap">
+        <h2 id="avail-title">{page.availability.title}</h2>
+        <div class="avail-grid">
+          {page.availability.items.map((item) => (
+            <article class="avail-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="limits" aria-labelledby="limits-title">
+      <div class="wrap">
+        <h2 id="limits-title">{page.limits.title}</h2>
+        <p class="lead">{page.limits.lead}</p>
+        <div class="limit-grid">
+          {page.limits.items.map((item) => (
+            <article class="limit">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <p class="note">{page.limits.note}</p>
+      </div>
+    </section>
+
+    <section class="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="privacy-band">
+          <div class="privacy-copy">
+            <h2 id="privacy-title">{page.privacy.title}</h2>
+            <p>{page.privacy.text}</p>
+            <a class="path" href={page.privacy.href}>{page.privacy.pathLabel}</a>
+          </div>
+          <a class="btn btn-quiet" href={page.privacy.href}>{page.privacy.cta}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="law" aria-labelledby="law-title">
+      <div class="wrap">
+        <h2 id="law-title">{page.law.title}</h2>
+        <p>{page.law.text}</p>
+      </div>
+    </section>
+
+    <section class="ask" aria-labelledby="ask-title">
+      <div class="wrap">
+        <div class="ask-band">
+          <div class="ask-copy">
+            <h2 id="ask-title">{page.questions.title}</h2>
+            <p>{page.questions.support}</p>
+            <a class="address" href={page.questions.href}>{page.questions.address}</a>
+          </div>
+          <a class="btn btn-primary" href={page.questions.href}>
+            {page.questions.cta} <Arrow />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" currentPath="/conditions-utilisation/" />
+</BaseLayout>

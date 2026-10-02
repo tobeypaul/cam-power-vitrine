@@ -1,4 +1,5 @@
 import { aideFr } from './aide';
+import { conditionsFr } from './conditions';
 import { confidentialiteFr } from './confidentialite';
 import { contactFr } from './contact';
 import { aproposFr } from './a-propos';
@@ -9,6 +10,7 @@ import { missionsFr } from './missions';
 import { talentsFr } from './talents';
 import type {
   AideContent,
+  ConditionsContent,
   ConfidentialiteContent,
   ContactContent,
   AProposContent,
@@ -108,6 +110,18 @@ const contactCatalogs: Record<string, ContactContent> = {
 const confidentialiteCatalogs: Record<string, ConfidentialiteContent> = {
   fr: confidentialiteFr,
 };
+
+const conditionsCatalogs: Record<string, ConditionsContent> = {
+  fr: conditionsFr,
+};
+
+export function getConditions(locale: string = defaultLocale): ConditionsContent {
+  const content = conditionsCatalogs[locale];
+  if (!content) {
+    throw new Error(`Unsupported locale: ${locale}`);
+  }
+  return content;
+}
 
 export function getConfidentialite(locale: string = defaultLocale): ConfidentialiteContent {
   const content = confidentialiteCatalogs[locale];

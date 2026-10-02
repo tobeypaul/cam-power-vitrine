@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CamPower — Conditions d’utilisation du Site Vitrine — Maquette 01</title>
+<style>
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500; src: url("fonts/sora-500.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 600; src: url("fonts/sora-600.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 700; src: url("fonts/sora-700.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; src: url("fonts/sourcesans3-400.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 500; src: url("fonts/sourcesans3-500.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; src: url("fonts/sourcesans3-600.ttf") format("truetype"); }
+
+:root {
+  --navy: #1B3A8A;
+  --navy-deep: #102044;
+  --ink: #0F172A;
+  --text: #243044;
+  --muted: #4B596C;
+  --green: #16803C;
+  --green-ink: #146B34;
+  --yellow: #F5C518;
+  --line: #E3E8EF;
+  --surface: #F4F6F8;
+  --pro: #F3F7F4;
+  --footer: #0C1118;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body {
+  color: var(--text);
+  font-family: "Source Sans 3", "Liberation Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+.wrap { width: min(1180px, calc(100% - 96px)); margin: 0 auto; }
+h1, h2, h3, .address, .ph-value { font-family: "Sora", "Liberation Sans", sans-serif; }
+
+.brand { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+.brand img { height: 68px; width: auto; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 18px; border-radius: 8px; text-decoration: none;
+  font-size: 16px; font-weight: 600; line-height: 1; border: 0; cursor: pointer;
+}
+.btn .arrow { width: 16px; height: 16px; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-quiet {
+  background: #fff; color: var(--navy); border: 1px solid var(--line); min-height: 48px;
+}
+.bar {
+  height: 92px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  border-bottom: 1px solid var(--line); background: #fff;
+}
+.bar .brand { justify-self: start; }
+.nav { display: flex; align-items: center; gap: 28px; justify-self: center; }
+.nav a { text-decoration: none; color: var(--text); font-size: 16px; font-weight: 500; }
+.bar .btn { justify-self: end; }
+:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+.btn-primary:focus-visible { outline-color: var(--yellow); }
+
+.kicker { color: var(--green-ink); font-size: 15px; font-weight: 600; }
+.eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-bottom: 14px; }
+.pill {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px;
+  border-radius: 999px; background: var(--pro); color: var(--navy-deep);
+  font-size: 14px; font-weight: 600;
+}
+h1 { font-weight: 600; font-size: 48px; line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); max-width: 16em; }
+h2 { font-weight: 600; font-size: 32px; line-height: 1.2; letter-spacing: -0.03em; color: var(--ink); }
+h3 { font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -0.02em; color: var(--ink); }
+.lead { margin-top: 18px; max-width: 42em; font-size: 18px; line-height: 1.6; }
+.support { margin-top: 14px; max-width: 40em; color: var(--muted); font-size: 17px; line-height: 1.55; }
+.note { margin-top: 16px; max-width: 42em; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+.hero { padding: 56px 0 28px; }
+
+.scope { padding: 12px 0 72px; }
+.scope-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.scope-card { border-radius: 16px; padding: 28px 28px 26px; min-height: 220px; }
+.scope-card h3 { font-size: 24px; line-height: 1.25; max-width: 16em; }
+.scope-card p { margin-top: 12px; font-size: 17px; line-height: 1.55; max-width: 34em; }
+.scope-in { background: var(--pro); }
+.scope-in .scope-label { color: var(--green-ink); }
+.scope-out { background: var(--surface); }
+.scope-out .scope-label { color: var(--navy); }
+.scope-label { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+
+.purpose { padding: 8px 0 72px; }
+.point-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.point { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px 22px 20px; }
+.point p { margin-top: 8px; color: var(--muted); font-size: 17px; line-height: 1.5; }
+.info-band { margin-top: 16px; background: var(--surface); border-radius: 16px; padding: 28px 28px 24px; }
+.info-band p { margin-top: 12px; max-width: 46em; font-size: 17px; line-height: 1.6; }
+
+.use { background: var(--surface); padding: 72px 0; }
+.use-list { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.use-list li {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 20px; font-size: 17px; line-height: 1.45; color: var(--ink);
+}
+
+.ip { padding: 72px 0; }
+.aside {
+  margin-top: 22px; max-width: 46em; padding: 18px 20px;
+  border-left: 3px solid var(--line); color: var(--text); font-size: 17px; line-height: 1.55;
+}
+
+.leave { padding: 8px 0 72px; }
+.dest-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.dest { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 16px 16px; }
+.dest strong { display: block; font-family: "Sora", sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); letter-spacing: -0.02em; }
+.dest span { display: block; margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.4; }
+.app-note { margin-top: 16px; background: var(--pro); border-radius: 16px; padding: 28px; }
+.app-note p { margin-top: 12px; max-width: 46em; font-size: 17px; line-height: 1.6; }
+.app-note p + p { margin-top: 12px; }
+
+.avail { background: var(--surface); padding: 72px 0; }
+.avail-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.avail-card { background: #fff; border-radius: 16px; padding: 24px; }
+.avail-card p { margin-top: 10px; color: var(--muted); font-size: 17px; line-height: 1.5; }
+
+.limits { padding: 72px 0 28px; }
+.limit-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.limit { border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; }
+.limit p { margin-top: 8px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+
+.privacy { padding: 28px 0 36px; }
+.privacy-band {
+  border: 1px solid var(--line); border-radius: 16px; padding: 32px;
+  display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;
+}
+.privacy-copy { max-width: 40em; }
+.privacy-copy p { margin-top: 12px; color: var(--muted); font-size: 17px; line-height: 1.55; }
+.path { display: block; margin-top: 10px; font-size: 15px; font-weight: 600; color: var(--navy); text-decoration: none; }
+
+.law { padding: 28px 0 36px; }
+.law p { margin-top: 14px; max-width: 46em; font-size: 18px; line-height: 1.6; }
+.placeholder {
+  margin-top: 22px; max-width: 46em;
+  border: 1.5px dashed var(--navy); border-radius: 16px; background: #F7F8FC;
+  padding: 20px 22px 18px;
+}
+.ph-flag {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px;
+  border-radius: 999px; background: var(--yellow); color: var(--navy-deep);
+  font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+}
+.placeholder h3 { margin-top: 12px; font-size: 18px; }
+.ph-list { margin-top: 14px; display: grid; gap: 8px; }
+.ph-list li { display: grid; grid-template-columns: 11em 1fr; gap: 12px; align-items: baseline; }
+.ph-key { color: var(--muted); font-size: 15px; font-weight: 600; }
+.ph-value { color: var(--navy-deep); font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.placeholder .note { margin-top: 14px; }
+
+.ask { padding: 28px 0 80px; }
+.ask-band {
+  border: 1px solid var(--line); border-radius: 16px; padding: 32px;
+  display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;
+}
+.ask-copy { max-width: 34em; }
+.ask-copy p { margin-top: 12px; color: var(--muted); font-size: 17px; }
+.address {
+  display: inline-block; margin-top: 14px;
+  font-weight: 600; font-size: 26px; letter-spacing: -0.03em; color: var(--navy);
+  text-decoration: none; overflow-wrap: anywhere;
+}
+
+footer { background: var(--footer); color: #D5DCE6; padding: 56px 0 28px; }
+.foot { display: grid; grid-template-columns: 1.45fr 1fr 1fr 1.15fr; gap: 32px; }
+.tagline { margin-top: 14px; max-width: 26ch; font-size: 16px; line-height: 1.45; color: #C9D3DE; }
+.foot h2 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px; letter-spacing: 0; }
+.foot a { display: block; text-decoration: none; color: #D5DCE6; font-size: 16px; line-height: 1.85; }
+.foot a[aria-current="page"] { color: #fff; font-weight: 600; }
+.foot-base { margin-top: 36px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; font-size: 15px; color: #C9D3DE; }
+.foot-base a { display: inline; line-height: 1.4; font-size: 15px; }
+.foot-base .grow { margin-left: auto; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+@media (max-width: 980px) {
+  .wrap { width: min(1180px, calc(100% - 40px)); min-width: 0; }
+  .bar { grid-template-columns: 1fr auto; min-width: 0; }
+  .nav { display: none; }
+  .foot, .dest-grid, .limit-grid { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 40px; }
+  .info-band, .app-note, .privacy-band, .ask-band { padding: 28px 24px; }
+  .ph-list li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 640px) {
+  .scope-grid, .point-grid, .use-list, .dest-grid, .avail-grid, .limit-grid, .foot { grid-template-columns: 1fr; }
+  .foot-base .grow { margin-left: 0; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 28px; }
+  .address { font-size: 22px; }
+  .scope-card { min-height: 0; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 16 16">
+      <path d="M3 8h10M9.2 4.2 13 8l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="page">
+  <header>
+    <div class="bar wrap">
+      <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+        <img src="assets/logo.png" alt="CAM Power">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="../decouvrir-mockup-01/board.html">Découvrir</a>
+        <a href="../talents-mockup-01/board.html">Talents</a>
+        <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+        <a href="../missions-mockup-01/board.html">Missions</a>
+        <a href="../a-propos-mockup-01/board.html">À propos</a>
+      </nav>
+      <a class="btn btn-primary" href="https://cam-power.net/">Accéder à CamPower <svg class="arrow"><use href="#arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div id="crop-hero-scope">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap">
+          <div class="eyebrow">
+            <p class="kicker">Conditions d’utilisation</p>
+            <p class="pill">Site Vitrine</p>
+          </div>
+          <h1 id="hero-title">Conditions d’utilisation du Site Vitrine</h1>
+          <p class="lead">Ces conditions encadrent uniquement l’utilisation du Site Vitrine public de CamPower. Elles expliquent la nature du site, les règles essentielles de son utilisation et les limites de ce que les informations présentées constituent.</p>
+          <p class="support">Elles concernent ce site public, et non l’ensemble de l’application CamPower. Les consulter ou parcourir le site n’emporte pas acceptation de conditions d’application qui ne sont pas publiées ici.</p>
+        </div>
+      </section>
+
+      <section class="scope" aria-labelledby="scope-title">
+        <div class="wrap">
+          <h2 id="scope-title">À quoi s’appliquent ces conditions ?</h2>
+          <div class="scope-grid">
+            <article class="scope-card scope-in">
+              <p class="scope-label">Ces conditions couvrent</p>
+              <h3>Le Site Vitrine public de CamPower</h3>
+              <p>Les pages d’information consultées ici, notamment la présentation de CamPower, l’aide et le contact. Elles sont mises à disposition sur ce site. Leur lecture n’est pas une acceptation signée.</p>
+            </article>
+            <article class="scope-card scope-out">
+              <p class="scope-label">Elles ne définissent pas</p>
+              <h3>Les conditions contractuelles de la plateforme ou de l’application CamPower</h3>
+              <p>Comptes, profils, recrutement, candidatures, Missions, messages et contenus déposés dans l’application relèvent d’autres règles. Ces règles ne sont pas établies sur ce site.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-usage-content">
+      <section class="purpose" aria-labelledby="purpose-title">
+        <div class="wrap">
+          <h2 id="purpose-title">Un site public d’information sur CamPower</h2>
+          <p class="lead">Le Site Vitrine fait connaître CamPower. Il n’ouvre pas de compte.</p>
+          <div class="point-grid">
+            <article class="point">
+              <h3>Présenter CamPower</h3>
+              <p>Le site expose le produit et la manière dont il se présente au public.</p>
+            </article>
+            <article class="point">
+              <h3>Expliquer l’écosystème</h3>
+              <p>Il décrit l’environnement professionnel dans lequel CamPower s’inscrit.</p>
+            </article>
+            <article class="point">
+              <h3>Présenter les audiences</h3>
+              <p>Il indique les principaux publics et ce que le produit leur permet d’envisager.</p>
+            </article>
+            <article class="point">
+              <h3>Orienter plus loin</h3>
+              <p>Il aide à comprendre CamPower, puis dirige les personnes intéressées vers CamPower et les destinations officielles prévues.</p>
+            </article>
+          </div>
+          <div class="info-band">
+            <h3>Des informations, pas un engagement particulier</h3>
+            <p>Les contenus du Site Vitrine sont avant tout informatifs et de présentation. La présence d’informations sur l’emploi, le recrutement, les opportunités, les Missions, les talents ou les entreprises ne constitue pas, à elle seule, un contrat d’emploi, un engagement de recrutement ou un contrat de Mission déterminé.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="use" aria-labelledby="use-title">
+        <div class="wrap">
+          <h2 id="use-title">Utiliser le Site Vitrine de manière appropriée</h2>
+          <p class="lead">Le site est ouvert à la consultation. Quelques limites suffisent.</p>
+          <ul class="use-list">
+            <li>Ne pas perturber volontairement le fonctionnement du site.</li>
+            <li>Ne pas tenter un accès qui n’est pas offert.</li>
+            <li>Ne pas introduire de code malveillant.</li>
+            <li>Ne pas utiliser le site de manière illicite.</li>
+          </ul>
+          <p class="note">L’indexation ordinaire par les moteurs de recherche, et la découverte légitime de ce site public, restent permises.</p>
+        </div>
+      </section>
+
+      <section class="ip" aria-labelledby="ip-title">
+        <div class="wrap">
+          <h2 id="ip-title">Contenus, marque et illustrations</h2>
+          <p class="lead">Le Site Vitrine comprend la marque CamPower, sa conception et ses textes. Vous pouvez le consulter normalement. Il convient de ne pas présenter ce site, cette marque ou ces contenus comme les vôtres.</p>
+          <p class="support">Cette page n’affirme pas qu’une marque est déposée, ni que chaque élément visuel appartient à CamPower quelle que soit son origine. Une règle plus précise sur la propriété ou les licences reste à confirmer.</p>
+          <p class="aside">La présence d’un nom, d’une marque ou d’un élément tiers dans une illustration ou une capture d’écran ne signifie pas, à elle seule, qu’il existe un partenariat, une affiliation ou une approbation par ce tiers.</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-external-availability">
+      <section class="leave" aria-labelledby="leave-title">
+        <div class="wrap">
+          <h2 id="leave-title">Lorsque vous quittez le Site Vitrine</h2>
+          <p class="lead">Le site peut vous conduire vers d’autres surfaces. Celles qui ne sont pas CamPower appliquent leurs propres conditions.</p>
+          <div class="dest-grid">
+            <article class="dest">
+              <strong>Application CamPower</strong>
+              <span>cam-power.net</span>
+            </article>
+            <article class="dest">
+              <strong>Google Play</strong>
+              <span>La fiche de l’application</span>
+            </article>
+            <article class="dest">
+              <strong>LinkedIn</strong>
+              <span>La page de CamPower</span>
+            </article>
+            <article class="dest">
+              <strong>Votre messagerie</strong>
+              <span>contact@cam-power.net</span>
+            </article>
+          </div>
+          <div class="app-note">
+            <h3>L’application reste CamPower</h3>
+            <p>L’application CamPower est une surface du produit CamPower. Le fait qu’elle se trouve hors de ces conditions ne la présente pas comme un service étranger à CamPower.</p>
+            <p>Y accéder depuis le Site Vitrine ne signifie pas que ces conditions définissent toutes les règles de l’application. Choisir « Accéder à CamPower » n’emporte pas acceptation de conditions d’application.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="avail" aria-labelledby="avail-title">
+        <div class="wrap">
+          <h2 id="avail-title">Disponibilité et évolution du site</h2>
+          <div class="avail-grid">
+            <article class="avail-card">
+              <h3>Le site peut évoluer</h3>
+              <p>Les contenus d’information du Site Vitrine peuvent être mis à jour à mesure que le produit évolue. Cette mise à jour ne modifie pas un contrat d’application qui n’est pas défini ici.</p>
+            </article>
+            <article class="avail-card">
+              <h3>L’accès peut être interrompu</h3>
+              <p>La consultation peut parfois être interrompue. Aucune disponibilité permanente ni niveau de service n’est promis. Cette page ne prévoit pas l’arrêt de l’ensemble de la plateforme CamPower.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-responsibility-privacy">
+      <section class="limits" aria-labelledby="limits-title">
+        <div class="wrap">
+          <h2 id="limits-title">Ce que les informations du site ne constituent pas</h2>
+          <p class="lead">Le seul fait de présenter des opportunités ou des capacités sur le Site Vitrine ne crée pas un engagement.</p>
+          <div class="limit-grid">
+            <article class="limit">
+              <h3>Pas une relation d’emploi</h3>
+              <p>Une page de ce site n’établit pas un contrat de travail.</p>
+            </article>
+            <article class="limit">
+              <h3>Pas un recrutement</h3>
+              <p>Cette page n’engage pas CamPower à recruter, ni une entreprise à retenir un candidat.</p>
+            </article>
+            <article class="limit">
+              <h3>Pas un contrat de Mission</h3>
+              <p>Cette page ne forme pas un contrat de Mission entre les personnes concernées.</p>
+            </article>
+          </div>
+          <p class="note">La visite du Site Vitrine ne garantit ni un emploi, ni un recrutement, ni un candidat, ni une Mission, ni un résultat professionnel ou commercial.</p>
+        </div>
+      </section>
+
+      <section class="privacy" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <div class="privacy-band">
+            <div class="privacy-copy">
+              <h2 id="privacy-title">Confidentialité</h2>
+              <p>Les pratiques de confidentialité actuellement établies pour le Site Vitrine sont indiquées sur la page Confidentialité. Cette page ne les reprend pas et n’en élargit pas la portée.</p>
+              <a class="path" href="../confidentialite-mockup-01/board.html">/confidentialite/</a>
+            </div>
+            <a class="btn btn-quiet" href="../confidentialite-mockup-01/board.html">Lire la page Confidentialité</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="law" aria-labelledby="law-title">
+        <div class="wrap">
+          <h2 id="law-title">Cadre applicable</h2>
+          <p>Les questions relatives à ces conditions sont envisagées au regard du droit camerounais applicable. Cette page ne désigne ni tribunal, ni organe d’arbitrage ou de médiation, et elle n’affirme pas une conformité générale.</p>
+          <aside class="placeholder" aria-label="Espace réservé, données non vérifiées">
+            <p class="ph-flag">Maquette uniquement — non vérifié</p>
+            <h3>Identification de l’exploitant, à remplacer</h3>
+            <ul class="ph-list">
+              <li><span class="ph-key">Exploitant</span><span class="ph-value">[NOM LÉGAL DE L’EXPLOITANT]</span></li>
+              <li><span class="ph-key">Forme</span><span class="ph-value">[FORME JURIDIQUE]</span></li>
+              <li><span class="ph-key">Adresse</span><span class="ph-value">[ADRESSE DE L’EXPLOITANT]</span></li>
+              <li><span class="ph-key">Immatriculation</span><span class="ph-value">[RCCM — À RENSEIGNER]</span></li>
+              <li><span class="ph-key">Contribuable</span><span class="ph-value">[NIU — À RENSEIGNER]</span></li>
+              <li><span class="ph-key">Téléphone</span><span class="ph-value">[TÉLÉPHONE — À RENSEIGNER]</span></li>
+            </ul>
+            <p class="note">Ces mentions sont des espaces réservés à la maquette. Elles ne sont ni vérifiées, ni acceptées, ni autorisées pour une publication.</p>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-contact">
+      <section class="ask" aria-labelledby="ask-title">
+        <div class="wrap">
+          <div class="ask-band">
+            <div class="ask-copy">
+              <h2 id="ask-title">Une question sur ces conditions ?</h2>
+              <p>Pour une question relative à ces conditions du Site Vitrine, écrivez à l’adresse ci-dessous.</p>
+              <a class="address" href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+            </div>
+            <a class="btn btn-primary" href="mailto:contact@cam-power.net">Nous écrire <svg class="arrow"><use href="#arrow"/></svg></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+            <img src="assets/logo.png" alt="CAM Power">
+          </a>
+          <p class="tagline">Une communauté, des opportunités, un avenir.</p>
+        </div>
+        <div>
+          <h2>Découvrir</h2>
+          <a href="../a-propos-mockup-01/board.html">À propos</a>
+          <a href="../talents-mockup-01/board.html">Talents</a>
+          <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+          <a href="../missions-mockup-01/board.html">Missions</a>
+        </div>
+        <div>
+          <h2>Assistance</h2>
+          <a href="../contact-mockup-01/board.html">Contact</a>
+          <a href="../aide-mockup-01/board.html">Aide</a>
+        </div>
+        <div>
+          <h2>Légal</h2>
+          <a href="../confidentialite-mockup-01/board.html">Confidentialité</a>
+          <a href="#page" aria-current="page">Conditions d’utilisation</a>
+          <a id="mentions" href="#mentions">Mentions légales</a>
+        </div>
+      </div>
+      <div class="foot-base">
+        <a href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+        <span>Cameroun</span>
+        <a href="https://www.linkedin.com/company/campower" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (nouvel onglet)</span></a>
+        <span class="grow">© 2026 CamPower</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
