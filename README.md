@@ -4,6 +4,16 @@ Public marketing site for CamPower. It presents the platform and sends people to
 
 The accepted visual baseline is Homepage Mockup 03 (`design/homepage-mockup-03/`).
 
+## Status
+
+CamPower Site Vitrine prototype: COMPLETE WITH CONTROLLED FOLLOW-UPS.
+
+Prototype routes: 11. Closure baseline: `bb81df8b4d46ca509d6d36303e7da1823fe30cfd`.
+
+Production readiness: NOT ESTABLISHED.
+
+Open production-readiness dependencies: PCR-001 through PCR-005. Evidence is in `docs/CamPower-Site-Vitrine-Prototype-Completeness-Review-v0.1.md`.
+
 ## Technology
 
 - Astro, static HTML by default
