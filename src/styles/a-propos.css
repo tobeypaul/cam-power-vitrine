@@ -1,0 +1,274 @@
+.apropos h1 { font-size: 56px; line-height: 1.05; letter-spacing: -0.04em; }
+.apropos h2 {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.apropos .kicker { margin-bottom: 14px; }
+.apropos .support {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40em;
+}
+.apropos .statement,
+.apropos .quote,
+.apropos .tagline-xl,
+.apropos .toward,
+.apropos .forms-label,
+.apropos .org-title {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+}
+
+.apropos .hero { padding: 72px 0 88px; }
+.apropos .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(440px, 1.05fr) 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+.apropos .lead { margin-top: 22px; max-width: 34em; font-size: 19px; line-height: 1.55; }
+.apropos .hero-actions { align-items: center; margin-top: 32px; }
+.apropos .link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.apropos .link-more svg { width: 16px; height: 16px; }
+
+.apropos .connect {
+  margin: 0;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 28px 24px 22px;
+}
+.apropos .connect-row { display: grid; gap: 10px; }
+.apropos .sources { display: grid; gap: 10px; }
+.apropos .sources li,
+.apropos .hub,
+.apropos .dest { border-radius: 14px; padding: 14px 16px; }
+.apropos .sources li,
+.apropos .dest { background: #fff; border: 1px solid var(--line); }
+.apropos .sources strong,
+.apropos .hub strong,
+.apropos .dest strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.apropos .sources span,
+.apropos .hub span,
+.apropos .dest span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.35; color: var(--muted); }
+.apropos .hub { background: var(--navy); padding: 22px 18px; }
+.apropos .hub strong { color: #fff; font-size: 18px; }
+.apropos .hub span { color: rgba(255, 255, 255, 0.86); }
+.apropos .via { margin: 2px 0 0; font-size: 14px; font-weight: 600; color: var(--green-ink); }
+.apropos .connect figcaption { margin-top: 16px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+
+.apropos .why { padding: 104px 0 96px; }
+.apropos .why-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: end; }
+.apropos .statement { font-weight: 500; font-size: 28px; line-height: 1.35; letter-spacing: -0.03em; color: var(--ink); }
+.apropos .mark { margin-top: 18px; font-size: 16px; font-weight: 600; color: var(--green-ink); }
+.apropos .realities { margin-top: 48px; display: grid; gap: 0; max-width: 52em; }
+.apropos .realities li {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 16em 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+.apropos .realities strong {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.apropos .realities span { font-size: 18px; line-height: 1.5; color: var(--text); }
+
+.apropos .belief { background: var(--surface); padding: 104px 0; }
+.apropos .quote {
+  margin-top: 8px;
+  max-width: 16em;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.apropos .belief-grid { margin-top: 48px; display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 28px; align-items: stretch; }
+.apropos .chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.apropos .chain li,
+.apropos .org { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 16px 22px; }
+.apropos .chain strong,
+.apropos .org-title {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.apropos .chain span,
+.apropos .org p { display: block; margin-top: 8px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.apropos .chain li { position: relative; }
+.apropos .chain li + li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 28px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.apropos .org { background: #f3f7f4; border-color: transparent; display: flex; flex-direction: column; justify-content: center; }
+.apropos .org .kicker { margin-bottom: 8px; color: var(--green); }
+.apropos .org .org-title { margin-top: 0; color: var(--ink); font-size: 18px; }
+
+.apropos .life { padding: 104px 0; }
+.apropos .weave { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 0; }
+.apropos .weave li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.apropos .weave li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  box-sizing: border-box;
+}
+.apropos .weave li .rule { width: 28px; height: 2px; background: var(--green); display: block; }
+.apropos .forms { margin-top: 28px; padding-top: 22px; border-top: 2px solid var(--green); max-width: 40em; }
+.apropos .forms-label { font-weight: 600; font-size: 16px; color: var(--ink); }
+.apropos .forms ul { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.apropos .forms li strong { display: block; font-family: "Sora", sans-serif; font-weight: 600; font-size: 18px; color: var(--ink); }
+.apropos .forms li span { display: block; margin-top: 4px; color: var(--muted); font-size: 16px; }
+.apropos .life-note { margin-top: 18px; font-size: 16px; font-weight: 600; color: var(--green-ink); }
+
+.apropos .community { background: #f3f7f4; padding: 112px 0; }
+.apropos .community h2,
+.apropos .community .support { max-width: 38em; }
+.apropos .community h2 { max-width: 14em; }
+.apropos .tagline-xl {
+  margin-top: 36px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  max-width: 16em;
+}
+
+.apropos .place { padding: 104px 0; }
+.apropos .place-grid { display: grid; grid-template-columns: 1fr 220px; gap: 56px; align-items: center; }
+.apropos .tricolor { display: flex; width: 64px; height: 4px; border-radius: 2px; overflow: hidden; margin-bottom: 20px; }
+.apropos .tricolor i { display: block; flex: 1; }
+.apropos .tricolor i:nth-child(1) { background: #16803c; }
+.apropos .tricolor i:nth-child(2) { background: #ce1126; }
+.apropos .tricolor i:nth-child(3) { background: #f5c518; }
+.apropos .place h2 { max-width: 12em; }
+.apropos .place .support { max-width: 36em; }
+.apropos .cmap { width: 160px; height: 220px; margin: 0 auto; }
+
+.apropos .vision { background: var(--navy-deep); color: #fff; padding: 112px 0 96px; }
+.apropos .vision .kicker { color: rgba(255, 255, 255, 0.78); }
+.apropos .vision h2 { color: #fff; }
+.apropos .vision .lead { color: rgba(255, 255, 255, 0.92); max-width: 28em; font-size: 22px; }
+.apropos .aims { margin-top: 48px; display: grid; gap: 0; max-width: 36em; }
+.apropos .aims li {
+  padding: 18px 0 18px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  position: relative;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.apropos .aims li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.apropos .toward {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.apropos .toward i { width: 12px; height: 12px; border-radius: 50%; background: var(--yellow); flex: none; }
+.apropos .vision-note { margin-top: 22px; font-size: 16px; color: rgba(255, 255, 255, 0.72); }
+
+.apropos .growth { padding: 88px 0; }
+.apropos .growth h2 { max-width: 14em; }
+
+.apropos .finale { padding: 112px 24px; }
+.apropos .finale h2 { font-size: 42px; }
+.apropos .finale p {
+  margin-top: 18px;
+  max-width: 28em;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  line-height: 1.45;
+  font-family: "Sora", sans-serif;
+  font-weight: 500;
+}
+
+@media (max-width: 1100px) {
+  .apropos .hero-grid { grid-template-columns: minmax(440px, 1.05fr) 0.95fr; gap: 64px; }
+}
+
+@media (max-width: 980px) {
+  .apropos .hero-actions { flex-wrap: wrap; align-items: flex-start; }
+  .apropos .hero-grid,
+  .apropos .why-grid,
+  .apropos .belief-grid,
+  .apropos .place-grid { grid-template-columns: 1fr; }
+  .apropos .chain { grid-template-columns: 1fr 1fr; }
+  .apropos .chain li + li::before { display: none; }
+  .apropos .realities li { grid-template-columns: 1fr; gap: 6px; }
+  .apropos .forms ul { grid-template-columns: 1fr; }
+  .apropos .weave { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .apropos .weave li .rule { display: none; }
+  .apropos h1 { font-size: 40px; }
+  .apropos h2,
+  .apropos .quote,
+  .apropos .finale h2 { font-size: 32px; }
+  .apropos .statement,
+  .apropos .tagline-xl,
+  .apropos .toward { font-size: 26px; }
+  .apropos .vision .lead { font-size: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apropos { scroll-behavior: auto; }
+}

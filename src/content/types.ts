@@ -236,6 +236,78 @@ export interface EntreprisesContent {
   };
 }
 
+export interface AProposContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    explore: LinkItem;
+    sources: Array<{ title: string; text: string }>;
+    gathered: string;
+    hub: { title: string; text: string };
+    toward: string;
+    destination: { title: string; text: string };
+    caption: string;
+  };
+  purpose: {
+    kicker: string;
+    title: string;
+    statement: string;
+    mark: string;
+    support: string;
+    realities: Array<{ title: string; text: string }>;
+  };
+  conviction: {
+    kicker: string;
+    title: string;
+    quote: string;
+    support: string;
+    steps: Array<{ title: string; text: string }>;
+    enterprise: { kicker: string; title: string; text: string };
+  };
+  ecosystem: {
+    kicker: string;
+    title: string;
+    support: string;
+    items: string[];
+    formsLabel: string;
+    forms: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  community: {
+    kicker: string;
+    title: string;
+    support: string;
+    tagline: string;
+  };
+  cameroon: {
+    title: string;
+    support: string;
+  };
+  vision: {
+    kicker: string;
+    title: string;
+    lead: string;
+    aims: string[];
+    toward: string;
+    note: string;
+  };
+  growth: {
+    kicker: string;
+    title: string;
+    support: string;
+  };
+  finale: {
+    title: string;
+    support: string;
+  };
+}
+
 export interface MissionsContent {
   meta: {
     title: string;

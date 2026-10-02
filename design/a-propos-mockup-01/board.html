@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CamPower — À propos — Maquette 01</title>
+<style>
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500; src: url("fonts/sora-500.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 600; src: url("fonts/sora-600.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 700; src: url("fonts/sora-700.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; src: url("fonts/sourcesans3-400.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 500; src: url("fonts/sourcesans3-500.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; src: url("fonts/sourcesans3-600.ttf") format("truetype"); }
+
+:root {
+  --navy: #1B3A8A;
+  --navy-deep: #102044;
+  --ink: #0F172A;
+  --text: #243044;
+  --muted: #4B596C;
+  --green: #16803C;
+  --green-ink: #146B34;
+  --yellow: #F5C518;
+  --line: #E3E8EF;
+  --surface: #F4F6F8;
+  --pro: #F3F7F4;
+  --footer: #0C1118;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body {
+  color: var(--text);
+  font-family: "Source Sans 3", "Liberation Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+.wrap { width: min(1180px, calc(100% - 96px)); margin: 0 auto; }
+h1, h2, h3, .statement, .quote, .tagline-xl, .toward { font-family: "Sora", "Liberation Sans", sans-serif; }
+
+.brand { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+.brand img { height: 68px; width: auto; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 48px; padding: 0 18px; border-radius: 8px; text-decoration: none;
+  font-size: 16px; font-weight: 600; line-height: 1; white-space: nowrap;
+}
+.btn .arrow { width: 16px; height: 16px; }
+.btn-primary { background: var(--green); color: #fff; }
+.bar {
+  height: 92px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  border-bottom: 1px solid var(--line); background: #fff;
+}
+.bar .brand { justify-self: start; }
+.nav { display: flex; align-items: center; gap: 28px; justify-self: center; }
+.nav a, .nav span { text-decoration: none; color: var(--text); font-size: 16px; font-weight: 500; }
+.nav a[aria-current="page"] { color: var(--navy); font-weight: 600; box-shadow: inset 0 -2px 0 var(--green); padding-bottom: 2px; }
+.bar .btn { justify-self: end; }
+
+.kicker { color: var(--green); font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+h1 { font-weight: 600; font-size: 56px; line-height: 1.05; letter-spacing: -0.04em; color: var(--ink); }
+h2 { font-weight: 600; font-size: 40px; line-height: 1.15; letter-spacing: -0.03em; color: var(--ink); }
+.lead { margin-top: 22px; max-width: 34em; font-size: 19px; line-height: 1.55; }
+.support { margin-top: 18px; font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 40em; }
+.hero-actions { display: flex; gap: 12px; margin-top: 32px; align-items: center; }
+.link-more { display: inline-flex; align-items: center; gap: 6px; color: var(--green-ink); font-weight: 600; font-size: 16px; text-decoration: none; }
+.link-more svg { width: 16px; height: 16px; }
+
+.hero { padding: 72px 0 88px; }
+.hero-grid { display: grid; grid-template-columns: minmax(440px, 1.05fr) 0.95fr; gap: 64px; align-items: center; }
+.connect {
+  margin: 0;
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 28px 24px 22px;
+}
+.connect-row {
+  display: grid;
+  gap: 10px;
+}
+.sources { display: grid; gap: 10px; }
+.sources li, .hub, .dest {
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.sources li, .dest { background: #fff; border: 1px solid var(--line); }
+.sources strong, .hub strong, .dest strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.sources span, .hub span, .dest span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.35; color: var(--muted); }
+.hub { background: var(--navy); padding: 22px 18px; }
+.hub strong { color: #fff; font-size: 18px; }
+.hub span { color: rgba(255,255,255,.86); }
+.via { margin: 2px 0 0; font-size: 14px; font-weight: 600; color: var(--green-ink); }
+.connect figcaption { margin-top: 16px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+
+.why { padding: 104px 0 96px; }
+.why-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: end; }
+.statement { font-weight: 500; font-size: 28px; line-height: 1.35; letter-spacing: -0.03em; color: var(--ink); }
+.mark { margin-top: 18px; font-size: 16px; font-weight: 600; color: var(--green-ink); }
+.realities { margin-top: 48px; display: grid; gap: 0; max-width: 52em; }
+.realities li { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 16em 1fr; gap: 24px; align-items: baseline; }
+.realities strong { font-family: "Sora", sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; color: var(--ink); }
+.realities span { font-size: 18px; line-height: 1.5; color: var(--text); }
+
+.belief { background: var(--surface); padding: 104px 0; }
+.quote { margin-top: 8px; max-width: 16em; font-weight: 600; font-size: 40px; line-height: 1.15; letter-spacing: -0.03em; color: var(--ink); }
+.belief-grid { margin-top: 48px; display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 28px; align-items: stretch; }
+.chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.chain li, .org {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 16px 22px;
+}
+.chain strong, .org strong { display: block; font-family: "Sora", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: -0.02em; color: var(--ink); }
+.chain span, .org span { display: block; margin-top: 8px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.chain li { position: relative; }
+.chain li + li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 28px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.org { background: var(--pro); border-color: transparent; display: flex; flex-direction: column; justify-content: center; }
+.org .kicker { margin-bottom: 8px; }
+
+.life { padding: 104px 0; }
+.weave { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 0; }
+.weave li { display: flex; align-items: center; gap: 10px; font-family: "Sora", sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; color: var(--ink); }
+.weave li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--navy); box-sizing: border-box; }
+.weave li span.rule { width: 28px; height: 2px; background: var(--green); display: block; }
+.forms { margin-top: 28px; padding-top: 22px; border-top: 2px solid var(--green); max-width: 40em; }
+.forms > p { font-family: "Sora", sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); }
+.forms ul { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.forms li strong { display: block; font-family: "Sora", sans-serif; font-weight: 600; font-size: 18px; color: var(--ink); }
+.forms li span { display: block; margin-top: 4px; color: var(--muted); font-size: 16px; }
+.life-note { margin-top: 18px; font-size: 16px; font-weight: 600; color: var(--green-ink); }
+
+.community { background: var(--pro); padding: 112px 0; }
+.community h2 { max-width: 14em; }
+.community .support { max-width: 38em; }
+.tagline-xl { margin-top: 36px; font-weight: 600; font-size: 32px; line-height: 1.25; letter-spacing: -0.03em; color: var(--navy); max-width: 16em; }
+
+.country { padding: 104px 0; }
+.country-grid { display: grid; grid-template-columns: 1fr 220px; gap: 56px; align-items: center; }
+.tricolor { display: flex; width: 64px; height: 4px; border-radius: 2px; overflow: hidden; margin-bottom: 20px; }
+.tricolor i { display: block; flex: 1; }
+.tricolor i:nth-child(1) { background: #16803C; }
+.tricolor i:nth-child(2) { background: #CE1126; }
+.tricolor i:nth-child(3) { background: #F5C518; }
+.country h2 { max-width: 12em; }
+.country .support { max-width: 36em; }
+.cmap { width: 160px; height: 220px; margin: 0 auto; }
+
+.vision { background: var(--navy-deep); color: #fff; padding: 112px 0 96px; }
+.vision .kicker { color: rgba(255,255,255,.78); }
+.vision h2 { color: #fff; }
+.vision .lead { color: rgba(255,255,255,.92); max-width: 28em; font-size: 22px; }
+.aims { margin-top: 48px; display: grid; gap: 0; max-width: 36em; }
+.aims li {
+  padding: 18px 0 18px 28px;
+  border-top: 1px solid rgba(255,255,255,.16);
+  position: relative;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.aims li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.toward {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.toward i { width: 12px; height: 12px; border-radius: 50%; background: var(--yellow); flex: none; }
+.vision-note { margin-top: 22px; font-size: 16px; color: rgba(255,255,255,.72); }
+
+.growth { padding: 88px 0; }
+.growth h2 { max-width: 14em; }
+.growth .support { max-width: 40em; }
+
+.finale { background: var(--navy); text-align: center; padding: 112px 24px; }
+.finale h2 { color: #fff; font-size: 42px; max-width: 16em; margin: 0 auto; }
+.finale p { margin: 18px auto 0; max-width: 28em; color: rgba(255,255,255,.9); font-size: 20px; line-height: 1.45; font-family: "Sora", sans-serif; font-weight: 500; }
+.finale .btn { margin-top: 32px; height: 52px; padding: 0 22px; font-size: 17px; }
+
+footer { background: var(--footer); color: #D5DCE6; padding: 56px 0 28px; }
+.foot { display: grid; grid-template-columns: 1.45fr 1fr 1fr 1.15fr; gap: 32px; }
+.tagline { margin-top: 14px; max-width: 26ch; font-size: 16px; line-height: 1.45; color: #C9D3DE; font-family: "Source Sans 3", sans-serif; font-weight: 400; }
+.foot h2 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px; letter-spacing: 0; }
+.foot a { display: block; text-decoration: none; color: #D5DCE6; font-size: 16px; line-height: 1.85; }
+.foot-base { margin-top: 36px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; font-size: 15px; color: #C9D3DE; }
+.foot-base a { display: inline; line-height: 1.4; font-size: 15px; }
+.foot-base .grow { margin-left: auto; }
+
+@media (max-width: 980px) {
+  .wrap { width: min(1180px, calc(100% - 40px)); min-width: 0; }
+  .bar, .nav { min-width: 0; }
+  header { overflow: hidden; }
+  .hero-actions { flex-wrap: wrap; align-items: flex-start; }
+  .hero-grid, .why-grid, .belief-grid, .country-grid { grid-template-columns: 1fr; }
+  .foot { grid-template-columns: 1fr 1fr; }
+  .chain { grid-template-columns: 1fr 1fr; }
+  .chain li + li::before { display: none; }
+  .realities li { grid-template-columns: 1fr; gap: 6px; }
+  .forms ul { grid-template-columns: 1fr; }
+  .weave { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .weave li span.rule { display: none; }
+  h1 { font-size: 40px; }
+  h2, .quote, .finale h2 { font-size: 32px; }
+  .statement, .tagline-xl, .toward { font-size: 26px; }
+  .vision .lead { font-size: 19px; }
+}
+@media (max-width: 640px) {
+  .foot, .foot-base { display: grid; }
+  .foot { grid-template-columns: 1fr; }
+  .foot-base .grow { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 16 16">
+      <path d="M3 8h10M9.2 4.2 13 8l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="page">
+  <header>
+    <div class="bar wrap">
+      <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+        <img src="assets/logo.png" alt="CAM Power">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="../decouvrir-mockup-01/board.html">Découvrir</a>
+        <a href="../talents-mockup-01/board.html">Talents</a>
+        <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+        <a href="../missions-mockup-01/board.html">Missions</a>
+        <a href="#page" aria-current="page">À propos</a>
+      </nav>
+      <a class="btn btn-primary" href="https://cam-power.net/">Accéder à CamPower <svg class="arrow"><use href="#arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">À propos</p>
+          <h1>Construire davantage de connexions entre talents et opportunités.</h1>
+          <p class="lead">CamPower est un écosystème professionnel construit autour des personnes, des compétences, des organisations et des opportunités. Il est pensé au Cameroun, pour accompagner des parcours et des besoins dans la durée.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://cam-power.net/">Accéder à CamPower <svg class="arrow"><use href="#arrow"/></svg></a>
+            <a class="link-more" href="#ambition">Découvrir notre ambition <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+        <figure class="connect">
+          <div class="connect-row">
+            <ul class="sources">
+              <li><strong>Talents</strong><span>Les personnes</span></li>
+              <li><strong>Compétences</strong><span>Ce qu’elles savent faire</span></li>
+              <li><strong>Entreprises</strong><span>Les organisations</span></li>
+            </ul>
+            <p class="via">réunis dans</p>
+            <p class="hub"><strong>CamPower</strong><span>L’espace qui relie</span></p>
+            <p class="via">vers</p>
+            <p class="dest"><strong>Opportunités</strong><span>Ce qui peut s’ouvrir</span></p>
+          </div>
+          <figcaption>Des personnes, des compétences et des organisations, réunies dans CamPower, vers des opportunités.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="why" id="ambition">
+      <div class="wrap why-grid">
+        <div>
+          <p class="kicker">Pourquoi</p>
+          <h2>Pourquoi CamPower existe.</h2>
+        </div>
+        <div>
+          <p class="statement">CamPower est né d’une ambition : contribuer à mieux connecter les talents, les compétences, les entreprises et les opportunités au Cameroun, au sein d’un espace professionnel pensé pour accompagner les parcours et les besoins professionnels dans la durée.</p>
+          <p class="mark">Une ambition. Pas un résultat déjà atteint.</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="support">Cette ambition part de situations professionnelles ordinaires. Elle ne les chiffre pas.</p>
+        <ul class="realities">
+          <li><strong>Se faire comprendre</strong><span>Un professionnel a besoin d’exprimer qui il est dans sa vie professionnelle.</span></li>
+          <li><strong>Rendre une compétence lisible</strong><span>Un savoir-faire gagne à être formulé pour pouvoir être reconnu.</span></li>
+          <li><strong>Trouver une capacité pertinente</strong><span>Une organisation a besoin d’accéder à des compétences en rapport avec ce qu’elle cherche.</span></li>
+          <li><strong>Compter sur le lien</strong><span>Une relation professionnelle a de la valeur, même en dehors d’un recrutement en cours.</span></li>
+          <li><strong>Laisser plusieurs formes</strong><span>Une opportunité ne prend pas toujours la même forme.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="belief" id="conviction">
+      <div class="wrap">
+        <p class="kicker">Conviction</p>
+        <h2>Notre conviction</h2>
+        <p class="quote">Une opportunité professionnelle ne commence pas toujours par une offre d’emploi.</p>
+        <p class="support">Elle peut venir d’une identité, de compétences, de relations, d’organisations, d’un emploi ou d’une mission. CamPower relie ces éléments. Cet ordre est une lecture, pas un enchaînement automatique.</p>
+        <div class="belief-grid">
+          <ol class="chain">
+            <li><strong>Identité</strong><span>Qui l’on est professionnellement.</span></li>
+            <li><strong>Compétences</strong><span>Ce que l’on sait faire.</span></li>
+            <li><strong>Connexions</strong><span>Les liens qui rendent cela utile.</span></li>
+            <li><strong>Opportunités</strong><span>Ce qui peut s’ouvrir ensuite.</span></li>
+          </ol>
+          <article class="org">
+            <p class="kicker">Entreprises</p>
+            <strong>Dans le même espace</strong>
+            <span>Les organisations participent à cet écosystème. Elles n’en sont pas une étape imposée.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="life" id="ecosysteme">
+      <div class="wrap">
+        <p class="kicker">Ensemble</p>
+        <h2>Une plateforme construite autour de la vie professionnelle.</h2>
+        <p class="support">Talents, compétences, réseau, entreprises et opportunités n’ont de sens qu’ensemble. CamPower existe pour tenir ce lien, pas pour réduire la vie professionnelle à une seule porte.</p>
+        <ol class="weave" aria-label="Ce qui avance ensemble">
+          <li>Talents <span class="rule" aria-hidden="true"></span></li>
+          <li>Compétences <span class="rule" aria-hidden="true"></span></li>
+          <li>Réseau <span class="rule" aria-hidden="true"></span></li>
+          <li>Entreprises <span class="rule" aria-hidden="true"></span></li>
+          <li>Opportunités</li>
+        </ol>
+        <div class="forms">
+          <p>Deux formes d’opportunité, au même titre</p>
+          <ul>
+            <li><strong>Emploi</strong><span>Une place qui s’inscrit dans la durée.</span></li>
+            <li><strong>Mission</strong><span>Une réponse à un besoin défini.</span></li>
+          </ul>
+          <p class="life-note">Ni l’emploi ni la mission ne définit CamPower à lui seul.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="community" id="communaute">
+      <div class="wrap">
+        <p class="kicker">Communauté</p>
+        <h2>Une communauté, pas seulement une plateforme.</h2>
+        <p class="support">CamPower n’est pas pensé comme un endroit que l’on ouvre seulement pour chercher un emploi, recruter ou trouver une mission. L’intention est une présence professionnelle qui continue : se rendre compréhensible, rester en lien, et voir les opportunités dans le même espace.</p>
+        <p class="tagline-xl">Une communauté, des opportunités, un avenir.</p>
+      </div>
+    </section>
+
+    <section class="country" id="cameroun">
+      <div class="wrap country-grid">
+        <div>
+          <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2>Pensé pour le Cameroun.</h2>
+          <p class="support">CamPower est construit en ayant à l’esprit les vies professionnelles et les besoins des organisations au Cameroun. Professionnels, organisations, compétences, liens, emploi, missions et opportunités appartiennent ici au même espace.</p>
+        </div>
+        <svg class="cmap" viewBox="0 0 160 220" aria-hidden="true">
+          <path fill="#1B3A8A" fill-opacity="0.16" stroke="#1B3A8A" stroke-opacity="0.55" stroke-width="1.6" d="M 125.4 4.0 L 133.4 16.2 L 134.7 28.8 L 134.0 41.5 L 145.0 58.8 L 133.7 58.6 L 128.0 60.0 L 118.8 58.0 L 114.4 67.0 L 126.3 78.2 L 135.1 81.4 L 138.0 89.3 L 144.3 102.4 L 141.2 107.6 L 131.0 126.9 L 126.2 130.3 L 124.6 145.1 L 126.6 153.1 L 125.0 158.8 L 134.5 168.7 L 136.3 175.6 L 143.7 185.4 L 153.0 191.5 L 153.9 200.2 L 156.0 205.7 L 154.5 216.0 L 138.5 211.5 L 122.2 206.5 L 96.7 205.7 L 94.2 204.7 L 82.2 207.1 L 69.9 204.6 L 60.3 205.8 L 27.4 205.4 L 30.4 190.4 L 22.5 177.8 L 13.3 174.6 L 9.2 166.0 L 4.0 163.3 L 4.2 158.0 L 9.4 144.5 L 19.0 126.2 L 24.9 126.0 L 36.9 114.9 L 44.6 114.5 L 55.9 122.4 L 69.8 115.9 L 71.7 108.0 L 76.2 100.4 L 79.4 90.7 L 90.2 82.9 L 94.2 69.5 L 98.5 65.3 L 101.4 55.4 L 106.7 43.2 L 123.7 28.5 L 124.8 22.2 L 127.0 18.7 L 119.0 11.2 L 119.7 5.1 L 125.4 4.0 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <div id="vision-cta">
+      <section class="vision" id="vision">
+        <div class="wrap">
+          <p class="kicker">Vision</p>
+          <h2>Notre vision</h2>
+          <p class="lead">Faire de CamPower un espace professionnel où les compétences peuvent être mieux comprises, les connexions plus utiles et les opportunités plus accessibles.</p>
+          <ol class="aims">
+            <li>Des compétences mieux comprises</li>
+            <li>Des connexions plus utiles</li>
+            <li>Des opportunités plus accessibles</li>
+          </ol>
+          <p class="toward"><i aria-hidden="true"></i> Une vie professionnelle plus connectée</p>
+          <p class="vision-note">Une direction. Pas un acquis.</p>
+        </div>
+      </section>
+
+      <section class="growth" id="grandir">
+        <div class="wrap">
+          <p class="kicker">Évolution</p>
+          <h2>CamPower grandit avec sa communauté.</h2>
+          <p class="support">CamPower n’est pas conçu comme un produit immobile. Sa direction doit continuer à répondre aux besoins des professionnels et des organisations. Cela décrit une intention, pas un dispositif déjà en place.</p>
+        </div>
+      </section>
+
+      <section class="finale" id="acces">
+        <h2>Faites partie de l’écosystème professionnel CamPower.</h2>
+        <p>Une communauté, des opportunités, un avenir.</p>
+        <a class="btn btn-primary" href="https://cam-power.net/">Accéder à CamPower <svg class="arrow"><use href="#arrow"/></svg></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+            <img src="assets/logo.png" alt="CAM Power">
+          </a>
+          <p class="tagline">Une communauté, des opportunités, un avenir.</p>
+        </div>
+        <div>
+          <h2>Découvrir</h2>
+          <a href="#page">À propos</a>
+          <a href="../talents-mockup-01/board.html">Talents</a>
+          <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+          <a href="../missions-mockup-01/board.html">Missions</a>
+        </div>
+        <div>
+          <h2>Assistance</h2>
+          <a href="mailto:contact@cam-power.net">Contact</a>
+          <a href="mailto:contact@cam-power.net">Aide</a>
+        </div>
+        <div>
+          <h2>Légal</h2>
+          <a href="#mentions">Confidentialité</a>
+          <a href="#mentions">Conditions d’utilisation</a>
+          <a id="mentions" href="#mentions">Mentions légales</a>
+        </div>
+      </div>
+      <div class="foot-base">
+        <a href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+        <span>Cameroun</span>
+        <a href="https://www.linkedin.com/company/campower">LinkedIn</a>
+        <span class="grow">© 2026 CamPower</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,9 +1,17 @@
+import { aproposFr } from './a-propos';
 import { decouvrirFr } from './decouvrir';
 import { entreprisesFr } from './entreprises';
 import { homepageFr } from './fr';
 import { missionsFr } from './missions';
 import { talentsFr } from './talents';
-import type { DecouvrirContent, EntreprisesContent, HomepageContent, MissionsContent, TalentsContent } from './types';
+import type {
+  AProposContent,
+  DecouvrirContent,
+  EntreprisesContent,
+  HomepageContent,
+  MissionsContent,
+  TalentsContent,
+} from './types';
 
 const catalogs: Record<string, HomepageContent> = {
   fr: homepageFr,
@@ -57,6 +65,18 @@ const missionsCatalogs: Record<string, MissionsContent> = {
 
 export function getMissions(locale: string = defaultLocale): MissionsContent {
   const content = missionsCatalogs[locale];
+  if (!content) {
+    throw new Error(`Unsupported locale: ${locale}`);
+  }
+  return content;
+}
+
+const aproposCatalogs: Record<string, AProposContent> = {
+  fr: aproposFr,
+};
+
+export function getAPropos(locale: string = defaultLocale): AProposContent {
+  const content = aproposCatalogs[locale];
   if (!content) {
     throw new Error(`Unsupported locale: ${locale}`);
   }

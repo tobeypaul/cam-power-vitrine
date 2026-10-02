@@ -12,7 +12,7 @@ export const decouvrirFr: DecouvrirContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
-    { label: 'À propos' },
+    { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
     eyebrow: 'Découvrir CamPower',

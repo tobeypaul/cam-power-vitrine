@@ -18,7 +18,7 @@ export const homepageFr: HomepageContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
-    { label: 'À propos' },
+    { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
     eyebrow: 'Plateforme professionnelle · Cameroun',
@@ -121,7 +121,7 @@ export const homepageFr: HomepageContent = {
       {
         title: 'Découvrir',
         links: [
-          { label: 'À propos', href: '#apropos' },
+          { label: 'À propos', href: '/a-propos/' },
           { label: 'Talents', href: '/talents/' },
           { label: 'Entreprises', href: '/entreprises/' },
           { label: 'Missions', href: '/missions/' },

@@ -11,7 +11,7 @@ export const missionsFr: MissionsContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/', current: true },
-    { label: 'À propos' },
+    { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
     eyebrow: 'Missions',
