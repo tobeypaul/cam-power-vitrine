@@ -131,7 +131,7 @@ export const homepageFr: HomepageContent = {
         title: 'Assistance',
         links: [
           { label: 'Contact', href: `mailto:${siteConfig.email}` },
-          { label: 'Aide', href: `mailto:${siteConfig.email}` },
+          { label: 'Aide', href: '/aide/' },
         ],
       },
       {

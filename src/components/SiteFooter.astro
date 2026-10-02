@@ -5,9 +5,10 @@ import type { HomepageContent } from '../content/types';
 interface Props {
   footer: HomepageContent['footer'];
   homeHref?: string;
+  currentPath?: string;
 }
 
-const { footer, homeHref = '#accueil' } = Astro.props;
+const { footer, homeHref = '#accueil', currentPath } = Astro.props;
 ---
 
 <footer>
@@ -24,6 +25,7 @@ const { footer, homeHref = '#accueil' } = Astro.props;
             <a
               href={link.href}
               id={index === footer.columns.length - 1 && link.label === 'Mentions légales' ? 'mentions' : undefined}
+              aria-current={currentPath && link.href === currentPath ? 'page' : undefined}
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}

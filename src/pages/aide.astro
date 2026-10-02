@@ -1,0 +1,201 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getAide, getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/aide.css';
+
+const home = getHomepage('fr');
+const page = getAide('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={home.nav} access={home.hero.access} logoHref="/" />
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="aide-key" viewBox="0 0 20 20"><circle cx="7" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M10 10h7.2M14.6 10v2.4M17.2 10v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></symbol>
+      <symbol id="aide-user" viewBox="0 0 20 20"><circle cx="10" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M4.8 16.2c.8-2.4 2.6-3.6 5.2-3.6s4.4 1.2 5.2 3.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></symbol>
+      <symbol id="aide-brief" viewBox="0 0 20 20"><rect x="3" y="6.5" width="14" height="9" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"></rect><path d="M7.5 6.5V5.2A1.2 1.2 0 0 1 8.7 4h2.6a1.2 1.2 0 0 1 1.2 1.2v1.3M3 10.2h14" fill="none" stroke="currentColor" stroke-width="1.6"></path></symbol>
+      <symbol id="aide-org" viewBox="0 0 20 20"><path d="M4 16.5V8.2L10 4l6 4.2v8.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8 16.5v-4h4v4" fill="none" stroke="currentColor" stroke-width="1.6"></path></symbol>
+      <symbol id="aide-meet" viewBox="0 0 20 20"><circle cx="5.2" cy="10" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"></circle><circle cx="14.8" cy="10" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"></circle><path d="M7.3 10h5.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></symbol>
+      <symbol id="aide-shield" viewBox="0 0 20 20"><path d="M10 3.2 16 5.4v4.7c0 3.2-2.3 5.4-6 6.7-3.7-1.3-6-3.5-6-6.7V5.4L10 3.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></symbol>
+    </defs>
+  </svg>
+  <main id="contenu" class="aide">
+    <section class="hero" aria-labelledby="aide-title">
+      <div class="wrap">
+        <p class="kicker">{page.hero.eyebrow}</p>
+        <h1 id="aide-title">{page.hero.title}</h1>
+        <p class="lead">{page.hero.lead}</p>
+        <form class="search" role="search" id="aide-search">
+          <label for="aide-q">{page.hero.searchLabel}</label>
+          <div class="search-row">
+            <svg aria-hidden="true" viewBox="0 0 20 20">
+              <circle cx="8.5" cy="8.5" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="M12.4 12.4 17 17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+            <input id="aide-q" type="search" name="q" placeholder={page.hero.searchPlaceholder} autocomplete="off">
+          </div>
+          <p class="hint">{page.hero.hint}</p>
+          <p class="empty" id="aide-empty" role="status" hidden>
+            {page.hero.empty} <a href="#contact">{page.hero.emptyLink}</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section class="topics" id="sujets" aria-labelledby="topics-title">
+      <div class="wrap">
+        <h2 id="topics-title">{page.topics.title}</h2>
+        <div class="topic-grid">
+          {page.topics.items.map((topic) => (
+            topic.href ? (
+              <a class="topic" href={topic.href} data-filter={topic.terms}>
+                <span class="icon" aria-hidden="true"><svg><use href={`#aide-${topic.icon}`}></use></svg></span>
+                <strong>{topic.title}</strong>
+                <span>{topic.text}</span>
+                <span class="go">{topic.action}</span>
+              </a>
+            ) : (
+              <button class="topic" type="button" data-filter={topic.terms} aria-pressed="false">
+                <span class="icon" aria-hidden="true"><svg><use href={`#aide-${topic.icon}`}></use></svg></span>
+                <strong>{topic.title}</strong>
+                <span>{topic.text}</span>
+                <span class="go">{topic.action}</span>
+              </button>
+            )
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="questions" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title">{page.faq.title}</h2>
+        <p class="dek">{page.faq.dek}</p>
+        <div class="faq-list" id="faq-list">
+          {page.faq.items.map((item, index) => (
+            <details class="faq-item" open={index === 0} data-text={item.terms}>
+              <summary>{item.question}</summary>
+              <div class="answer">
+                {item.answer}
+                {item.link && <a href={item.link.href}>{item.link.label}</a>}
+                {item.after}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="paths" id="parcours" aria-labelledby="paths-title">
+      <div class="wrap">
+        <h2 id="paths-title">{page.paths.title}</h2>
+        <p class="dek">{page.paths.dek}</p>
+        <div class="path-grid">
+          <article class="path path-pro">
+            <p class="kicker">{page.paths.professional.kicker}</p>
+            <h3>{page.paths.professional.title}</h3>
+            <ul>
+              {page.paths.professional.links.map((link) => (
+                <li><a href="#sujets" data-jump={link.terms}>{link.label}</a></li>
+              ))}
+            </ul>
+          </article>
+          <article class="path path-org">
+            <p class="kicker">{page.paths.enterprise.kicker}</p>
+            <h3>{page.paths.enterprise.title}</h3>
+            <ul>
+              {page.paths.enterprise.links.map((link) => (
+                <li><a href="#sujets" data-jump={link.terms}>{link.label}</a></li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="escalate" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">{page.escalation.title}</h2>
+        <p>{page.escalation.support}</p>
+        <div class="escalate-actions">
+          <a class="btn btn-primary" href={page.escalation.contactHref}>{page.escalation.contactLabel}</a>
+          <a class="mail" href={page.escalation.contactHref}>{page.escalation.emailLabel}</a>
+          <a class="btn btn-quiet" href={page.escalation.accessHref}>{page.escalation.accessLabel}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" currentPath="/aide/" />
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('aide-q');
+  const empty = document.getElementById('aide-empty');
+  const topics = Array.from(document.querySelectorAll<HTMLElement>('.aide .topic'));
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.aide .faq-item'));
+  if (input instanceof HTMLInputElement && empty) {
+    const status = empty;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(query: string) {
+      const q = query.trim().toLowerCase();
+      let hits = 0;
+      for (const topic of topics) {
+        const hay = `${topic.innerText} ${topic.dataset.filter || ''}`.toLowerCase();
+        const on = !q || hay.includes(q);
+        topic.classList.toggle('is-hidden', !on);
+        if (on) hits += 1;
+      }
+      for (const item of items) {
+        const hay = `${item.innerText} ${item.dataset.text || ''}`.toLowerCase();
+        const on = !q || hay.includes(q);
+        item.classList.toggle('is-hidden', !on);
+        if (on) hits += 1;
+      }
+      status.hidden = !(q && hits === 0);
+    }
+
+    input.addEventListener('input', () => {
+      for (const topic of topics) {
+        if (topic instanceof HTMLButtonElement) topic.setAttribute('aria-pressed', 'false');
+      }
+      show(input.value);
+    });
+
+    for (const topic of topics) {
+      if (!(topic instanceof HTMLButtonElement)) continue;
+      topic.addEventListener('click', () => {
+        const key = (topic.dataset.filter || '').split(' ')[0] || '';
+        for (const other of topics) {
+          if (other instanceof HTMLButtonElement) other.setAttribute('aria-pressed', other === topic ? 'true' : 'false');
+        }
+        input.value = key;
+        show(key);
+        document.getElementById('questions')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+
+    for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-jump]')) {
+      link.addEventListener('click', () => {
+        const key = (link.dataset.jump || '').split(' ')[0] || '';
+        input.value = key;
+        for (const topic of topics) {
+          if (!(topic instanceof HTMLButtonElement)) continue;
+          topic.setAttribute('aria-pressed', (topic.dataset.filter || '').startsWith(key) ? 'true' : 'false');
+        }
+        show(key);
+      });
+    }
+  }
+</script>

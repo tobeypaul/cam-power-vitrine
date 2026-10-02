@@ -450,3 +450,57 @@ export interface TalentsContent {
     support: string;
   };
 }
+
+export interface AideContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    searchLabel: string;
+    searchPlaceholder: string;
+    hint: string;
+    empty: string;
+    emptyLink: string;
+  };
+  topics: {
+    title: string;
+    items: Array<{
+      title: string;
+      text: string;
+      action: string;
+      terms: string;
+      icon: 'key' | 'user' | 'brief' | 'org' | 'meet' | 'shield';
+      href?: string;
+    }>;
+  };
+  faq: {
+    title: string;
+    dek: string;
+    items: Array<{
+      question: string;
+      answer: string;
+      terms: string;
+      link?: { label: string; href: string };
+      after?: string;
+    }>;
+  };
+  paths: {
+    title: string;
+    dek: string;
+    professional: { kicker: string; title: string; links: Array<{ label: string; terms: string }> };
+    enterprise: { kicker: string; title: string; links: Array<{ label: string; terms: string }> };
+  };
+  escalation: {
+    title: string;
+    support: string;
+    contactLabel: string;
+    contactHref: string;
+    emailLabel: string;
+    accessLabel: string;
+    accessHref: string;
+  };
+}
