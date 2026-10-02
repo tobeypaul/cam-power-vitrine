@@ -236,6 +236,74 @@ export interface EntreprisesContent {
   };
 }
 
+export interface MissionsContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    explore: LinkItem;
+    joinLabel: string;
+    poles: Array<{ kicker: string; title: string; text: string }>;
+    mission: { kicker: string; title: string; text: string };
+  };
+  need: {
+    kicker: string;
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    areasLabel: string;
+    areas: string[];
+  };
+  meeting: {
+    kicker: string;
+    title: string;
+    support: string;
+    professional: { kicker: string; title: string; idea: string; text: string };
+    mission: { kicker: string; title: string; text: string };
+    enterprise: { kicker: string; title: string; idea: string; text: string };
+  };
+  opportunities: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    root: string;
+    branches: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  journey: {
+    kicker: string;
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    note: string;
+  };
+  collaboration: {
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    note: string;
+  };
+  ecosystem: {
+    kicker: string;
+    title: string;
+    support: string;
+    items: Array<{ label: string; current?: boolean }>;
+  };
+  cameroon: {
+    title: string;
+    support: string;
+  };
+  finale: {
+    title: string;
+    support: string;
+  };
+}
+
 export interface TalentsContent {
   meta: {
     title: string;

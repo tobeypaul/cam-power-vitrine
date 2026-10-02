@@ -1,0 +1,353 @@
+.missions h1 { font-size: 52px; line-height: 1.05; letter-spacing: -0.04em; }
+.missions h2,
+.missions h3 {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.missions h2 { font-size: 40px; }
+.missions .kicker { margin-bottom: 14px; }
+.missions .support {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40em;
+}
+
+.missions .hero { padding: 56px 0 72px; }
+.missions .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) 1.05fr;
+  gap: 56px;
+  align-items: center;
+}
+.missions .lead { max-width: 36em; }
+.missions .hero-actions { align-items: center; }
+.missions .link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.missions .link-more svg { width: 16px; height: 16px; }
+
+.missions .join {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.15fr 72px 0.9fr;
+  gap: 8px 12px;
+  align-items: center;
+}
+.missions .poles { display: grid; gap: 16px; }
+.missions .pole,
+.missions .mission-mark { border-radius: 16px; padding: 20px 22px; }
+.missions .pole { background: #fff; border: 1px solid var(--line); }
+.missions .pole strong,
+.missions .mission-mark strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.missions .pole span,
+.missions .mission-mark span { display: block; margin-top: 6px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.missions .pole .kicker,
+.missions .mission-mark .kicker { margin-bottom: 8px; }
+.missions .stem { width: 72px; height: 148px; }
+.missions .mission-mark { background: var(--navy); color: #fff; }
+.missions .mission-mark .kicker { color: rgba(255, 255, 255, 0.78); }
+.missions .mission-mark strong { color: #fff; }
+.missions .mission-mark span { color: rgba(255, 255, 255, 0.88); }
+
+.missions .become { background: var(--surface); padding: 88px 0; }
+.missions .become h2 { max-width: 16em; }
+.missions .seq {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  position: relative;
+}
+.missions .seq::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 8%;
+  height: 2px;
+  background: var(--green);
+}
+.missions .seq li { position: relative; padding-top: 28px; }
+.missions .seq li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--green);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+.missions .seq li:last-child::before { background: var(--yellow); border-color: #e2b40a; }
+.missions .seq strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.missions .seq span { display: block; margin-top: 6px; font-size: 16px; line-height: 1.4; color: var(--muted); max-width: 22em; }
+.missions .areas { margin-top: 36px; }
+.missions .areas p { font-size: 15px; color: var(--muted); margin-bottom: 12px; }
+.missions .areas ul { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.missions .areas li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+.missions .areas li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+.missions .meet { padding: 88px 0; }
+.missions .meet h2 { max-width: 16em; }
+.missions .sides {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 220px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.missions .side { border-radius: 18px; padding: 32px 28px 36px; }
+.missions .side h3 { font-size: 26px; letter-spacing: -0.03em; line-height: 1.2; }
+.missions .side .idea {
+  margin-top: 16px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.missions .side p { margin-top: 10px; font-size: 17px; line-height: 1.5; }
+.missions .side-pro { background: var(--pro, #f3f7f4); }
+.missions .side-pro h3,
+.missions .side-pro .idea { color: var(--ink); }
+.missions .side-pro p { color: var(--text); }
+.missions .side-mid {
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.missions .side-mid .kicker { color: rgba(255, 255, 255, 0.78); }
+.missions .side-mid h3 { color: #fff; font-size: 24px; }
+.missions .side-mid p { color: rgba(255, 255, 255, 0.9); }
+.missions .side-org { background: #fff; border: 1px solid var(--line); }
+.missions .side-org h3,
+.missions .side-org .idea { color: var(--ink); }
+.missions .side-org p { color: var(--text); }
+
+.missions .family { background: var(--surface); padding: 88px 0 96px; }
+.missions .family h2 { max-width: 16em; }
+.missions .fork { margin-top: 28px; }
+.missions .fork-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.missions .fork-root i { width: 14px; height: 14px; border-radius: 50%; background: var(--navy); }
+.missions .fork-split {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  border-top: 2px solid var(--green);
+  padding-top: 16px;
+}
+.missions .fork-split::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: -22px;
+  width: 2px;
+  height: 22px;
+  background: var(--green);
+}
+.missions .fork-split article { background: #fff; border-radius: 14px; padding: 22px 24px 26px; border: 1px solid var(--line); }
+.missions .fork-split h3 { font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
+.missions .fork-split p { margin-top: 8px; font-size: 16px; line-height: 1.45; color: var(--muted); }
+.missions .family-note { margin-top: 22px; font-size: 16px; font-weight: 600; color: var(--green-ink); }
+
+.missions .journey { padding: 88px 0; }
+.missions .journey h2 { max-width: 16em; }
+.missions .path {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.missions .path::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 6%;
+  height: 2px;
+  background: var(--green);
+}
+.missions .path li { position: relative; padding-top: 30px; }
+.missions .path li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--green);
+}
+.missions .path li:nth-child(3)::before { background: var(--navy); border-color: var(--navy); }
+.missions .path strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.missions .path span { display: block; margin-top: 6px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.missions .journey-note { margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 42em; }
+
+.missions .life { background: var(--navy-deep); color: #fff; padding: 96px 0; }
+.missions .life h2 { color: #fff; max-width: 16em; }
+.missions .life .support { color: rgba(255, 255, 255, 0.86); max-width: 42em; }
+.missions .life-steps {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.missions .life-steps::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 6%;
+  height: 2px;
+  background: rgba(22, 128, 60, 0.9);
+}
+.missions .life-steps li { position: relative; padding-top: 32px; }
+.missions .life-steps li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 6px var(--navy-deep);
+}
+.missions .life-steps strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.missions .life-steps span { display: block; margin-top: 6px; font-size: 15px; line-height: 1.4; color: rgba(255, 255, 255, 0.78); }
+.missions .life-note { margin-top: 28px; font-size: 15px; color: rgba(255, 255, 255, 0.72); max-width: 42em; }
+
+.missions .eco { background: #f3f7f4; padding: 88px 0; }
+.missions .eco h2 { max-width: 14em; }
+.missions .chain { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 0; }
+.missions .chain li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.missions .chain li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--navy);
+  box-sizing: border-box;
+}
+.missions .chain li .rule { width: 28px; height: 2px; background: var(--green); display: block; }
+.missions .chain li.on { color: var(--navy); }
+.missions .chain li.on::before { background: var(--yellow); border-color: #e2b40a; }
+
+.missions .place { background: var(--surface); padding: 88px 0; }
+.missions .place-grid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 48px;
+  align-items: center;
+}
+.missions .place h2 { max-width: 14em; }
+.missions .place .cmap { width: 150px; height: 206px; margin: 0 auto; }
+.missions .finale h2 { font-size: 42px; }
+
+@media (max-width: 980px) {
+  .missions .hero-actions { flex-wrap: wrap; align-items: flex-start; }
+  .missions .hero-grid,
+  .missions .sides,
+  .missions .fork-split,
+  .missions .seq,
+  .missions .path,
+  .missions .life-steps,
+  .missions .place-grid,
+  .missions .join { grid-template-columns: 1fr; }
+  .missions .join { gap: 16px; }
+  .missions .stem { display: none; }
+  .missions .seq::before,
+  .missions .path::before,
+  .missions .life-steps::before,
+  .missions .fork-split::before { display: none; }
+  .missions .seq li,
+  .missions .path li,
+  .missions .life-steps li { padding-top: 0; padding-left: 28px; }
+  .missions .seq li::before,
+  .missions .path li::before,
+  .missions .life-steps li::before { top: 2px; }
+  .missions .chain { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .missions .chain li .rule { display: none; }
+  .missions h1 { font-size: 40px; }
+  .missions h2,
+  .missions .finale h2,
+  .missions .side h3 { font-size: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .missions { scroll-behavior: auto; }
+}

@@ -17,7 +17,7 @@ export const homepageFr: HomepageContent = {
     { label: 'Découvrir', href: '/decouvrir/' },
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
-    { label: 'Missions' },
+    { label: 'Missions', href: '/missions/' },
     { label: 'À propos' },
   ],
   hero: {
@@ -124,7 +124,7 @@ export const homepageFr: HomepageContent = {
           { label: 'À propos', href: '#apropos' },
           { label: 'Talents', href: '/talents/' },
           { label: 'Entreprises', href: '/entreprises/' },
-          { label: 'Missions', href: '#missions' },
+          { label: 'Missions', href: '/missions/' },
         ],
       },
       {

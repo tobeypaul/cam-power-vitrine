@@ -1,0 +1,196 @@
+---
+import Arrow from '../components/Arrow.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getHomepage, getMissions } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/missions.css';
+
+const home = getHomepage('fr');
+const page = getMissions('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="missions">
+    <section class="hero" aria-labelledby="missions-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">{page.hero.eyebrow}</p>
+          <h1 id="missions-title">{page.hero.title}</h1>
+          <p class="lead">{page.hero.lead}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+            <a class="link-more" href={page.hero.explore.href}>
+              {page.hero.explore.label}
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="join" role="group" aria-label={page.hero.joinLabel}>
+          <div class="poles">
+            {page.hero.poles.map((pole) => (
+              <article class="pole">
+                <p class="kicker">{pole.kicker}</p>
+                <strong>{pole.title}</strong>
+                <span>{pole.text}</span>
+              </article>
+            ))}
+          </div>
+          <svg class="stem" viewBox="0 0 72 148" aria-hidden="true">
+            <path d="M4 28 H36 L66 74" fill="none" stroke="#16803C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M4 120 H36 L66 74" fill="none" stroke="#16803C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="66" cy="74" r="5" fill="#F5C518" stroke="#E2B40A" stroke-width="2"></circle>
+          </svg>
+          <article class="mission-mark">
+            <p class="kicker">{page.hero.mission.kicker}</p>
+            <strong>{page.hero.mission.title}</strong>
+            <span>{page.hero.mission.text}</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="become" id="besoin" aria-labelledby="need-title">
+      <div class="wrap">
+        <p class="kicker">{page.need.kicker}</p>
+        <h2 id="need-title">{page.need.title}</h2>
+        <p class="support">{page.need.support}</p>
+        <ol class="seq">
+          {page.need.steps.map((step) => (
+            <li><strong>{step.label}</strong><span>{step.text}</span></li>
+          ))}
+        </ol>
+        <div class="areas">
+          <p>{page.need.areasLabel}</p>
+          <ul>
+            {page.need.areas.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="meet" id="rencontre" aria-labelledby="meeting-title">
+      <div class="wrap">
+        <p class="kicker">{page.meeting.kicker}</p>
+        <h2 id="meeting-title">{page.meeting.title}</h2>
+        <p class="support">{page.meeting.support}</p>
+        <div class="sides">
+          <article class="side side-pro">
+            <p class="kicker">{page.meeting.professional.kicker}</p>
+            <h3>{page.meeting.professional.title}</h3>
+            <p class="idea">{page.meeting.professional.idea}</p>
+            <p>{page.meeting.professional.text}</p>
+          </article>
+          <article class="side side-mid">
+            <p class="kicker">{page.meeting.mission.kicker}</p>
+            <h3>{page.meeting.mission.title}</h3>
+            <p>{page.meeting.mission.text}</p>
+          </article>
+          <article class="side side-org">
+            <p class="kicker">{page.meeting.enterprise.kicker}</p>
+            <h3>{page.meeting.enterprise.title}</h3>
+            <p class="idea">{page.meeting.enterprise.idea}</p>
+            <p>{page.meeting.enterprise.text}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="family" id="opportunite" aria-labelledby="opportunities-title">
+      <div class="wrap">
+        <p class="eyebrow">{page.opportunities.eyebrow}</p>
+        <h2 id="opportunities-title">{page.opportunities.title}</h2>
+        <p class="support">{page.opportunities.support}</p>
+        <div class="fork">
+          <p class="fork-root"><i aria-hidden="true"></i> {page.opportunities.root}</p>
+          <div class="fork-split">
+            {page.opportunities.branches.map((branch) => (
+              <article>
+                <h3>{branch.title}</h3>
+                <p>{branch.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <p class="family-note">{page.opportunities.note}</p>
+      </div>
+    </section>
+
+    <section class="journey" id="parcours" aria-labelledby="journey-title">
+      <div class="wrap">
+        <p class="kicker">{page.journey.kicker}</p>
+        <h2 id="journey-title">{page.journey.title}</h2>
+        <p class="support">{page.journey.support}</p>
+        <ol class="path">
+          {page.journey.steps.map((step) => (
+            <li><strong>{step.label}</strong><span>{step.text}</span></li>
+          ))}
+        </ol>
+        <p class="journey-note">{page.journey.note}</p>
+      </div>
+    </section>
+
+    <section class="life" id="collaboration" aria-labelledby="collaboration-title">
+      <div class="wrap">
+        <h2 id="collaboration-title">{page.collaboration.title}</h2>
+        <p class="support">{page.collaboration.support}</p>
+        <ol class="life-steps">
+          {page.collaboration.steps.map((step) => (
+            <li><strong>{step.label}</strong><span>{step.text}</span></li>
+          ))}
+        </ol>
+        <p class="life-note">{page.collaboration.note}</p>
+      </div>
+    </section>
+
+    <section class="eco" aria-labelledby="ecosystem-title">
+      <div class="wrap">
+        <p class="kicker">{page.ecosystem.kicker}</p>
+        <h2 id="ecosystem-title">{page.ecosystem.title}</h2>
+        <p class="support">{page.ecosystem.support}</p>
+        <ol class="chain">
+          {page.ecosystem.items.map((item, index) => (
+            <li class:list={[item.current && 'on']}>
+              {item.label}
+              {index < page.ecosystem.items.length - 1 && <span class="rule" aria-hidden="true"></span>}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="place" aria-labelledby="cameroon-title">
+      <div class="wrap place-grid">
+        <div>
+          <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2 id="cameroon-title">{page.cameroon.title}</h2>
+          <p class="support">{page.cameroon.support}</p>
+        </div>
+        <svg class="cmap" viewBox="0 0 160 220" aria-hidden="true">
+          <path fill="#1B3A8A" fill-opacity="0.16" stroke="#1B3A8A" stroke-opacity="0.55" stroke-width="1.6" d="M 125.4 4.0 L 133.4 16.2 L 134.7 28.8 L 134.0 41.5 L 145.0 58.8 L 133.7 58.6 L 128.0 60.0 L 118.8 58.0 L 114.4 67.0 L 126.3 78.2 L 135.1 81.4 L 138.0 89.3 L 144.3 102.4 L 141.2 107.6 L 131.0 126.9 L 126.2 130.3 L 124.6 145.1 L 126.6 153.1 L 125.0 158.8 L 134.5 168.7 L 136.3 175.6 L 143.7 185.4 L 153.0 191.5 L 153.9 200.2 L 156.0 205.7 L 154.5 216.0 L 138.5 211.5 L 122.2 206.5 L 96.7 205.7 L 94.2 204.7 L 82.2 207.1 L 69.9 204.6 L 60.3 205.8 L 27.4 205.4 L 30.4 190.4 L 22.5 177.8 L 13.3 174.6 L 9.2 166.0 L 4.0 163.3 L 4.2 158.0 L 9.4 144.5 L 19.0 126.2 L 24.9 126.0 L 36.9 114.9 L 44.6 114.5 L 55.9 122.4 L 69.8 115.9 L 71.7 108.0 L 76.2 100.4 L 79.4 90.7 L 90.2 82.9 L 94.2 69.5 L 98.5 65.3 L 101.4 55.4 L 106.7 43.2 L 123.7 28.5 L 124.8 22.2 L 127.0 18.7 L 119.0 11.2 L 119.7 5.1 L 125.4 4.0 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="finale" aria-labelledby="finale-title">
+      <h2 id="finale-title">{page.finale.title}</h2>
+      <p>{page.finale.support}</p>
+      <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" />
+</BaseLayout>

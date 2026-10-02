@@ -58,7 +58,7 @@ design/              Accepted mockups. Not served by the site.
 
 ## Content
 
-Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. All four load through `src/content/index.ts`.
+Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. Missions copy lives in `src/content/missions.ts`. All five load through `src/content/index.ts`.
 
 To change ordinary wording, edit that file. Section order and layout live in `src/pages/index.astro` and the matching component.
 

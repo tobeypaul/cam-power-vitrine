@@ -10,7 +10,7 @@ export const entreprisesFr: EntreprisesContent = {
     { label: 'Découvrir', href: '/decouvrir/' },
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/', current: true },
-    { label: 'Missions' },
+    { label: 'Missions', href: '/missions/' },
     { label: 'À propos' },
   ],
   hero: {
