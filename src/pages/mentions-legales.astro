@@ -1,0 +1,106 @@
+---
+import Arrow from '../components/Arrow.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getHomepage, getMentions } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/mentions.css';
+
+const home = getHomepage('fr');
+const page = getMentions('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={home.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="mentions">
+    <section class="hero" aria-labelledby="mentions-title">
+      <div class="wrap">
+        <div class="eyebrow">
+          <p class="kicker">{page.hero.eyebrow}</p>
+          <p class="pill">{page.hero.scope}</p>
+        </div>
+        <h1 id="mentions-title">{page.hero.title}</h1>
+        <p class="lead">{page.hero.lead}</p>
+        <p class="support">{page.hero.support}</p>
+      </div>
+    </section>
+
+    <section class="identity" aria-labelledby="identity-title">
+      <div class="wrap">
+        <h2 id="identity-title">{page.identity.title}</h2>
+        <p class="lead">{page.identity.lead}</p>
+        <div class="sheet">
+          <div class="sheet-head">
+            <p class="flag">{page.identity.flag}</p>
+            <p>{page.identity.notice}</p>
+          </div>
+          <ul class="facts">
+            {page.identity.rows.map((row) => (
+              <li>
+                <span class="fact-key">{row.label}</span>
+                {row.href ? (
+                  <a class="real" href={row.href}>{row.value}</a>
+                ) : (
+                  <span class="ph">{row.value}</span>
+                )}
+                <span class:list={['tag', { 'tag-real': row.status === 'established' }]}>{row.statusLabel}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="host" aria-labelledby="host-title">
+      <div class="wrap">
+        <h2 id="host-title">{page.hosting.title}</h2>
+        <div class="host-card">
+          <h3>{page.hosting.cardTitle}</h3>
+          <p>{page.hosting.text}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="related" aria-labelledby="related-title">
+      <div class="wrap">
+        <h2 id="related-title">{page.related.title}</h2>
+        <p class="lead">{page.related.lead}</p>
+        <div class="related-grid">
+          {page.related.items.map((item) => (
+            <article class="related-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a class="path" href={item.href}>{item.pathLabel}</a>
+              <a class="btn btn-quiet" href={item.href}>{item.cta}</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="ask" aria-labelledby="ask-title">
+      <div class="wrap">
+        <div class="ask-band">
+          <div class="ask-copy">
+            <h2 id="ask-title">{page.questions.title}</h2>
+            <p>{page.questions.support}</p>
+            <a class="address" href={page.questions.href}>{page.questions.address}</a>
+          </div>
+          <a class="btn btn-primary" href={page.questions.href}>
+            {page.questions.cta} <Arrow />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" currentPath="/mentions-legales/" />
+</BaseLayout>

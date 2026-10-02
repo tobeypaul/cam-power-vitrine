@@ -6,6 +6,7 @@ import { aproposFr } from './a-propos';
 import { decouvrirFr } from './decouvrir';
 import { entreprisesFr } from './entreprises';
 import { homepageFr } from './fr';
+import { mentionsFr } from './mentions';
 import { missionsFr } from './missions';
 import { talentsFr } from './talents';
 import type {
@@ -17,6 +18,7 @@ import type {
   DecouvrirContent,
   EntreprisesContent,
   HomepageContent,
+  MentionsContent,
   MissionsContent,
   TalentsContent,
 } from './types';
@@ -114,6 +116,18 @@ const confidentialiteCatalogs: Record<string, ConfidentialiteContent> = {
 const conditionsCatalogs: Record<string, ConditionsContent> = {
   fr: conditionsFr,
 };
+
+const mentionsCatalogs: Record<string, MentionsContent> = {
+  fr: mentionsFr,
+};
+
+export function getMentions(locale: string = defaultLocale): MentionsContent {
+  const content = mentionsCatalogs[locale];
+  if (!content) {
+    throw new Error(`Unsupported locale: ${locale}`);
+  }
+  return content;
+}
 
 export function getConditions(locale: string = defaultLocale): ConditionsContent {
   const content = conditionsCatalogs[locale];

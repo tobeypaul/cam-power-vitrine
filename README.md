@@ -58,7 +58,7 @@ design/              Accepted mockups. Not served by the site.
 
 ## Content
 
-Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. Missions copy lives in `src/content/missions.ts`. À propos copy lives in `src/content/a-propos.ts`. Aide copy lives in `src/content/aide.ts`. Contact copy lives in `src/content/contact.ts`. Confidentialité copy lives in `src/content/confidentialite.ts`. Conditions d’utilisation copy lives in `src/content/conditions.ts`. All ten load through `src/content/index.ts`.
+Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. Missions copy lives in `src/content/missions.ts`. À propos copy lives in `src/content/a-propos.ts`. Aide copy lives in `src/content/aide.ts`. Contact copy lives in `src/content/contact.ts`. Confidentialité copy lives in `src/content/confidentialite.ts`. Conditions d’utilisation copy lives in `src/content/conditions.ts`. Mentions légales copy lives in `src/content/mentions.ts`. All eleven load through `src/content/index.ts`.
 
 To change ordinary wording, edit that file. Section order and layout live in `src/pages/index.astro` and the matching component.
 
@@ -96,4 +96,4 @@ No hosting target is configured in this repository. A production deploy is a sta
 - Pages are prerendered. Visible copy is in the HTML.
 - Images in phone frames use Astro’s image pipeline so the browser receives resized assets.
 - The header script only opens and closes the compact navigation. It is not a hydrated framework component.
-- Confidentialité points to `/confidentialite/`. Conditions d’utilisation points to `/conditions-utilisation/`. Mentions légales still points at `#mentions`.
+- Confidentialité points to `/confidentialite/`. Conditions d’utilisation points to `/conditions-utilisation/`. Mentions légales points to `/mentions-legales/`. The operator fields on that page are prototype data and are not verified.

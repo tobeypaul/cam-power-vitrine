@@ -563,6 +563,56 @@ export interface ConfidentialiteContent {
   };
 }
 
+export interface MentionsContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    scope: string;
+    title: string;
+    lead: string;
+    support: string;
+  };
+  identity: {
+    title: string;
+    lead: string;
+    flag: string;
+    notice: string;
+    rows: Array<{
+      label: string;
+      value: string;
+      href?: string;
+      status: 'prototype' | 'established';
+      statusLabel: string;
+    }>;
+  };
+  hosting: {
+    title: string;
+    cardTitle: string;
+    text: string;
+  };
+  related: {
+    title: string;
+    lead: string;
+    items: Array<{
+      title: string;
+      text: string;
+      href: string;
+      pathLabel: string;
+      cta: string;
+    }>;
+  };
+  questions: {
+    title: string;
+    support: string;
+    address: string;
+    href: string;
+    cta: string;
+  };
+}
+
 export interface ConditionsContent {
   meta: {
     title: string;

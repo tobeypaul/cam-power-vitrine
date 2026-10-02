@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CamPower — Mentions légales — Maquette 01</title>
+<style>
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500; src: url("fonts/sora-500.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 600; src: url("fonts/sora-600.ttf") format("truetype"); }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 700; src: url("fonts/sora-700.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; src: url("fonts/sourcesans3-400.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 500; src: url("fonts/sourcesans3-500.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; src: url("fonts/sourcesans3-600.ttf") format("truetype"); }
+
+:root {
+  --navy: #1B3A8A;
+  --navy-deep: #102044;
+  --ink: #0F172A;
+  --text: #243044;
+  --muted: #4B596C;
+  --green: #16803C;
+  --green-ink: #146B34;
+  --yellow: #F5C518;
+  --line: #E3E8EF;
+  --surface: #F4F6F8;
+  --pro: #F3F7F4;
+  --footer: #0C1118;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body {
+  color: var(--text);
+  font-family: "Source Sans 3", "Liberation Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+.wrap { width: min(1180px, calc(100% - 96px)); margin: 0 auto; }
+h1, h2, h3, .address, .ph { font-family: "Sora", "Liberation Sans", sans-serif; }
+
+.brand { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+.brand img { height: 68px; width: auto; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 18px; border-radius: 8px; text-decoration: none;
+  font-size: 16px; font-weight: 600; line-height: 1; border: 0; cursor: pointer;
+}
+.btn .arrow { width: 16px; height: 16px; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-quiet { background: #fff; color: var(--navy); border: 1px solid var(--line); }
+.bar {
+  height: 92px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  border-bottom: 1px solid var(--line); background: #fff;
+}
+.bar .brand { justify-self: start; }
+.nav { display: flex; align-items: center; gap: 28px; justify-self: center; }
+.nav a { text-decoration: none; color: var(--text); font-size: 16px; font-weight: 500; }
+.bar .btn { justify-self: end; }
+:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+.btn-primary:focus-visible { outline-color: var(--yellow); }
+
+.kicker { color: var(--green-ink); font-size: 15px; font-weight: 600; }
+.eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-bottom: 14px; }
+.pill {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px;
+  border-radius: 999px; background: var(--pro); color: var(--navy-deep);
+  font-size: 14px; font-weight: 600;
+}
+h1 { font-weight: 600; font-size: 48px; line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); max-width: 14em; }
+h2 { font-weight: 600; font-size: 32px; line-height: 1.2; letter-spacing: -0.03em; color: var(--ink); }
+h3 { font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -0.02em; color: var(--ink); }
+.lead { margin-top: 18px; max-width: 40em; font-size: 18px; line-height: 1.6; }
+.support { margin-top: 14px; max-width: 40em; color: var(--muted); font-size: 17px; line-height: 1.55; }
+
+.hero { padding: 56px 0 20px; }
+.identity { padding: 20px 0 72px; }
+.flag {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px;
+  border-radius: 999px; background: var(--yellow); color: var(--navy-deep);
+  font-size: 13px; font-weight: 700;
+}
+.sheet {
+  margin-top: 22px;
+  border: 1.5px dashed var(--navy);
+  border-radius: 16px;
+  background: #F7F8FC;
+  padding: 22px 22px 8px;
+}
+.sheet-head { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between; }
+.sheet-head p { max-width: 36em; color: var(--muted); font-size: 16px; line-height: 1.5; }
+.facts { margin-top: 8px; }
+.facts li {
+  display: grid;
+  grid-template-columns: 14em 1fr auto;
+  gap: 12px 18px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.facts li:first-child { border-top: 0; }
+.fact-key { color: var(--muted); font-size: 15px; font-weight: 600; }
+.ph { color: var(--navy-deep); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.real { font-family: "Sora", sans-serif; font-weight: 600; font-size: 17px; color: var(--navy); text-decoration: none; overflow-wrap: anywhere; }
+.tag {
+  justify-self: end;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.tag-real { color: var(--green-ink); background: var(--pro); border-color: transparent; }
+
+.host { background: var(--surface); padding: 72px 0; }
+.host-card { background: #fff; border-radius: 16px; padding: 28px; max-width: 46em; }
+.host-card p { margin-top: 12px; font-size: 17px; line-height: 1.6; }
+
+.related { padding: 72px 0; }
+.related-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.related-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.related-card p { color: var(--muted); font-size: 17px; line-height: 1.5; }
+.path { font-size: 15px; font-weight: 600; color: var(--navy); text-decoration: none; }
+
+.ask { padding: 8px 0 80px; }
+.ask-band {
+  border: 1px solid var(--line); border-radius: 16px; padding: 32px;
+  display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;
+}
+.ask-copy { max-width: 34em; }
+.ask-copy p { margin-top: 12px; color: var(--muted); font-size: 17px; }
+.address {
+  display: inline-block; margin-top: 14px;
+  font-weight: 600; font-size: 26px; letter-spacing: -0.03em; color: var(--navy);
+  text-decoration: none; overflow-wrap: anywhere;
+}
+
+footer { background: var(--footer); color: #D5DCE6; padding: 56px 0 28px; }
+.foot { display: grid; grid-template-columns: 1.45fr 1fr 1fr 1.15fr; gap: 32px; }
+.tagline { margin-top: 14px; max-width: 26ch; font-size: 16px; line-height: 1.45; color: #C9D3DE; }
+.foot h2 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px; letter-spacing: 0; }
+.foot a { display: block; text-decoration: none; color: #D5DCE6; font-size: 16px; line-height: 1.85; }
+.foot a[aria-current="page"] { color: #fff; font-weight: 600; }
+.foot-base { margin-top: 36px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; font-size: 15px; color: #C9D3DE; }
+.foot-base a { display: inline; line-height: 1.4; font-size: 15px; }
+.foot-base .grow { margin-left: auto; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+@media (max-width: 980px) {
+  .wrap { width: min(1180px, calc(100% - 40px)); min-width: 0; }
+  .bar { grid-template-columns: 1fr auto; min-width: 0; }
+  .nav { display: none; }
+  .foot, .related-grid { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 40px; }
+  .facts li { grid-template-columns: 1fr; gap: 4px; }
+  .tag { justify-self: start; }
+  .host-card, .ask-band, .related-card { padding: 24px; }
+}
+@media (max-width: 640px) {
+  .related-grid, .foot { grid-template-columns: 1fr; }
+  .foot-base .grow { margin-left: 0; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 28px; }
+  .address { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 16 16">
+      <path d="M3 8h10M9.2 4.2 13 8l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="page">
+  <header>
+    <div class="bar wrap">
+      <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+        <img src="assets/logo.png" alt="CAM Power">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="../decouvrir-mockup-01/board.html">Découvrir</a>
+        <a href="../talents-mockup-01/board.html">Talents</a>
+        <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+        <a href="../missions-mockup-01/board.html">Missions</a>
+        <a href="../a-propos-mockup-01/board.html">À propos</a>
+      </nav>
+      <a class="btn btn-primary" href="https://cam-power.net/">Accéder à CamPower <svg class="arrow"><use href="#arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div id="crop-hero">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap">
+          <div class="eyebrow">
+            <p class="kicker">Mentions légales</p>
+            <p class="pill">Site Vitrine</p>
+          </div>
+          <h1 id="hero-title">Mentions légales</h1>
+          <p class="lead">Ces mentions identifient l’éditeur du Site Vitrine public de CamPower. Elles ne reprennent ni les conditions d’utilisation, ni la confidentialité, ni les règles de l’application.</p>
+          <p class="support">Les valeurs entre crochets sont des données de prototype. Elles ne sont pas vérifiées et ne sont pas destinées à une publication.</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-operator">
+      <section class="identity" aria-labelledby="identity-title">
+        <div class="wrap">
+          <h2 id="identity-title">Éditeur du Site Vitrine</h2>
+          <p class="lead">L’identité juridique de l’exploitant n’est pas établie. Les champs ci-dessous montrent seulement la place qu’elle occupera.</p>
+          <div class="sheet">
+            <div class="sheet-head">
+              <p class="flag">Prototype — non vérifié</p>
+              <p>Aucune de ces mentions entre crochets n’est un fait CamPower.</p>
+            </div>
+            <ul class="facts">
+              <li>
+                <span class="fact-key">Éditeur</span>
+                <span class="ph">[Nom légal — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Forme juridique</span>
+                <span class="ph">[Forme juridique — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Immatriculation</span>
+                <span class="ph">[RCCM — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Contribuable</span>
+                <span class="ph">[NIU — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Adresse</span>
+                <span class="ph">[Adresse — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Téléphone</span>
+                <span class="ph">[Téléphone — donnée prototype]</span>
+                <span class="tag">Prototype</span>
+              </li>
+              <li>
+                <span class="fact-key">Courriel</span>
+                <a class="real" href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+                <span class="tag tag-real">Établi pour le site</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-secondary">
+      <section class="host" aria-labelledby="host-title">
+        <div class="wrap">
+          <h2 id="host-title">Hébergement</h2>
+          <div class="host-card">
+            <h3>Hébergeur du Site Vitrine</h3>
+            <p>L’hébergement de production du Site Vitrine n’est pas configuré. Cette page n’indique donc pas d’hébergeur.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="related" aria-labelledby="related-title">
+        <div class="wrap">
+          <h2 id="related-title">Pages associées</h2>
+          <p class="lead">Les règles du site et la confidentialité ont chacune leur page. Elles ne sont pas recopiées ici.</p>
+          <div class="related-grid">
+            <article class="related-card">
+              <h3>Conditions d’utilisation</h3>
+              <p>Les règles d’utilisation du Site Vitrine public.</p>
+              <a class="path" href="../conditions-utilisation-mockup-01/board.html">/conditions-utilisation/</a>
+              <a class="btn btn-quiet" href="../conditions-utilisation-mockup-01/board.html">Lire les conditions</a>
+            </article>
+            <article class="related-card">
+              <h3>Confidentialité</h3>
+              <p>Les pratiques de confidentialité actuellement établies pour ce site.</p>
+              <a class="path" href="../confidentialite-mockup-01/board.html">/confidentialite/</a>
+              <a class="btn btn-quiet" href="../confidentialite-mockup-01/board.html">Lire la confidentialité</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="crop-contact">
+      <section class="ask" aria-labelledby="ask-title">
+        <div class="wrap">
+          <div class="ask-band">
+            <div class="ask-copy">
+              <h2 id="ask-title">Une question sur ces mentions ?</h2>
+              <p>Pour une question relative à ces mentions du Site Vitrine, écrivez à l’adresse ci-dessous.</p>
+              <a class="address" href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+            </div>
+            <a class="btn btn-primary" href="mailto:contact@cam-power.net">Nous écrire <svg class="arrow"><use href="#arrow"/></svg></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="crop-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="../homepage-mockup-03/board.html" aria-label="CamPower, accueil">
+            <img src="assets/logo.png" alt="CAM Power">
+          </a>
+          <p class="tagline">Une communauté, des opportunités, un avenir.</p>
+        </div>
+        <div>
+          <h2>Découvrir</h2>
+          <a href="../a-propos-mockup-01/board.html">À propos</a>
+          <a href="../talents-mockup-01/board.html">Talents</a>
+          <a href="../entreprises-mockup-01/board.html">Entreprises</a>
+          <a href="../missions-mockup-01/board.html">Missions</a>
+        </div>
+        <div>
+          <h2>Assistance</h2>
+          <a href="../contact-mockup-01/board.html">Contact</a>
+          <a href="../aide-mockup-01/board.html">Aide</a>
+        </div>
+        <div>
+          <h2>Légal</h2>
+          <a href="../confidentialite-mockup-01/board.html">Confidentialité</a>
+          <a href="../conditions-utilisation-mockup-01/board.html">Conditions d’utilisation</a>
+          <a href="#page" aria-current="page">Mentions légales</a>
+        </div>
+      </div>
+      <div class="foot-base">
+        <a href="mailto:contact@cam-power.net">contact@cam-power.net</a>
+        <span>Cameroun</span>
+        <a href="https://www.linkedin.com/company/campower" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (nouvel onglet)</span></a>
+        <span class="grow">© 2026 CamPower</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
