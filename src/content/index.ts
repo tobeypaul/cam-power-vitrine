@@ -1,4 +1,5 @@
 import { aideFr } from './aide';
+import { confidentialiteFr } from './confidentialite';
 import { contactFr } from './contact';
 import { aproposFr } from './a-propos';
 import { decouvrirFr } from './decouvrir';
@@ -8,6 +9,7 @@ import { missionsFr } from './missions';
 import { talentsFr } from './talents';
 import type {
   AideContent,
+  ConfidentialiteContent,
   ContactContent,
   AProposContent,
   DecouvrirContent,
@@ -102,6 +104,18 @@ export function getAide(locale: string = defaultLocale): AideContent {
 const contactCatalogs: Record<string, ContactContent> = {
   fr: contactFr,
 };
+
+const confidentialiteCatalogs: Record<string, ConfidentialiteContent> = {
+  fr: confidentialiteFr,
+};
+
+export function getConfidentialite(locale: string = defaultLocale): ConfidentialiteContent {
+  const content = confidentialiteCatalogs[locale];
+  if (!content) {
+    throw new Error(`Unsupported locale: ${locale}`);
+  }
+  return content;
+}
 
 export function getContact(locale: string = defaultLocale): ContactContent {
   const content = contactCatalogs[locale];

@@ -505,6 +505,64 @@ export interface AideContent {
   };
 }
 
+export interface ConfidentialiteContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    status: string;
+    title: string;
+    lead: string;
+  };
+  scope: {
+    title: string;
+    lead: string;
+    coveredLabel: string;
+    coveredTitle: string;
+    coveredText: string;
+    pendingLabel: string;
+    pendingTitle: string;
+    pendingText: string;
+  };
+  practices: {
+    title: string;
+    dek: string;
+    items: Array<{ title: string; text: string }>;
+    fonts: string;
+    hosting: string;
+  };
+  email: {
+    title: string;
+    lead: string;
+    steps: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  cookies: {
+    title: string;
+    items: Array<{ title: string; text: string }>;
+    note: string;
+  };
+  application: {
+    title: string;
+    paragraphs: string[];
+  };
+  questions: {
+    title: string;
+    support: string;
+    address: string;
+    href: string;
+    cta: string;
+  };
+  evolve: {
+    title: string;
+    paragraphs: string[];
+    updatedLabel: string;
+    updated: string;
+  };
+}
+
 export interface ContactContent {
   meta: {
     title: string;

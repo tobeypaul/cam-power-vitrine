@@ -137,7 +137,7 @@ export const homepageFr: HomepageContent = {
       {
         title: 'Légal',
         links: [
-          { label: 'Confidentialité', href: '#mentions' },
+          { label: 'Confidentialité', href: '/confidentialite/' },
           { label: 'Conditions d’utilisation', href: '#mentions' },
           { label: 'Mentions légales', href: '#mentions' },
         ],

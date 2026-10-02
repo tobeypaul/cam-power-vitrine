@@ -1,0 +1,141 @@
+---
+import Arrow from '../components/Arrow.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { getConfidentialite, getHomepage } from '../content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/confidentialite.css';
+
+const home = getHomepage('fr');
+const page = getConfidentialite('fr');
+const footer = {
+  ...home.footer,
+  columns: home.footer.columns.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+    ),
+  })),
+};
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description}>
+  <SiteHeader nav={home.nav} access={home.hero.access} logoHref="/" />
+  <main id="contenu" class="confidentialite">
+    <section class="hero" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="eyebrow">
+          <p class="kicker">{page.hero.eyebrow}</p>
+          <p class="status">{page.hero.status}</p>
+        </div>
+        <h1 id="privacy-title">{page.hero.title}</h1>
+        <p class="lead">{page.hero.lead}</p>
+      </div>
+    </section>
+
+    <section class="scope" aria-labelledby="scope-title">
+      <div class="wrap">
+        <h2 id="scope-title">{page.scope.title}</h2>
+        <p class="lead">{page.scope.lead}</p>
+        <div class="scope-grid">
+          <article class="scope-card scope-now">
+            <p class="scope-label">{page.scope.coveredLabel}</p>
+            <h3>{page.scope.coveredTitle}</h3>
+            <p>{page.scope.coveredText}</p>
+          </article>
+          <article class="scope-card scope-later">
+            <p class="scope-label">{page.scope.pendingLabel}</p>
+            <h3>{page.scope.pendingTitle}</h3>
+            <p>{page.scope.pendingText}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="practices" aria-labelledby="practices-title">
+      <div class="wrap">
+        <h2 id="practices-title">{page.practices.title}</h2>
+        <p class="dek">{page.practices.dek}</p>
+        <div class="fact-grid">
+          {page.practices.items.map((item) => (
+            <article class="fact">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <p class="note">{page.practices.fonts}</p>
+        <p class="note">{page.practices.hosting}</p>
+      </div>
+    </section>
+
+    <section class="write" id="ecrire" aria-labelledby="write-title">
+      <div class="wrap">
+        <h2 id="write-title">{page.email.title}</h2>
+        <p class="lead">{page.email.lead}</p>
+        <div class="flow" aria-label="Parcours du message">
+          {page.email.steps.map((step, index) => (
+            <>
+              {index > 0 && <span class="flow-arrow" aria-hidden="true">→</span>}
+              <div class="step">
+                <strong>{step.title}</strong>
+                <span>{step.text}</span>
+              </div>
+            </>
+          ))}
+        </div>
+        <p class="note">{page.email.note}</p>
+      </div>
+    </section>
+
+    <section class="cookies" aria-labelledby="cookies-title">
+      <div class="wrap">
+        <h2 id="cookies-title">{page.cookies.title}</h2>
+        <div class="cookie-grid">
+          {page.cookies.items.map((item) => (
+            <article class="cookie">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <p class="note">{page.cookies.note}</p>
+      </div>
+    </section>
+
+    <section class="app" aria-labelledby="app-title">
+      <div class="wrap">
+        <div class="app-band">
+          <h2 id="app-title">{page.application.title}</h2>
+          {page.application.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="ask" aria-labelledby="ask-title">
+      <div class="wrap">
+        <div class="ask-band">
+          <div class="ask-copy">
+            <h2 id="ask-title">{page.questions.title}</h2>
+            <p>{page.questions.support}</p>
+            <a class="address" href={page.questions.href}>{page.questions.address}</a>
+          </div>
+          <a class="btn btn-primary" href={page.questions.href}>
+            {page.questions.cta} <Arrow />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="evolve" aria-labelledby="evolve-title">
+      <div class="wrap">
+        <div class="evolve-band">
+          <h2 id="evolve-title">{page.evolve.title}</h2>
+          {page.evolve.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <p class="version">{page.evolve.updatedLabel} : {page.evolve.updated}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} homeHref="/" currentPath="/confidentialite/" />
+</BaseLayout>
