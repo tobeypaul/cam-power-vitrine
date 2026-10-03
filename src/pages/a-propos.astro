@@ -22,7 +22,7 @@ const footer = {
 <BaseLayout title={page.meta.title} description={page.meta.description}>
   <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
   <main id="contenu" class="apropos">
-    <section class="hero" aria-labelledby="apropos-title">
+    <section class="hero" data-motion="hero" aria-labelledby="apropos-title">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">{page.hero.eyebrow}</p>
@@ -69,14 +69,14 @@ const footer = {
       <div class="wrap">
         <p class="support">{page.purpose.support}</p>
         <ul class="realities">
-          {page.purpose.realities.map((item) => (
-            <li><strong>{item.title}</strong><span>{item.text}</span></li>
+          {page.purpose.realities.map((item, index) => (
+            <li data-motion="reveal" style={`--motion-i:${index}`}><strong>{item.title}</strong><span>{item.text}</span></li>
           ))}
         </ul>
       </div>
     </section>
 
-    <section class="belief" aria-labelledby="conviction-title">
+    <section class="belief" data-motion="reveal" aria-labelledby="conviction-title">
       <div class="wrap">
         <p class="kicker">{page.conviction.kicker}</p>
         <h2 id="conviction-title">{page.conviction.title}</h2>
@@ -97,7 +97,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="life" aria-labelledby="ecosystem-title">
+    <section class="life" data-motion="reveal" aria-labelledby="ecosystem-title">
       <div class="wrap">
         <p class="kicker">{page.ecosystem.kicker}</p>
         <h2 id="ecosystem-title">{page.ecosystem.title}</h2>
@@ -122,7 +122,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="community" aria-labelledby="community-title">
+    <section class="community" data-motion="reveal" aria-labelledby="community-title">
       <div class="wrap">
         <p class="kicker">{page.community.kicker}</p>
         <h2 id="community-title">{page.community.title}</h2>
@@ -131,7 +131,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="place" aria-labelledby="cameroon-title">
+    <section class="place" data-motion="reveal" aria-labelledby="cameroon-title">
       <div class="wrap place-grid">
         <div>
           <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -144,7 +144,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="vision" aria-labelledby="vision-title">
+    <section class="vision" data-motion="reveal" aria-labelledby="vision-title">
       <div class="wrap">
         <p class="kicker">{page.vision.kicker}</p>
         <h2 id="vision-title">{page.vision.title}</h2>
@@ -159,7 +159,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="growth" aria-labelledby="growth-title">
+    <section class="growth" data-motion="reveal" aria-labelledby="growth-title">
       <div class="wrap">
         <p class="kicker">{page.growth.kicker}</p>
         <h2 id="growth-title">{page.growth.title}</h2>
@@ -167,7 +167,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="finale" aria-labelledby="finale-title">
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
       <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>

@@ -31,7 +31,7 @@ const footer = {
     </defs>
   </svg>
   <main id="contenu" class="aide">
-    <section class="hero" aria-labelledby="aide-title">
+    <section class="hero" data-motion="hero" aria-labelledby="aide-title">
       <div class="wrap">
         <p class="kicker">{page.hero.eyebrow}</p>
         <h1 id="aide-title">{page.hero.title}</h1>
@@ -146,7 +146,38 @@ const footer = {
   const items = Array.from(document.querySelectorAll<HTMLElement>('.aide .faq-item'));
   if (input instanceof HTMLInputElement && empty) {
     const status = empty;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const timers = new WeakMap<HTMLElement, number>();
+
+    function motionOn() {
+      return document.documentElement.classList.contains('motion-ready') && !reduce.matches;
+    }
+
+    function applyVisibility(el: HTMLElement, on: boolean) {
+      const hidden = el.classList.contains('is-hidden');
+      const pending = timers.get(el);
+      if (pending) window.clearTimeout(pending);
+      if (!motionOn()) {
+        el.classList.remove('is-fading');
+        el.classList.toggle('is-hidden', !on);
+        return;
+      }
+      if (on && !hidden && !el.classList.contains('is-fading')) return;
+      if (!on && hidden) return;
+      if (!on) {
+        el.classList.add('is-fading');
+        timers.set(el, window.setTimeout(() => {
+          el.classList.add('is-hidden');
+          el.classList.remove('is-fading');
+        }, 160));
+        return;
+      }
+      el.classList.remove('is-hidden');
+      el.classList.add('is-fading');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => el.classList.remove('is-fading'));
+      });
+    }
 
     function show(query: string) {
       const q = query.trim().toLowerCase();
@@ -154,16 +185,28 @@ const footer = {
       for (const topic of topics) {
         const hay = `${topic.innerText} ${topic.dataset.filter || ''}`.toLowerCase();
         const on = !q || hay.includes(q);
-        topic.classList.toggle('is-hidden', !on);
+        applyVisibility(topic, on);
         if (on) hits += 1;
       }
       for (const item of items) {
         const hay = `${item.innerText} ${item.dataset.text || ''}`.toLowerCase();
         const on = !q || hay.includes(q);
-        item.classList.toggle('is-hidden', !on);
+        applyVisibility(item, on);
         if (on) hits += 1;
       }
-      status.hidden = !(q && hits === 0);
+      const showEmpty = Boolean(q && hits === 0);
+      if (!motionOn()) {
+        status.hidden = !showEmpty;
+      } else if (showEmpty) {
+        status.hidden = false;
+        status.classList.add('is-fading');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => status.classList.remove('is-fading'));
+        });
+      } else {
+        status.hidden = true;
+        status.classList.remove('is-fading');
+      }
     }
 
     input.addEventListener('input', () => {
@@ -182,7 +225,7 @@ const footer = {
         }
         input.value = key;
         show(key);
-        document.getElementById('questions')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        document.getElementById('questions')?.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
       });
     }
 

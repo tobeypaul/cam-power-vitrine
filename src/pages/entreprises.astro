@@ -24,7 +24,7 @@ const footer = {
 <BaseLayout title={page.meta.title} description={page.meta.description}>
   <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
   <main id="contenu" class="entreprises">
-    <section class="hero" aria-labelledby="entreprises-title">
+    <section class="hero" data-motion="hero" aria-labelledby="entreprises-title">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">{page.hero.eyebrow}</p>
@@ -54,7 +54,7 @@ const footer = {
 
     <section class="presence" id="presence" aria-labelledby="presence-title">
       <div class="wrap">
-        <div class="presence-grid">
+        <div class="presence-grid" data-motion="reveal">
           <div>
             <p class="kicker">{page.presence.kicker}</p>
             <h2 id="presence-title">{page.presence.title}</h2>
@@ -75,8 +75,8 @@ const footer = {
           <div class="fork">
             <p class="fork-root"><i aria-hidden="true"></i> {page.need.root}</p>
             <div class="fork-split">
-              {page.need.branches.map((branch) => (
-                <article>
+              {page.need.branches.map((branch, index) => (
+                <article data-motion="reveal" style={`--motion-i:${index}`}>
                   <h3>{branch.title}</h3>
                   <p>{branch.text}</p>
                 </article>
@@ -87,7 +87,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="discovery" id="talents" aria-labelledby="discovery-title">
+    <section class="discovery" id="talents" data-motion="reveal" aria-labelledby="discovery-title">
       <div class="wrap discovery-grid">
         <figure>
           <PhoneFrame src={screenRecruit} alt={page.talents.imageAlt} />
@@ -101,7 +101,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="routes" id="recrutement" aria-labelledby="routes-title">
+    <section class="routes" id="recrutement" data-motion="reveal" aria-labelledby="routes-title">
       <div class="wrap">
         <p class="eyebrow">{page.routes.eyebrow}</p>
         <h2 id="routes-title">{page.routes.title}</h2>
@@ -125,7 +125,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="community" aria-labelledby="community-title">
+    <section class="community" data-motion="reveal" aria-labelledby="community-title">
       <div class="wrap">
         <h2 id="community-title">{page.community.title}</h2>
         <p class="support">{page.community.support}</p>
@@ -137,7 +137,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="network" aria-labelledby="network-title">
+    <section class="network" data-motion="reveal" aria-labelledby="network-title">
       <div class="wrap net-grid">
         <div>
           <p class="kicker">{page.network.kicker}</p>
@@ -175,7 +175,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="life" id="parcours" aria-labelledby="life-title">
+    <section class="life" id="parcours" data-motion="reveal" aria-labelledby="life-title">
       <div class="wrap">
         <h2 id="life-title">{page.lifecycle.title}</h2>
         <p class="support">{page.lifecycle.support}</p>
@@ -188,7 +188,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="place" aria-labelledby="cameroon-title">
+    <section class="place" data-motion="reveal" aria-labelledby="cameroon-title">
       <div class="wrap place-grid">
         <div>
           <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -201,7 +201,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="finale" aria-labelledby="finale-title">
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
       <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>

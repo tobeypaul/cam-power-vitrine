@@ -22,7 +22,7 @@ const footer = {
 <BaseLayout title={page.meta.title} description={page.meta.description}>
   <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
   <main id="contenu" class="missions">
-    <section class="hero" aria-labelledby="missions-title">
+    <section class="hero" data-motion="hero" aria-labelledby="missions-title">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">{page.hero.eyebrow}</p>
@@ -68,8 +68,8 @@ const footer = {
         <h2 id="need-title">{page.need.title}</h2>
         <p class="support">{page.need.support}</p>
         <ol class="seq">
-          {page.need.steps.map((step) => (
-            <li><strong>{step.label}</strong><span>{step.text}</span></li>
+          {page.need.steps.map((step, index) => (
+            <li data-motion="reveal" style={`--motion-i:${index}`}><strong>{step.label}</strong><span>{step.text}</span></li>
           ))}
         </ol>
         <div class="areas">
@@ -83,7 +83,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="meet" id="rencontre" aria-labelledby="meeting-title">
+    <section class="meet" id="rencontre" data-motion="reveal" aria-labelledby="meeting-title">
       <div class="wrap">
         <p class="kicker">{page.meeting.kicker}</p>
         <h2 id="meeting-title">{page.meeting.title}</h2>
@@ -110,7 +110,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="family" id="opportunite" aria-labelledby="opportunities-title">
+    <section class="family" id="opportunite" data-motion="reveal" aria-labelledby="opportunities-title">
       <div class="wrap">
         <p class="eyebrow">{page.opportunities.eyebrow}</p>
         <h2 id="opportunities-title">{page.opportunities.title}</h2>
@@ -130,7 +130,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="journey" id="parcours" aria-labelledby="journey-title">
+    <section class="journey" id="parcours" data-motion="reveal" aria-labelledby="journey-title">
       <div class="wrap">
         <p class="kicker">{page.journey.kicker}</p>
         <h2 id="journey-title">{page.journey.title}</h2>
@@ -144,7 +144,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="life" id="collaboration" aria-labelledby="collaboration-title">
+    <section class="life" id="collaboration" data-motion="reveal" aria-labelledby="collaboration-title">
       <div class="wrap">
         <h2 id="collaboration-title">{page.collaboration.title}</h2>
         <p class="support">{page.collaboration.support}</p>
@@ -157,7 +157,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="eco" aria-labelledby="ecosystem-title">
+    <section class="eco" data-motion="reveal" aria-labelledby="ecosystem-title">
       <div class="wrap">
         <p class="kicker">{page.ecosystem.kicker}</p>
         <h2 id="ecosystem-title">{page.ecosystem.title}</h2>
@@ -173,7 +173,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="place" aria-labelledby="cameroon-title">
+    <section class="place" data-motion="reveal" aria-labelledby="cameroon-title">
       <div class="wrap place-grid">
         <div>
           <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -186,7 +186,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="finale" aria-labelledby="finale-title">
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
       <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>

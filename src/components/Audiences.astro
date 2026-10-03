@@ -17,7 +17,7 @@ const icons = {
 
 <section class="needs" id="besoins" aria-labelledby="needs-title">
   <div class="wrap">
-    <div class="needs-head">
+    <div class="needs-head" data-motion="reveal">
       <h2 id="needs-title">
         {audiences.titleLines.map((line, index) => (
           <>
@@ -29,8 +29,8 @@ const icons = {
       <p>{audiences.dek}</p>
     </div>
     <div class="doors">
-      {audiences.items.map((item) => (
-        <article class:list={['door', item.tone === 'emphasis' && 'door-em']} id={item.id}>
+      {audiences.items.map((item, index) => (
+        <article class:list={['door', item.tone === 'emphasis' && 'door-em']} id={item.id} data-motion="reveal" style={`--motion-i:${index + 1}`}>
           <span class:list={['tick', item.id === 'talents' ? 'tick-g' : 'tick-y']}></span>
           <Fragment set:html={icons[item.id as keyof typeof icons]} />
           <h3>{item.title}</h3>

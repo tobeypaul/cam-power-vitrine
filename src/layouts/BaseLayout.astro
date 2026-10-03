@@ -36,9 +36,17 @@ const structuredData = organizationGraph(canonical, description, logoUrl);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={logoUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion-ready');
+      }
+    </script>
   </head>
   <body>
     <a class="skip" href="#contenu">Aller au contenu</a>
     <slot />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
   </body>
 </html>

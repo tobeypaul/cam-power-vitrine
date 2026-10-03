@@ -12,7 +12,7 @@ interface Props {
 const { product } = Astro.props;
 ---
 
-<section class="action" id="action" aria-labelledby="action-title">
+<section class="action" id="action" data-motion="reveal" aria-labelledby="action-title">
   <div class="wrap">
     <h2 id="action-title">{product.title}</h2>
     <p class="dek">{product.dek}</p>

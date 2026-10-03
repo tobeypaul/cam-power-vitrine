@@ -28,7 +28,7 @@ const footer = {
 <BaseLayout title={page.meta.title} description={page.meta.description}>
   <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
   <main id="contenu" class="talents">
-    <section class="hero" aria-labelledby="talents-title">
+    <section class="hero" data-motion="hero" aria-labelledby="talents-title">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">{page.hero.eyebrow}</p>
@@ -58,7 +58,7 @@ const footer = {
 
     <section class="presence" id="parcours" aria-labelledby="identity-title">
       <div class="wrap">
-        <div class="presence-top">
+        <div class="presence-top" data-motion="reveal">
           <figure class="idcard">
             <Image src={profileCard} alt="Profil dans l’application CamPower" widths={[280, 560]} sizes="280px" quality={80} />
           </figure>
@@ -73,15 +73,15 @@ const footer = {
           <h3 id="skills-title">{page.skills.title}</h3>
           <p class="support">{page.skills.support}</p>
           <ul class="caps">
-            {page.skills.items.map((item) => (
-              <li><strong>{item.label}</strong><span>{item.text}</span></li>
+            {page.skills.items.map((item, index) => (
+              <li data-motion="reveal" style={`--motion-i:${index}`}><strong>{item.label}</strong><span>{item.text}</span></li>
             ))}
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="network" aria-labelledby="network-title">
+    <section class="network" data-motion="reveal" aria-labelledby="network-title">
       <div class="wrap net-grid">
         <figure class="net-panel">
           <svg viewBox="0 0 560 320" aria-hidden="true">
@@ -121,7 +121,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="opp" aria-labelledby="opportunities-title">
+    <section class="opp" data-motion="reveal" aria-labelledby="opportunities-title">
       <div class="wrap opp-grid">
         <div>
           <p class="eyebrow">{page.opportunities.eyebrow}</p>
@@ -146,7 +146,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="routes" aria-labelledby="routes-title">
+    <section class="routes" data-motion="reveal" aria-labelledby="routes-title">
       <div class="wrap">
         <p class="eyebrow">{page.routes.eyebrow}</p>
         <h2 id="routes-title">{page.routes.title}</h2>
@@ -165,7 +165,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="value" aria-labelledby="value-title">
+    <section class="value" data-motion="reveal" aria-labelledby="value-title">
       <div class="wrap value-grid">
         <div>
           <p class="eyebrow">{page.organisations.eyebrow}</p>
@@ -187,7 +187,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="life" aria-labelledby="life-title">
+    <section class="life" data-motion="reveal" aria-labelledby="life-title">
       <div class="wrap">
         <h2 id="life-title">{page.lifecycle.title}</h2>
         <p class="support">{page.lifecycle.support}</p>
@@ -200,7 +200,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="place" aria-labelledby="cameroon-title">
+    <section class="place" data-motion="reveal" aria-labelledby="cameroon-title">
       <div class="wrap place-grid">
         <div>
           <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -213,7 +213,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="daily" aria-labelledby="daily-title">
+    <section class="daily" data-motion="reveal" aria-labelledby="daily-title">
       <div class="wrap daily-grid">
         <PhoneFrame src={screenFeed} alt="Application CamPower sur téléphone" />
         <div>
@@ -233,7 +233,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="finale" aria-labelledby="finale-title">
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
       <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>

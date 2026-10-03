@@ -28,7 +28,7 @@ const footer = {
 <BaseLayout title={page.meta.title} description={page.meta.description}>
   <SiteHeader nav={page.nav} access={home.hero.access} logoHref="/" />
   <main id="contenu" class="discover">
-    <section class="hero" aria-labelledby="discover-title">
+    <section class="hero" data-motion="hero" aria-labelledby="discover-title">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">{page.hero.eyebrow}</p>
@@ -62,7 +62,7 @@ const footer = {
 
     <section class="band" aria-labelledby="possibilites-title">
       <div class="wrap">
-        <div class="band-head">
+        <div class="band-head" data-motion="reveal">
           <h2 id="possibilites-title">
             {page.possibilities.titleLines.map((line, index) => (
               <>
@@ -75,7 +75,7 @@ const footer = {
         </div>
         <ol class="path">
           {page.possibilities.steps.map((step, index) => (
-            <li>
+            <li data-motion="reveal" style={`--motion-i:${index}`}>
               <span class="num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <p>{step}</p>
             </li>
@@ -84,7 +84,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="block" aria-labelledby="identity-title">
+    <section class="block" data-motion="reveal" aria-labelledby="identity-title">
       <div class="wrap bridge">
         <div>
           <p class="kicker">{page.identity.kicker}</p>
@@ -132,7 +132,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="opp" aria-labelledby="opportunities-title">
+    <section class="opp" data-motion="reveal" aria-labelledby="opportunities-title">
       <div class="wrap opp-grid">
         <div>
           <p class="eyebrow">{page.opportunities.eyebrow}</p>
@@ -143,7 +143,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="meet" aria-labelledby="meeting-title">
+    <section class="meet" data-motion="reveal" aria-labelledby="meeting-title">
       <div class="wrap">
         <h2 id="meeting-title">{page.meeting.title}</h2>
         <p class="dek">{page.meeting.dek}</p>
@@ -161,7 +161,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="missions" aria-labelledby="missions-title">
+    <section class="missions" data-motion="reveal" aria-labelledby="missions-title">
       <div class="wrap">
         <p class="eyebrow">{page.missions.eyebrow}</p>
         <h2 id="missions-title">{page.missions.title}</h2>
@@ -180,7 +180,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="ensemble" id="ensemble" aria-labelledby="ensemble-title">
+    <section class="ensemble" id="ensemble" data-motion="reveal" aria-labelledby="ensemble-title">
       <div class="wrap">
         <h2 id="ensemble-title">{page.ecosystem.title}</h2>
         <p class="dek">{page.ecosystem.dek}</p>
@@ -195,7 +195,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="cm-block" aria-labelledby="cameroon-title">
+    <section class="cm-block" data-motion="reveal" aria-labelledby="cameroon-title">
       <div class="wrap cm-grid">
         <div>
           <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -208,7 +208,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="daily" aria-labelledby="daily-title">
+    <section class="daily" data-motion="reveal" aria-labelledby="daily-title">
       <div class="wrap daily-grid">
         <PhoneFrame src={screenFeed} alt="Fil d’actualité dans l’application CamPower" />
         <div class="daily-copy">
@@ -228,7 +228,7 @@ const footer = {
       </div>
     </section>
 
-    <section class="finale" aria-labelledby="finale-title">
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
       <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>

@@ -10,10 +10,10 @@ const { steps } = Astro.props;
 
 <section class="steps" aria-labelledby="how">
   <div class="wrap">
-    <h2 id="how">{steps.title}</h2>
+    <h2 id="how" data-motion="reveal">{steps.title}</h2>
     <ol class="step-row">
       {steps.items.map((item, index) => (
-        <li class="step">
+        <li class="step" data-motion="reveal" style={`--motion-i:${index}`}>
           <span class="num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
           <p>{item}</p>
         </li>

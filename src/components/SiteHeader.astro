@@ -38,14 +38,38 @@ const { nav, access, logoHref } = Astro.props;
   const nav = header?.querySelector<HTMLElement>('[data-site-nav]');
   const label = header?.querySelector('[data-nav-label]');
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let closeTimer = 0;
+
+  function motionOn() {
+    return document.documentElement.classList.contains('motion-ready') && !reduceMotion.matches;
+  }
+
   function setOpen(open: boolean) {
     if (!button || !nav) return;
+    window.clearTimeout(closeTimer);
     button.setAttribute('aria-expanded', String(open));
-    nav.classList.toggle('is-open', open);
     if (label) label.textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
     if (open) {
+      nav.classList.add('is-open');
+      if (motionOn()) {
+        nav.classList.remove('is-shown');
+        void nav.offsetWidth;
+        nav.classList.add('is-shown');
+      } else {
+        nav.classList.add('is-shown');
+      }
       nav.querySelector('a')?.focus();
+      return;
     }
+    if (motionOn() && nav.classList.contains('is-open')) {
+      nav.classList.remove('is-shown');
+      closeTimer = window.setTimeout(() => {
+        if (button.getAttribute('aria-expanded') === 'false') nav.classList.remove('is-open');
+      }, 160);
+      return;
+    }
+    nav.classList.remove('is-open', 'is-shown');
   }
 
   button?.addEventListener('click', () => {
