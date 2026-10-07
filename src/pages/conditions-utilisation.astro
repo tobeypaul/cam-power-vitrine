@@ -5,6 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { getConditions, getHomepage } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/conditions.css';
+import { sitePath } from '../lib/paths';
 
 const home = getHomepage('fr');
 const page = getConditions('fr');
@@ -13,7 +14,7 @@ const footer = {
   columns: home.footer.columns.map((column) => ({
     ...column,
     links: column.links.map((link) =>
-      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: sitePath(`/${link.href}`) } : link,
     ),
   })),
 };
@@ -146,9 +147,9 @@ const footer = {
           <div class="privacy-copy">
             <h2 id="privacy-title">{page.privacy.title}</h2>
             <p>{page.privacy.text}</p>
-            <a class="path" href={page.privacy.href}>{page.privacy.pathLabel}</a>
+            <a class="path" href={sitePath(page.privacy.href)}>{page.privacy.pathLabel}</a>
           </div>
-          <a class="btn btn-quiet" href={page.privacy.href}>{page.privacy.cta}</a>
+          <a class="btn btn-quiet" href={sitePath(page.privacy.href)}>{page.privacy.cta}</a>
         </div>
       </div>
     </section>
@@ -166,9 +167,9 @@ const footer = {
           <div class="ask-copy">
             <h2 id="ask-title">{page.questions.title}</h2>
             <p>{page.questions.support}</p>
-            <a class="address" href={page.questions.href}>{page.questions.address}</a>
+            <a class="address" href={sitePath(page.questions.href)}>{page.questions.address}</a>
           </div>
-          <a class="btn btn-primary" href={page.questions.href}>
+          <a class="btn btn-primary" href={sitePath(page.questions.href)}>
             {page.questions.cta} <Arrow />
           </a>
         </div>

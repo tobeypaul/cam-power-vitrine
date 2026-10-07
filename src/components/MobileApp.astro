@@ -2,6 +2,7 @@
 import screenFeed from '../assets/screens/screen-feed.png';
 import PhoneFrame from './PhoneFrame.astro';
 import type { HomepageContent } from '../content/types';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   mobile: HomepageContent['mobile'];
@@ -18,7 +19,7 @@ const { mobile } = Astro.props;
     <div class="anywhere-copy">
       <h2 id="anywhere-title">{mobile.title}</h2>
       <p class="dek">{mobile.dek}</p>
-      <a class="play" href={mobile.storeHref} target="_blank" rel="noopener noreferrer">
+      <a class="play" href={sitePath(mobile.storeHref)} target="_blank" rel="noopener noreferrer">
         <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true">
           <path d="M2 1.8c0-1 1.1-1.6 2-1.1L20.2 10c.9.5.9 1.8 0 2.3L4 22.6c-.9.5-2-.1-2-1.1V1.8z" fill="#fff"></path>
         </svg>

@@ -1,6 +1,7 @@
 ---
 import Arrow from './Arrow.astro';
 import type { HomepageContent } from '../content/types';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   finale: HomepageContent['finale'];
@@ -12,5 +13,5 @@ const { finale } = Astro.props;
 <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
   <h2 id="finale-title">{finale.title}</h2>
   <p>{finale.support}</p>
-  <a class="btn btn-primary" href={finale.cta.href}>{finale.cta.label} <Arrow /></a>
+  <a class="btn btn-primary" href={sitePath(finale.cta.href)}>{finale.cta.label} <Arrow /></a>
 </section>

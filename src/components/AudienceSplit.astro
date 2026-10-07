@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import profileCard from '../assets/screens/profile-card.png';
 import type { HomepageContent } from '../content/types';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   professionals: HomepageContent['professionals'];
@@ -33,7 +34,7 @@ const { professionals, organisations } = Astro.props;
           quality={80}
         />
       </figure>
-      <a class="btn btn-line" href={professionals.cta.href}>{professionals.cta.label}</a>
+      <a class="btn btn-line" href={sitePath(professionals.cta.href)}>{professionals.cta.label}</a>
     </div>
   </div>
   <div class="split-col split-r" id={organisations.id}>
@@ -41,7 +42,7 @@ const { professionals, organisations } = Astro.props;
       <p class="kicker">{organisations.kicker}</p>
       <h2>{organisations.title}</h2>
       <p class="support">{organisations.support}</p>
-      <a class="btn btn-primary" href={organisations.cta.href}>{organisations.cta.label}</a>
+      <a class="btn btn-primary" href={sitePath(organisations.cta.href)}>{organisations.cta.label}</a>
     </div>
   </div>
 </section>

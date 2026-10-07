@@ -1,6 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import type { HomepageContent } from '../content/types';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   footer: HomepageContent['footer'];
@@ -15,7 +16,7 @@ const { footer, homeHref = '#accueil', currentPath } = Astro.props;
   <div class="wrap">
     <div class="foot">
       <div>
-        <Logo href={homeHref} label="CamPower" />
+        <Logo href={sitePath(homeHref)} label="CamPower" />
         <p class="tagline">{footer.tagline}</p>
       </div>
       {footer.columns.map((column, index) => (
@@ -23,7 +24,7 @@ const { footer, homeHref = '#accueil', currentPath } = Astro.props;
           <h2>{column.title}</h2>
           {column.links.map((link) => (
             <a
-              href={link.href}
+              href={sitePath(link.href)}
               id={index === footer.columns.length - 1 && link.label === 'Mentions légales' ? 'mentions' : undefined}
               aria-current={currentPath && link.href === currentPath ? 'page' : undefined}
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
@@ -36,9 +37,9 @@ const { footer, homeHref = '#accueil', currentPath } = Astro.props;
       ))}
     </div>
     <div class="foot-base">
-      <a href={footer.email.href}>{footer.email.label}</a>
+      <a href={sitePath(footer.email.href)}>{footer.email.label}</a>
       <span>{footer.location}</span>
-      <a href={footer.linkedIn.href} target="_blank" rel="noopener noreferrer">
+      <a href={sitePath(footer.linkedIn.href)} target="_blank" rel="noopener noreferrer">
         {footer.linkedIn.label}
         <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
       </a>

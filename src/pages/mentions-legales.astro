@@ -5,6 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { getHomepage, getMentions } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/mentions.css';
+import { sitePath } from '../lib/paths';
 
 const home = getHomepage('fr');
 const page = getMentions('fr');
@@ -13,7 +14,7 @@ const footer = {
   columns: home.footer.columns.map((column) => ({
     ...column,
     links: column.links.map((link) =>
-      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: sitePath(`/${link.href}`) } : link,
     ),
   })),
 };
@@ -48,7 +49,7 @@ const footer = {
               <li>
                 <span class="fact-key">{row.label}</span>
                 {row.href ? (
-                  <a class="real" href={row.href}>{row.value}</a>
+                  <a class="real" href={sitePath(row.href)}>{row.value}</a>
                 ) : (
                   <span class="ph">{row.value}</span>
                 )}
@@ -79,8 +80,8 @@ const footer = {
             <article class="related-card">
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-              <a class="path" href={item.href}>{item.pathLabel}</a>
-              <a class="btn btn-quiet" href={item.href}>{item.cta}</a>
+              <a class="path" href={sitePath(item.href)}>{item.pathLabel}</a>
+              <a class="btn btn-quiet" href={sitePath(item.href)}>{item.cta}</a>
             </article>
           ))}
         </div>
@@ -93,9 +94,9 @@ const footer = {
           <div class="ask-copy">
             <h2 id="ask-title">{page.questions.title}</h2>
             <p>{page.questions.support}</p>
-            <a class="address" href={page.questions.href}>{page.questions.address}</a>
+            <a class="address" href={sitePath(page.questions.href)}>{page.questions.address}</a>
           </div>
-          <a class="btn btn-primary" href={page.questions.href}>
+          <a class="btn btn-primary" href={sitePath(page.questions.href)}>
             {page.questions.cta} <Arrow />
           </a>
         </div>

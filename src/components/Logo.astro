@@ -1,5 +1,6 @@
 ---
 import logo from '../assets/brand/logo.png';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   href?: string;
@@ -9,6 +10,6 @@ interface Props {
 const { href = '#accueil', label = 'CamPower, accueil' } = Astro.props;
 ---
 
-<a class="brand" href={href} aria-label={label}>
+<a class="brand" href={sitePath(href)} aria-label={label}>
   <img src={logo.src} width={logo.width} height={logo.height} alt="" />
 </a>

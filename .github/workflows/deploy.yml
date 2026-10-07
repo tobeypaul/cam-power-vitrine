@@ -3,7 +3,7 @@ name: Deploy CamPower Site Vitrine
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -14,6 +14,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://tobeypaul.github.io
 
     steps:
       - name: Checkout repository

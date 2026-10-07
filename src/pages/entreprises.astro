@@ -7,6 +7,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { getEntreprises, getHomepage } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/entreprises.css';
+import { sitePath } from '../lib/paths';
 
 const home = getHomepage('fr');
 const page = getEntreprises('fr');
@@ -15,7 +16,7 @@ const footer = {
   columns: home.footer.columns.map((column) => ({
     ...column,
     links: column.links.map((link) =>
-      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: sitePath(`/${link.href}`) } : link,
     ),
   })),
 };
@@ -31,8 +32,8 @@ const footer = {
           <h1 id="entreprises-title">{page.hero.title}</h1>
           <p class="lead">{page.hero.lead}</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
-            <a class="link-more" href={page.hero.explore.href}>
+            <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
+            <a class="link-more" href={sitePath(page.hero.explore.href)}>
               {page.hero.explore.label}
               <svg viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -204,7 +205,7 @@ const footer = {
     <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
-      <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+      <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
     </section>
   </main>
   <SiteFooter footer={footer} homeHref="/" />

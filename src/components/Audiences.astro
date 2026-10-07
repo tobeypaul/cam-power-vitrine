@@ -1,6 +1,7 @@
 ---
 import Arrow from './Arrow.astro';
 import type { HomepageContent } from '../content/types';
+import { sitePath } from '../lib/paths';
 
 interface Props {
   audiences: HomepageContent['audiences'];
@@ -35,7 +36,7 @@ const icons = {
           <Fragment set:html={icons[item.id as keyof typeof icons]} />
           <h3>{item.title}</h3>
           <p>{item.body}</p>
-          <a class="more" href={item.cta.href}>{item.cta.label} <Arrow /></a>
+          <a class="more" href={sitePath(item.cta.href)}>{item.cta.label} <Arrow /></a>
         </article>
       ))}
     </div>

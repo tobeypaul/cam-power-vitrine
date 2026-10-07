@@ -4,6 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { getAide, getHomepage } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/aide.css';
+import { sitePath } from '../lib/paths';
 
 const home = getHomepage('fr');
 const page = getAide('fr');
@@ -12,7 +13,7 @@ const footer = {
   columns: home.footer.columns.map((column) => ({
     ...column,
     links: column.links.map((link) =>
-      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: sitePath(`/${link.href}`) } : link,
     ),
   })),
 };
@@ -47,7 +48,7 @@ const footer = {
           </div>
           <p class="hint">{page.hero.hint}</p>
           <p class="empty" id="aide-empty" role="status" hidden>
-            {page.hero.empty} <a href="/contact/">{page.hero.emptyLink}</a>
+            {page.hero.empty} <a href={sitePath('/contact/')}>{page.hero.emptyLink}</a>
           </p>
         </form>
       </div>
@@ -59,7 +60,7 @@ const footer = {
         <div class="topic-grid">
           {page.topics.items.map((topic) => (
             topic.href ? (
-              <a class="topic" href={topic.href} data-filter={topic.terms}>
+              <a class="topic" href={sitePath(topic.href)} data-filter={topic.terms}>
                 <span class="icon" aria-hidden="true"><svg><use href={`#aide-${topic.icon}`}></use></svg></span>
                 <strong>{topic.title}</strong>
                 <span>{topic.text}</span>
@@ -88,7 +89,7 @@ const footer = {
               <summary>{item.question}</summary>
               <div class="answer">
                 {item.answer}
-                {item.link && <a href={item.link.href}>{item.link.label}</a>}
+                {item.link && <a href={sitePath(item.link.href)}>{item.link.label}</a>}
                 {item.after}
               </div>
             </details>
@@ -129,9 +130,9 @@ const footer = {
         <h2 id="contact-title">{page.escalation.title}</h2>
         <p>{page.escalation.support}</p>
         <div class="escalate-actions">
-          <a class="btn btn-primary" href={page.escalation.contactHref}>{page.escalation.contactLabel}</a>
+          <a class="btn btn-primary" href={sitePath(page.escalation.contactHref)}>{page.escalation.contactLabel}</a>
           <a class="mail" href={`mailto:${page.escalation.emailLabel}`}>{page.escalation.emailLabel}</a>
-          <a class="btn btn-quiet" href={page.escalation.accessHref}>{page.escalation.accessLabel}</a>
+          <a class="btn btn-quiet" href={sitePath(page.escalation.accessHref)}>{page.escalation.accessLabel}</a>
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { getDecouvrir, getHomepage } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/decouvrir.css';
+import { sitePath } from '../lib/paths';
 
 const home = getHomepage('fr');
 const page = getDecouvrir('fr');
@@ -19,7 +20,7 @@ const footer = {
   columns: home.footer.columns.map((column) => ({
     ...column,
     links: column.links.map((link) =>
-      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: `/${link.href}` } : link,
+      link.href.startsWith('#') && link.href !== '#mentions' ? { ...link, href: sitePath(`/${link.href}`) } : link,
     ),
   })),
 };
@@ -42,8 +43,8 @@ const footer = {
           </h1>
           <p class="lead">{page.hero.lead}</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
-            <a class="link-more" href={page.hero.ecosystem.href}>
+            <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
+            <a class="link-more" href={sitePath(page.hero.ecosystem.href)}>
               {page.hero.ecosystem.label}
               <svg viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -214,7 +215,7 @@ const footer = {
         <div class="daily-copy">
           <h2 id="daily-title">{page.daily.title}</h2>
           <p class="support">{page.daily.support}</p>
-          <a class="play" href={page.daily.storeHref} target="_blank" rel="noopener noreferrer">
+          <a class="play" href={sitePath(page.daily.storeHref)} target="_blank" rel="noopener noreferrer">
             <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true">
               <path d="M2 1.8c0-1 1.1-1.6 2-1.1L20.2 10c.9.5.9 1.8 0 2.3L4 22.6c-.9.5-2-.1-2-1.1V1.8z" fill="#fff"></path>
             </svg>
@@ -231,7 +232,7 @@ const footer = {
     <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
       <h2 id="finale-title">{page.finale.title}</h2>
       <p>{page.finale.support}</p>
-      <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+      <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
     </section>
   </main>
   <SiteFooter footer={footer} homeHref="/" />
