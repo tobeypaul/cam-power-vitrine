@@ -340,7 +340,7 @@ h1 {
   object-fit: cover;
   object-position: top center;
 }
-.shot-offers img { object-position: center 68%; }
+.shot-offers img { object-position: top center; }
 .shot-profile img {
   position: absolute;
   top: 0;

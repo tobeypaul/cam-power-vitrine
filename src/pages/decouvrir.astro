@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import profileCard from '../assets/screens/profile-card.png';
-import screenFeed from '../assets/screens/screen-feed.png';
-import screenOffers from '../assets/screens/screen-offers.png';
-import screenRecruit from '../assets/screens/screen-recruit.png';
+import screenFeed from '../assets/screens/screen-feed.jpg';
+import screenOffer from '../assets/screens/screen-offer.jpg';
+import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenProfile from '../assets/screens/screen-profile.jpg';
 import Arrow from '../components/Arrow.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -92,7 +92,7 @@ const footer = {
           <h2 id="identity-title">{page.identity.title}</h2>
           <p class="support">{page.identity.support}</p>
           <figure class="idcard">
-            <Image src={profileCard} alt="Profil dans l’application CamPower" widths={[250, 500]} sizes="250px" quality={80} />
+            <Image src={screenProfile} alt="Profil dans l’application CamPower" widths={[250, 500]} sizes="250px" quality={80} />
           </figure>
         </div>
         <div class="bridge-join" aria-hidden="true"><span></span></div>
@@ -153,7 +153,7 @@ const footer = {
             <h3>{page.meeting.professionalsTitle}</h3>
             <p>{page.meeting.professionalsBody}</p>
           </article>
-          <PhoneFrame src={screenRecruit} alt="Recrutement dans l’application CamPower" />
+          <PhoneFrame src={screenOffer} alt="Détail d’une offre dans l’application CamPower" />
           <article class="meet-side meet-org">
             <h3>{page.meeting.organisationsTitle}</h3>
             <p>{page.meeting.organisationsBody}</p>

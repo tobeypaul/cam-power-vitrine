@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import profileCard from '../assets/screens/profile-card.png';
+import screenProfile from '../assets/screens/screen-profile.jpg';
 import type { HomepageContent } from '../content/types';
 import { sitePath } from '../lib/paths';
 
@@ -27,7 +27,7 @@ const { professionals, organisations } = Astro.props;
       <p class="support">{professionals.support}</p>
       <figure class="idcard">
         <Image
-          src={profileCard}
+          src={screenProfile}
           alt="Carte de profil dans l’application CamPower"
           widths={[250, 500]}
           sizes="250px"

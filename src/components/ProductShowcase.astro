@@ -1,7 +1,7 @@
 ---
-import profileCard from '../assets/screens/profile-card.png';
-import screenOffers from '../assets/screens/screen-offers.png';
-import screenRecruit from '../assets/screens/screen-recruit.png';
+import screenNetwork from '../assets/screens/screen-network.jpg';
+import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenProfile from '../assets/screens/screen-profile.jpg';
 import PhoneFrame from './PhoneFrame.astro';
 import type { HomepageContent } from '../content/types';
 
@@ -21,9 +21,9 @@ const { product } = Astro.props;
         {product.left.map((item) => <li>{item}</li>)}
       </ul>
       <div class="trio">
-        <PhoneFrame src={profileCard} alt="Carte de profil dans l’application CamPower" variant="profile" />
+        <PhoneFrame src={screenProfile} alt="Profil dans l’application CamPower" />
         <PhoneFrame src={screenOffers} alt="Écran des offres dans l’application CamPower" variant="offers" />
-        <PhoneFrame src={screenRecruit} alt="Écran de recrutement dans l’application CamPower" />
+        <PhoneFrame src={screenNetwork} alt="Réseau professionnel dans l’application CamPower" />
       </div>
       <ul class="calls right">
         {product.right.map((item) => <li>{item}</li>)}

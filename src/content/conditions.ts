@@ -13,7 +13,7 @@ export const conditionsFr: ConditionsContent = {
     title: 'Conditions d’utilisation du Site Vitrine',
     lead: 'Ces conditions encadrent uniquement l’utilisation du Site Vitrine public de CamPower. Elles expliquent la nature du site, les règles essentielles de son utilisation et les limites de ce que les informations présentées constituent.',
     support:
-      'Elles concernent ce site public, et non l’ensemble de l’application CamPower. Les consulter ou parcourir le site n’emporte pas acceptation de conditions d’application qui ne sont pas publiées ici.',
+      'Elles concernent ce site public. Les conditions de la plateforme et de l’application sont publiées séparément. Parcourir ce site n’emporte pas acceptation de ces conditions d’application.',
   },
   scope: {
     title: 'À quoi s’appliquent ces conditions ?',
@@ -24,7 +24,7 @@ export const conditionsFr: ConditionsContent = {
     outsideLabel: 'Elles ne définissent pas',
     outsideTitle: 'Les conditions contractuelles de la plateforme ou de l’application CamPower',
     outsideText:
-      'Comptes, profils, recrutement, candidatures, Missions, messages et contenus déposés dans l’application relèvent d’autres règles. Ces règles ne sont pas établies sur ce site.',
+      'Les conditions générales d’utilisation de la plateforme sont publiées à l’adresse https://cam-power.net/cgu. La version consultée le 7 octobre 2026 est en vigueur depuis le 21 juillet 2026. Elle traite notamment des comptes, des profils, des offres, des petites missions, des contenus publiés, de la messagerie et des abonnements. L’acceptation y est prévue lors de la création d’un compte. Ce site ne reprend pas ces obligations.',
   },
   purpose: {
     title: 'Un site public d’information sur CamPower',
@@ -67,7 +67,7 @@ export const conditionsFr: ConditionsContent = {
     title: 'Contenus, marque et illustrations',
     lead: 'Le Site Vitrine comprend la marque CamPower, sa conception et ses textes. Vous pouvez le consulter normalement. Il convient de ne pas présenter ce site, cette marque ou ces contenus comme les vôtres.',
     support:
-      'Cette page n’affirme pas qu’une marque est déposée, ni que chaque élément visuel appartient à CamPower quelle que soit son origine. Une règle plus précise sur la propriété ou les licences reste à confirmer.',
+      'Cette page n’affirme pas qu’une marque est déposée. Les conditions générales d’utilisation de la plateforme et ses mentions légales ne désignent pas le même titulaire des éléments de la plateforme. Cette page ne choisit pas entre ces deux formulations.',
     thirdParty:
       'La présence d’un nom, d’une marque ou d’un élément tiers dans une illustration ou une capture d’écran ne signifie pas, à elle seule, qu’il existe un partenariat, une affiliation ou une approbation par ce tiers.',
   },
@@ -76,6 +76,7 @@ export const conditionsFr: ConditionsContent = {
     lead: 'Le site peut vous conduire vers d’autres surfaces. Celles qui ne sont pas CamPower appliquent leurs propres conditions.',
     destinations: [
       { title: 'Application CamPower', text: 'cam-power.net' },
+      { title: 'CGU de la plateforme', text: 'cam-power.net/cgu' },
       { title: 'Google Play', text: 'La fiche de l’application' },
       { title: 'LinkedIn', text: 'La page de CamPower' },
       { title: 'Votre messagerie', text: siteConfig.email },
@@ -83,7 +84,7 @@ export const conditionsFr: ConditionsContent = {
     appTitle: 'L’application reste CamPower',
     appParagraphs: [
       'L’application CamPower est une surface du produit CamPower. Le fait qu’elle se trouve hors de ces conditions ne la présente pas comme un service étranger à CamPower.',
-      'Y accéder depuis le Site Vitrine ne signifie pas que ces conditions définissent toutes les règles de l’application. Choisir « Accéder à CamPower » n’emporte pas acceptation de conditions d’application.',
+      'Y accéder depuis le Site Vitrine ne signifie pas que ces conditions définissent les règles de l’application. Choisir « Accéder à CamPower » n’emporte pas acceptation des conditions générales d’utilisation publiées à l’adresse https://cam-power.net/cgu.',
     ],
   },
   availability: {
@@ -91,7 +92,7 @@ export const conditionsFr: ConditionsContent = {
     items: [
       {
         title: 'Le site peut évoluer',
-        text: 'Les contenus d’information du Site Vitrine peuvent être mis à jour à mesure que le produit évolue. Cette mise à jour ne modifie pas un contrat d’application qui n’est pas défini ici.',
+        text: 'Les contenus d’information du Site Vitrine peuvent être mis à jour à mesure que le produit évolue. Cette mise à jour ne modifie pas les conditions générales d’utilisation de la plateforme, qui restent publiées sur leur propre page.',
       },
       {
         title: 'L’accès peut être interrompu',
@@ -127,7 +128,7 @@ export const conditionsFr: ConditionsContent = {
   },
   law: {
     title: 'Cadre applicable',
-    text: 'Les questions relatives à ces conditions sont envisagées au regard du droit camerounais applicable. Cette page ne désigne ni tribunal, ni organe d’arbitrage ou de médiation, et elle n’affirme pas une conformité générale.',
+    text: 'Les questions relatives à ces conditions du Site Vitrine sont envisagées au regard du droit camerounais applicable. Cette page ne désigne ni tribunal, ni organe d’arbitrage ou de médiation. Les conditions générales d’utilisation de la plateforme prévoient, pour elles-mêmes, les tribunaux de Douala. Cette compétence n’est pas reprise ici pour le Site Vitrine.',
   },
   questions: {
     title: 'Une question sur ces conditions ?',

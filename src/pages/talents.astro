@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import profileCard from '../assets/screens/profile-card.png';
-import screenFeed from '../assets/screens/screen-feed.png';
-import screenOffers from '../assets/screens/screen-offers.png';
-import screenRecruit from '../assets/screens/screen-recruit.png';
+import screenFeed from '../assets/screens/screen-feed.jpg';
+import screenNetwork from '../assets/screens/screen-network.jpg';
+import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenProfile from '../assets/screens/screen-profile.jpg';
 import Arrow from '../components/Arrow.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -61,7 +61,7 @@ const footer = {
       <div class="wrap">
         <div class="presence-top" data-motion="reveal">
           <figure class="idcard">
-            <Image src={profileCard} alt="Profil dans l’application CamPower" widths={[280, 560]} sizes="280px" quality={80} />
+            <Image src={screenProfile} alt="Profil dans l’application CamPower" widths={[280, 560]} sizes="280px" quality={80} />
           </figure>
           <article>
             <p class="kicker">{page.identity.kicker}</p>
@@ -182,7 +182,7 @@ const footer = {
           </ul>
         </div>
         <figure>
-          <PhoneFrame src={screenRecruit} alt="Consultation de profils dans l’application CamPower" />
+          <PhoneFrame src={screenNetwork} alt="Consultation de profils dans l’application CamPower" />
           <figcaption class="phone-note">{page.organisations.note}</figcaption>
         </figure>
       </div>

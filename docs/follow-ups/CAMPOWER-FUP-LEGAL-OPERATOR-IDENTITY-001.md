@@ -8,6 +8,12 @@ This follow-up is separate from `CAMPOWER-FUP-APPLICATION-TERMS-EVIDENCE-001`. A
 
 The evidence record remains `docs/CamPower-Legal-Operator-Identity-Reconciliation-v0.1.md`. That reconciliation is not rewritten here. Its conclusion stays: the legal operator is **not established**.
 
+## Review of 7 October 2026
+
+The application CGU at `https://cam-power.net/cgu` says the platform is edited by HOPE CORPORATIONS, a Cameroonian company. The application mentions légales at `https://cam-power.net/mentions-legales` say the editor and operator is CamPower, and that Hope Corporation developed the solution and is neither owner nor co-publisher. Neither page publishes a legal form beyond “société de droit camerounais” in the CGU, an RCCM, a NIU, an address, or a named publication director. The publication director is given only as “Direction de CamPower”. The published legal email is `contact@campower.cm`. The Site Vitrine contact remains `contact@cam-power.net`.
+
+This follow-up stays **OPEN**.
+
 ## Purpose
 
 Replace placeholder and missing operator information with verified facts before legal publication where that identification is required.
