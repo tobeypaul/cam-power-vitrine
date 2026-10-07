@@ -71,6 +71,22 @@ const footer = {
       </div>
     </section>
 
+    {page.further.map((item) => (
+      <section class="host">
+        <div class="wrap">
+          <h2>{item.title}</h2>
+          <div class="host-card">
+            <p>{item.text}</p>
+            {item.links?.map((link) => (
+              <p>
+                <a href={link.href.startsWith('http') ? link.href : sitePath(link.href)}>{link.label}</a>
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
     <section class="related" aria-labelledby="related-title">
       <div class="wrap">
         <h2 id="related-title">{page.related.title}</h2>
@@ -80,8 +96,8 @@ const footer = {
             <article class="related-card">
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-              <a class="path" href={sitePath(item.href)}>{item.pathLabel}</a>
-              <a class="btn btn-quiet" href={sitePath(item.href)}>{item.cta}</a>
+              <a class="path" href={item.href.startsWith('http') ? item.href : sitePath(item.href)}>{item.pathLabel}</a>
+              <a class="btn btn-quiet" href={item.href.startsWith('http') ? item.href : sitePath(item.href)}>{item.cta}</a>
             </article>
           ))}
         </div>

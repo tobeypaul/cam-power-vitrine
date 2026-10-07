@@ -547,6 +547,9 @@ export interface ConfidentialiteContent {
   application: {
     title: string;
     paragraphs: string[];
+    sourceHref: string;
+    sourceLabel: string;
+    sourceNote: string;
   };
   questions: {
     title: string;
@@ -593,6 +596,11 @@ export interface MentionsContent {
     cardTitle: string;
     text: string;
   };
+  further: Array<{
+    title: string;
+    text: string;
+    links?: Array<{ href: string; label: string }>;
+  }>;
   related: {
     title: string;
     lead: string;

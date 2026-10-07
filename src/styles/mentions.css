@@ -132,6 +132,12 @@
 }
 
 .mentions .host { background: var(--surface); padding: 72px 0; }
+.mentions .host + .host { padding-top: 0; }
+.mentions .host-card a {
+  color: var(--navy);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
 .mentions .host-card {
   background: #fff;
   border-radius: 16px;

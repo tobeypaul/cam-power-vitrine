@@ -1,18 +1,23 @@
 # CAMPOWER-FUP-APPLICATION-PRIVACY-EVIDENCE-001
 
-Status: **OPEN — BLOCKED BY APPLICATION EVIDENCE AVAILABILITY**
+Status: **OPEN — EVIDENCE AVAILABLE / POLICY STRUCTURE STILL REQUIRES OWNER RESOLUTION**
 
 Opened: 2 October 2026
+Updated: 7 October 2026
 
-This follow-up stays open after any publication of the interim Site Vitrine privacy notice. Publishing that notice does not close it.
+This follow-up stays open. Publishing a summary on the Site Vitrine does not close it. Closure of this item requires an audit, not only the discovery of published text.
 
-## Constraint
+## Evidence now available
 
-The CamPower application source code is currently unavailable to the Product Owner. Do not guess repository names or infer application data practices.
+On 7 October 2026 the application CGU at `https://cam-power.net/cgu` and the application mentions légales at `https://cam-power.net/mentions-legales` publish substantial privacy disclosures. The CGU, in force since 21 July 2026, lists categories such as name, first name, email, telephone, city, CV, professional skills, application history, and navigation data. It lists purposes of account management, candidate and recruiter matching, recommendations and service improvement, communications, and legal compliance. It states rights of access, rectification, and deletion. The mentions describe platform cookies for session, preferences, usage analysis, and member-only security.
 
-## Purpose
+The Site Vitrine privacy page now summarises those published statements and links to `https://cam-power.net/cgu`. That page does not replace the CGU. The record is `docs/CamPower-Site-Vitrine-Privacy-and-Legal-Reconciliation-005.md`.
 
-When application source, backend, Android, and infrastructure evidence becomes available:
+## Still required before closure
+
+The application source code, backend, Android build, and infrastructure evidence are not part of this follow-up’s closure. Do not guess repository names or infer practices that the published pages do not state.
+
+When that evidence becomes available:
 
 - audit application processing;
 - reconcile the Google Play Data Safety declaration with actual behaviour;
@@ -28,8 +33,8 @@ When application source, backend, Android, and infrastructure evidence becomes a
 - establish application cross-border processing;
 - review automated decision-making;
 - review any sale or advertising policy;
-- replace or expand the interim privacy notice.
+- decide whether a dedicated privacy policy, separate from the CGU, is required.
 
-## Not in scope of the interim notice
+## Not closed by the Vitrine summary
 
-The interim Confidentialité mockup describes only the reviewed public Site Vitrine. It does not describe application accounts, profiles, recruitment, missions, messaging, notifications, Android processing, analytics, deletion, or retention.
+The Vitrine page does not attribute application accounts, CVs, recruiter data, payments, messages, or application profiles to the public site. It does not certify retention, deletion procedure, or the Play Data Safety form.

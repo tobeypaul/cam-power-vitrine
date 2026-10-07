@@ -1,8 +1,9 @@
 # CAMPOWER-FUP-PLAY-PRIVACY-DESTINATION-001
 
-Status: **OPEN**
+Status: **CLOSED — DESTINATION CONFIRMED**
 
 Opened: 2 October 2026
+Closed: 7 October 2026
 
 ## Finding
 
@@ -14,12 +15,18 @@ That URL returned HTTP 404 during the privacy reconciliation. The Site Vitrine r
 
 The same listing’s Data Safety form says no user data is collected and none is shared, while the store description refers to professional profiles, skills, experience, opportunities, missions, and a professional network. That contradiction is not resolved.
 
+## Closure on 7 October 2026
+
+The Project Owner confirmed that Google Play currently points to:
+
+`https://cam-power.net/cgu`
+
+That address now publishes the application CGU, including a personal-data section. This closure identifies the current destination only. It does not certify that the destination is an ideal or compliant privacy policy, and it does not make `/cgu` the Site Vitrine privacy page.
+
 ## Not authorised here
 
-Do not change the Google Play listing, the Data Safety form, or `cam-power.net` under the Confidentialité mockup dispatch.
+Do not change the Google Play listing, the Data Safety form, or `cam-power.net` under this follow-up.
 
 Do not copy the Data Safety declaration into the public privacy notice.
 
-Do not present `/cgu` as an operational privacy notice.
-
-A future `/confidentialite/` route may later be the appropriate public destination. That choice is a later dispatch, after Product Owner review of the interim notice.
+Do not present the Site Vitrine privacy page as a replacement for the application CGU.

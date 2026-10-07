@@ -14,6 +14,10 @@ The application CGU at `https://cam-power.net/cgu` says the platform is edited b
 
 This follow-up stays **OPEN**.
 
+## Review of 7 October 2026 — dispatch 005
+
+The same contradiction remains after the privacy and legal reconciliation. The CGU at `https://cam-power.net/cgu` names HOPE CORPORATIONS, société de droit camerounais, as editor of the platform. The mentions légales at `https://cam-power.net/mentions-legales` name CamPower as editor and operator, and say Hope Corporation is the software-development provider, not the owner, not the co-editor, and not responsible for users’ personal data. No new registry evidence identifies a single legal operator. Hope Corporation and HOPE CORPORATIONS are not treated as the same legal entity. The record is `docs/CamPower-Site-Vitrine-Privacy-and-Legal-Reconciliation-005.md`.
+
 ## Purpose
 
 Replace placeholder and missing operator information with verified facts before legal publication where that identification is required.

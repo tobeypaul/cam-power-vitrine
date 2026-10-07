@@ -10,6 +10,7 @@ import type { MentionsContent } from './types';
  * legal form, RCCM, NIU, address, or named publication director.
  *
  * CAMPOWER-FUP-LEGAL-OPERATOR-IDENTITY-001 stays open.
+ * Dispatch 005 records the same contradiction and does not choose a side.
  */
 export const mentionsIdentityPublicationGate = 'UNRESOLVED' as const;
 
@@ -28,8 +29,8 @@ export const mentionsFr: MentionsContent = {
       'Les pages de la plateforme ont été consultées le 7 octobre 2026. Les champs qui n’y figurent pas restent non établis.',
   },
   identity: {
-    title: 'Ce que les pages de la plateforme publient',
-    lead: 'Deux pages vivent sur la plateforme. Elles ne nomment pas le même éditeur. Aucune ne publie une immatriculation, un NIU ou une adresse.',
+    title: 'Éditeur du site',
+    lead: 'Les mentions légales de la plateforme, consultées le 7 octobre 2026, publient CamPower comme éditeur et exploitant, la République du Cameroun, contact@campower.cm et « Direction de CamPower » comme directeur de la publication. Elles ne publient ni forme juridique, ni RCCM, ni NIU, ni adresse, ni téléphone, ni le nom d’une personne physique.',
     flag: 'Identité non tranchée',
     notice:
       'Les mentions légales de la plateforme désignent CamPower. Les conditions générales d’utilisation désignent HOPE CORPORATIONS, société de droit camerounais. Hope Corporation y est aussi nommée comme prestataire de développement, et non comme éditeur.',
@@ -54,7 +55,7 @@ export const mentionsFr: MentionsContent = {
       },
       {
         label: 'Développement',
-        value: 'Hope Corporation, indiquée comme prestataire et non comme éditeur',
+        value: 'Hope Corporation, prestataire de développement logiciel',
         status: 'established',
         statusLabel: 'Publié',
       },
@@ -68,31 +69,37 @@ export const mentionsFr: MentionsContent = {
         label: 'Forme juridique',
         value: 'Non publiée',
         status: 'prototype',
-        statusLabel: 'Non établi',
+        statusLabel: 'Non publié',
       },
       {
         label: 'Immatriculation',
         value: 'Non publiée',
         status: 'prototype',
-        statusLabel: 'Non établi',
+        statusLabel: 'Non publié',
       },
       {
         label: 'Contribuable',
         value: 'Non publié',
         status: 'prototype',
-        statusLabel: 'Non établi',
+        statusLabel: 'Non publié',
+      },
+      {
+        label: 'Personne physique nommée',
+        value: 'Non publiée',
+        status: 'prototype',
+        statusLabel: 'Non publié',
       },
       {
         label: 'Adresse',
         value: 'Non publiée',
         status: 'prototype',
-        statusLabel: 'Non établi',
+        statusLabel: 'Non publié',
       },
       {
         label: 'Téléphone',
         value: 'Non publié',
         status: 'prototype',
-        statusLabel: 'Non établi',
+        statusLabel: 'Non publié',
       },
       {
         label: 'Courriel des mentions de la plateforme',
@@ -113,11 +120,33 @@ export const mentionsFr: MentionsContent = {
   hosting: {
     title: 'Hébergement',
     cardTitle: 'Hébergement publié et hébergement du site',
-    text: 'Les mentions de la plateforme indiquent un hébergement sur des infrastructures cloud tierces, sans nommer l’hébergeur. L’hébergeur de production du Site Vitrine n’est pas établi sur cette page.',
+    text: 'Les mentions de la plateforme indiquent que la plateforme est hébergée sur des infrastructures cloud tierces, sans nommer l’hébergeur. Elles renvoient à l’éditeur pour toute information sur cet hébergeur. L’hébergeur de production du Site Vitrine n’est pas établi sur cette page.',
   },
+  further: [
+    {
+      title: 'Développement',
+      text: 'Les mentions légales de la plateforme indiquent que la solution numérique CamPower a été développée par Hope Corporation, prestataire de développement logiciel. Elles indiquent aussi que Hope Corporation n’est ni propriétaire, ni coéditeur de CamPower, n’est pas responsable du traitement des données personnelles des utilisateurs, et que l’exploitation du service et la responsabilité des données incombent exclusivement à CamPower. Cette page ne réinterprète pas ces phrases. Elle ne décide pas si Hope Corporation et HOPE CORPORATIONS sont la même personne morale.',
+    },
+    {
+      title: 'Propriété intellectuelle',
+      text: 'Les mentions de la plateforme indiquent que l’ensemble du contenu du site CAMPOWER, notamment les textes, graphiques, images, logos, icônes, vidéos, logiciels et bases de données, est la propriété exclusive de CamPower ou de ses partenaires, et est protégé par les lois camerounaises et internationales relatives à la propriété intellectuelle. Les conditions générales d’utilisation attribuent, de leur côté, les éléments de la plateforme à HOPE CORPORATIONS. Cette page ne choisit pas entre ces formulations.',
+    },
+    {
+      title: 'Données personnelles',
+      text: 'Les mentions de la plateforme indiquent que CamPower traite des données personnelles pour fournir et améliorer les services, et qu’un utilisateur peut exercer des droits d’accès, de rectification et de suppression à contact@campower.cm. Le Site Vitrine décrit ses propres limites sur sa page Confidentialité. La source publiée pour les traitements de l’application reste les conditions générales d’utilisation. Cette page ne recopie pas ces textes.',
+      links: [
+        { href: '/confidentialite/', label: 'Confidentialité du Site Vitrine' },
+        { href: 'https://cam-power.net/cgu', label: 'https://cam-power.net/cgu' },
+      ],
+    },
+    {
+      title: 'Droit applicable',
+      text: 'Les mentions de la plateforme sont régies par le droit camerounais. Elles attribuent aux tribunaux de Douala, République du Cameroun, la compétence exclusive pour les litiges relatifs à leur interprétation ou à leur exécution. Cette indication est celle publiée pour ces mentions. Elle ne désigne pas, à elle seule, le for du Site Vitrine.',
+    },
+  ],
   related: {
     title: 'Pages associées',
-    lead: 'Les règles du site et la confidentialité ont chacune leur page. Elles ne sont pas recopiées ici.',
+    lead: 'Les règles du site et la confidentialité ont chacune leur page. Les conditions de la plateforme restent sur la plateforme.',
     items: [
       {
         title: 'Conditions d’utilisation',
@@ -132,6 +161,20 @@ export const mentionsFr: MentionsContent = {
         href: '/confidentialite/',
         pathLabel: '/confidentialite/',
         cta: 'Lire la confidentialité',
+      },
+      {
+        title: 'Conditions de la plateforme',
+        text: 'Source actuelle des conditions et des informations de confidentialité de l’application. Cette page ne la remplace pas.',
+        href: 'https://cam-power.net/cgu',
+        pathLabel: 'cam-power.net/cgu',
+        cta: 'Ouvrir les CGU',
+      },
+      {
+        title: 'Mentions de la plateforme',
+        text: 'Source consultée pour les mentions de l’application. Cette page du Site Vitrine ne la recopie pas.',
+        href: 'https://cam-power.net/mentions-legales',
+        pathLabel: 'cam-power.net/mentions-legales',
+        cta: 'Ouvrir les mentions',
       },
     ],
   },

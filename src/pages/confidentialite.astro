@@ -109,6 +109,8 @@ const footer = {
         <div class="app-band">
           <h2 id="app-title">{page.application.title}</h2>
           {page.application.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <p>{page.application.sourceNote}</p>
+          <a class="source" href={page.application.sourceHref}>{page.application.sourceLabel}</a>
         </div>
       </div>
     </section>

@@ -5,25 +5,25 @@ export const confidentialiteFr: ConfidentialiteContent = {
   meta: {
     title: 'Confidentialité — Site Vitrine CamPower',
     description:
-      'Information intermédiaire sur les pratiques de confidentialité actuellement établies pour le Site Vitrine public de CamPower.',
+      'Confidentialité du Site Vitrine public de CamPower, et résumé des informations publiées pour l’application, sans remplacer les conditions de la plateforme.',
   },
   hero: {
     eyebrow: 'Confidentialité',
-    status: 'Information intermédiaire',
+    status: 'Site Vitrine et application',
     title: 'Votre confidentialité, expliquée clairement.',
-    lead: 'Cette page indique ce qui est établi aujourd’hui lorsque vous consultez le site public de CamPower, et la limite de cette information.',
+    lead: 'Cette page indique ce qui s’applique lorsque vous consultez seulement le Site Vitrine, puis ce que les conditions de la plateforme publient pour l’application. Elle ne remplace pas ces conditions.',
   },
   scope: {
     title: 'Portée de cette information',
-    lead: 'Cette information décrit les pratiques de confidentialité actuellement établies pour le Site Vitrine public de CamPower. Les informations relatives aux traitements effectués au sein de la plateforme et de l’application CamPower seront complétées lorsque les éléments techniques et opérationnels nécessaires auront été consolidés.',
-    coveredLabel: 'Couvert aujourd’hui',
+    lead: 'Cette information distingue le Site Vitrine public et la plateforme CamPower. Consulter ce site ne crée pas de compte et ne constitue pas une candidature.',
+    coveredLabel: 'Ce site',
     coveredTitle: 'Le Site Vitrine public',
     coveredText:
       'Les pages d’information que vous consultez ici, y compris Aide et Contact. Les constats ci-dessous portent sur la version de ce site qui a été examinée.',
-    pendingLabel: 'À compléter',
+    pendingLabel: 'Autre surface',
     pendingTitle: 'La plateforme et l’application',
     pendingText:
-      'Les traitements liés aux comptes, aux profils, au recrutement, aux missions, aux messages et aux notifications ne sont pas décrits ici. Ils ne sont pas encore établis dans cette information.',
+      'Les comptes, les profils, les candidatures, les CV, les données de recruteurs, les paiements, les messages et les profils de candidature relèvent de l’application. Ce site ne les traite pas. Les éléments publiés à leur sujet sont résumés plus bas.',
   },
   practices: {
     title: 'Ce que fait actuellement le Site Vitrine',
@@ -73,14 +73,21 @@ export const confidentialiteFr: ConfidentialiteContent = {
         text: 'Aucun outil d’analyse ou de suivi des visiteurs n’a été identifié dans l’implémentation actuelle du Site Vitrine.',
       },
     ],
-    note: 'Ces constats concernent le Site Vitrine examiné. Ils ne portent pas sur l’application CamPower.',
+    note: 'Ces constats concernent le Site Vitrine examiné. Les mentions de la plateforme indiquent, pour la plateforme seulement, que des cookies ou technologies similaires peuvent maintenir la session, mémoriser des préférences, analyser l’usage et sécuriser les fonctions réservées aux membres. Ces usages ne sont pas ceux de ce site.',
   },
   application: {
     title: 'Concernant l’application CamPower',
     paragraphs: [
-      'CamPower ne se limite pas à ce site d’information. La plateforme et l’application servent des échanges professionnels plus larges. Le positionnement public évoque des profils, des compétences, des opportunités, le recrutement, les missions et le réseau professionnel.',
-      'Cette page ne transforme pas ces descriptions en inventaire des données traitées. Une description complète de ces traitements exige des éléments techniques et opérationnels qui ne sont pas disponibles aujourd’hui. Ils seront ajoutés lorsqu’ils auront été consolidés.',
+      'Les conditions générales d’utilisation de la plateforme, en vigueur depuis le 21 juillet 2026 et consultées le 7 octobre 2026, décrivent des traitements propres à l’application. Le résumé qui suit ne recopie pas ces conditions.',
+      'Ces conditions indiquent que la plateforme collecte notamment le nom, le prénom, l’adresse électronique, le téléphone, la ville, le CV, les compétences professionnelles, l’historique des candidatures et des données de navigation.',
+      'Les finalités qui y figurent comprennent la gestion et la personnalisation du compte, la mise en relation des candidats et des recruteurs, l’amélioration du service et des recommandations personnalisées, les communications relatives au compte et aux offres, ainsi que le respect d’obligations légales.',
+      'Les droits qui y sont indiqués sont l’accès, la rectification et la suppression. Les conditions indiquent de les exercer auprès de l’éditeur à contact@campower.cm. Cette adresse est le contact publié par les pages légales de la plateforme. Une question sur le Site Vitrine reste adressée à contact@cam-power.net.',
+      'Les mêmes conditions citent la loi n° 2010/021 du 21 décembre 2010 régissant le commerce électronique et la loi n° 2010/012 du 21 décembre 2010 relative à la cybersécurité et à la cybercriminalité. Elles désignent HOPE CORPORATIONS, société de droit camerounais, comme éditeur de la plateforme. Les mentions légales de la plateforme désignent CamPower. Cette page ne choisit pas entre ces deux formulations.',
     ],
+    sourceHref: 'https://cam-power.net/cgu',
+    sourceLabel: 'https://cam-power.net/cgu',
+    sourceNote:
+      'Ce lien ouvre les conditions générales d’utilisation publiées pour la plateforme. C’est la source actuelle pour les conditions et les informations de confidentialité de l’application. Cette page du Site Vitrine ne la remplace pas.',
   },
   questions: {
     title: 'Une question sur vos données ou votre confidentialité ?',
@@ -93,10 +100,10 @@ export const confidentialiteFr: ConfidentialiteContent = {
   evolve: {
     title: 'Une information appelée à évoluer',
     paragraphs: [
-      'Cette information intermédiaire sera mise à jour lorsque les éléments relatifs à l’application et à l’hébergement de production auront été consolidés. Les travaux de confidentialité de CamPower sont menés au regard du cadre camerounais applicable, notamment la loi n° 2024/017 du 23 décembre 2024 relative à la protection des données à caractère personnel.',
-      'Cette page n’indique ni enregistrement, ni autorisation, ni certification. Elle ne fixe pas de durée de conservation et ne décrit pas de procédure de suppression de compte.',
+      'Le résumé de l’application suit les conditions consultées le 7 octobre 2026. Il ne constitue pas un audit des traitements, ni un inventaire des durées de conservation, ni une procédure de suppression de compte.',
+      'L’hébergement de production du Site Vitrine n’est pas arrêté sur cette page. Aucune durée de conservation n’est indiquée pour ce site.',
     ],
     updatedLabel: 'Dernière mise à jour',
-    updated: '2 octobre 2026',
+    updated: '7 octobre 2026',
   },
 };
