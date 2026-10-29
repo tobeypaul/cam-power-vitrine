@@ -24,7 +24,7 @@ export const aideFr: AideContent = {
         title: 'Compte & accès',
         text: 'Où ouvrir CamPower et l’application.',
         action: 'Voir les questions',
-        terms: 'compte accès application android',
+        terms: 'compte accès application android iphone',
         icon: 'key',
       },
       {
@@ -105,6 +105,13 @@ export const aideFr: AideContent = {
         link: { label: 'Google Play', href: siteConfig.playStoreUrl },
         after: '.',
         terms: 'application android google play compte accès',
+      },
+      {
+        question: 'Une application iPhone est-elle disponible ?',
+        answer: 'Oui. L’application iPhone est disponible sur ',
+        link: { label: 'l’App Store', href: siteConfig.appStoreUrl },
+        after: '.',
+        terms: 'application iphone ios apple app store compte accès',
       },
     ],
   },

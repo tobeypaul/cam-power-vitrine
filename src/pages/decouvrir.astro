@@ -7,6 +7,7 @@ import screenProfile from '../assets/screens/screen-profile.jpg';
 import Arrow from '../components/Arrow.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import StoreBadges from '../components/StoreBadges.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { getDecouvrir, getHomepage } from '../content';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -215,16 +216,7 @@ const footer = {
         <div class="daily-copy">
           <h2 id="daily-title">{page.daily.title}</h2>
           <p class="support">{page.daily.support}</p>
-          <a class="play" href={sitePath(page.daily.storeHref)} target="_blank" rel="noopener noreferrer">
-            <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true">
-              <path d="M2 1.8c0-1 1.1-1.6 2-1.1L20.2 10c.9.5.9 1.8 0 2.3L4 22.6c-.9.5-2-.1-2-1.1V1.8z" fill="#fff"></path>
-            </svg>
-            <span>
-              <small>{page.daily.storeKicker}</small>
-              <strong>{page.daily.storeName}</strong>
-              <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
-            </span>
-          </a>
+          <StoreBadges stores={page.daily.stores} />
         </div>
       </div>
     </section>

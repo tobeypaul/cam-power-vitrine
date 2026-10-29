@@ -85,6 +85,8 @@ Calls to action labelled **Accéder à CamPower** go to `https://cam-power.net/`
 
 The Google Play listing is `https://play.google.com/store/apps/details?id=com.campower&hl=fr`.
 
+The App Store listing is `https://apps.apple.com/app/campower/id6812945656`.
+
 This site does not call the application API.
 
 ## Environment

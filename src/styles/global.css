@@ -595,8 +595,13 @@ h1 {
 .anywhere-phone .phone { width: 270px; }
 .anywhere h2 { font-size: 40px; max-width: 14em; }
 .anywhere .dek { margin-top: 14px; max-width: 34em; font-size: 18px; line-height: 1.55; }
-.play {
+.stores {
   margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.play {
   display: inline-flex;
   align-items: center;
   gap: 12px;

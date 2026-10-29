@@ -1,4 +1,5 @@
 import { siteConfig } from '../lib/site';
+import { appStoresFr } from './stores';
 import type { HomepageContent } from './types';
 
 const access = {
@@ -106,9 +107,7 @@ export const homepageFr: HomepageContent = {
   mobile: {
     title: 'CamPower, partout avec vous.',
     dek: 'Consultez votre profil, vos opportunités et vos missions depuis votre téléphone.',
-    storeKicker: 'Télécharger sur',
-    storeName: 'Google Play',
-    storeHref: siteConfig.playStoreUrl,
+    stores: appStoresFr,
   },
   finale: {
     title: 'Prêt à donner de la puissance à vos opportunités ?',

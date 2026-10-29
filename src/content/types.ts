@@ -1,3 +1,10 @@
+export interface StoreLink {
+  kicker: string;
+  name: string;
+  href: string;
+  platform: 'android' | 'ios';
+}
+
 export interface LinkItem {
   label: string;
   href: string;
@@ -73,9 +80,7 @@ export interface HomepageContent {
   mobile: {
     title: string;
     dek: string;
-    storeKicker: string;
-    storeName: string;
-    storeHref: string;
+    stores: StoreLink[];
   };
   finale: {
     title: string;
@@ -158,9 +163,7 @@ export interface DecouvrirContent {
   daily: {
     title: string;
     support: string;
-    storeKicker: string;
-    storeName: string;
-    storeHref: string;
+    stores: StoreLink[];
   };
   finale: {
     title: string;
@@ -441,9 +444,7 @@ export interface TalentsContent {
   daily: {
     title: string;
     support: string;
-    storeKicker: string;
-    storeName: string;
-    storeHref: string;
+    stores: StoreLink[];
   };
   finale: {
     title: string;

@@ -78,6 +78,7 @@ export const conditionsFr: ConditionsContent = {
       { title: 'Application CamPower', text: 'cam-power.net' },
       { title: 'CGU de la plateforme', text: 'cam-power.net/cgu' },
       { title: 'Google Play', text: 'La fiche de l’application' },
+      { title: 'App Store', text: 'La fiche de l’application' },
       { title: 'LinkedIn', text: 'La page de CamPower' },
       { title: 'Votre messagerie', text: siteConfig.email },
     ],

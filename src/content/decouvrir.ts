@@ -1,5 +1,5 @@
-import { siteConfig } from '../lib/site';
 import type { DecouvrirContent } from './types';
+import { appStoresFr } from './stores';
 
 export const decouvrirFr: DecouvrirContent = {
   meta: {
@@ -83,9 +83,7 @@ export const decouvrirFr: DecouvrirContent = {
   daily: {
     title: 'CamPower dans votre quotidien.',
     support: 'Le profil, le réseau, les opportunités et les missions restent accessibles depuis votre téléphone.',
-    storeKicker: 'Télécharger sur',
-    storeName: 'Google Play',
-    storeHref: siteConfig.playStoreUrl,
+    stores: appStoresFr,
   },
   finale: {
     title: 'Vous voyez comment CamPower se tient.',

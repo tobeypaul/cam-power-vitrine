@@ -1,5 +1,5 @@
-import { siteConfig } from '../lib/site';
 import type { TalentsContent } from './types';
+import { appStoresFr } from './stores';
 
 export const talentsFr: TalentsContent = {
   meta: {
@@ -115,9 +115,7 @@ export const talentsFr: TalentsContent = {
   daily: {
     title: 'CamPower, partout avec vous.',
     support: 'Votre profil, votre réseau et vos opportunités restent accessibles sur votre téléphone.',
-    storeKicker: 'Télécharger sur',
-    storeName: 'Google Play',
-    storeHref: siteConfig.playStoreUrl,
+    stores: appStoresFr,
   },
   finale: {
     title: 'Faites avancer votre parcours professionnel avec CamPower.',
