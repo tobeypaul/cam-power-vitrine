@@ -1,6 +1,6 @@
 ---
-import screenNetwork from '../assets/screens/screen-network.jpg';
-import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenMiniJobs from '../assets/screens/screen-minijobs.jpg';
+import screenSuggestions from '../assets/screens/screen-suggestions.jpg';
 import screenProfile from '../assets/screens/screen-profile.jpg';
 import PhoneFrame from './PhoneFrame.astro';
 import type { HomepageContent } from '../content/types';
@@ -25,8 +25,8 @@ const alt = t(locale).alt;
       </ul>
       <div class="trio">
         <PhoneFrame src={screenProfile} alt={alt.profile} />
-        <PhoneFrame src={screenOffers} alt={alt.offersScreen} variant="offers" />
-        <PhoneFrame src={screenNetwork} alt={alt.network} />
+        <PhoneFrame src={screenMiniJobs} alt={alt.miniJobs} variant="offers" />
+        <PhoneFrame src={screenSuggestions} alt={alt.suggestions} />
       </div>
       <ul class="calls right">
         {product.right.map((item) => <li>{item}</li>)}

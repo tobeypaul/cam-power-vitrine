@@ -99,7 +99,7 @@ The map lives in `src/i18n/index.ts`. The FR/EN control in the header opens the 
 ## Assets
 
 - Logo: `src/assets/brand/logo.png` — the accepted CamPower logo. Do not redraw, recolour, or substitute it.
-- Screens: `src/assets/screens/` — Play Store screenshots used in Mockup 03. `profile-card.png` is the identity portion of the profile screen. The rest of that screen is not used because it contains placeholder biography text.
+- Screens: `src/assets/screens/` — application screenshots supplied by the Owner on 10 November 2026. `screen-messages.jpg`, `screen-chat.jpg`, `screen-connections.jpg`, `screen-suggestions.jpg` and `screen-notifications.jpg` are anonymised: real users’ names, photos and private messages were replaced with fictional ones. The app interface itself is unchanged. Companies shown posting public job offers are kept.
 
 ## Application boundary
 

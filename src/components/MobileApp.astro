@@ -1,5 +1,5 @@
 ---
-import screenFeed from '../assets/screens/screen-feed.jpg';
+import screenNotifications from '../assets/screens/screen-notifications.jpg';
 import PhoneFrame from './PhoneFrame.astro';
 import StoreBadges from './StoreBadges.astro';
 import type { HomepageContent } from '../content/types';
@@ -16,7 +16,7 @@ const { mobile, locale } = Astro.props;
 <section class="anywhere" data-motion="reveal" aria-labelledby="anywhere-title">
   <div class="wrap anywhere-grid">
     <div class="anywhere-phone">
-      <PhoneFrame src={screenFeed} alt={t(locale).alt.feed} />
+      <PhoneFrame src={screenNotifications} alt={t(locale).alt.notifications} />
     </div>
     <div class="anywhere-copy">
       <h2 id="anywhere-title">{mobile.title}</h2>

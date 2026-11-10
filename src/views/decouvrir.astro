@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import screenFeed from '../assets/screens/screen-feed.jpg';
-import screenOffer from '../assets/screens/screen-offer.jpg';
-import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenMessages from '../assets/screens/screen-messages.jpg';
+import screenMiniJob from '../assets/screens/screen-minijob.jpg';
+import screenMiniJobs from '../assets/screens/screen-minijobs.jpg';
 import screenProfile from '../assets/screens/screen-profile.jpg';
 import Arrow from '../components/Arrow.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
@@ -141,7 +141,7 @@ const footer = innerFooter(home.footer, locale);
           <h2 id="opportunities-title">{page.opportunities.title}</h2>
           <p class="support">{page.opportunities.support}</p>
         </div>
-        <PhoneFrame src={screenOffers} alt={text.alt.offers} variant="offers" />
+        <PhoneFrame src={screenMiniJobs} alt={text.alt.miniJobs} variant="offers" />
       </div>
     </section>
 
@@ -154,7 +154,7 @@ const footer = innerFooter(home.footer, locale);
             <h3>{page.meeting.professionalsTitle}</h3>
             <p>{page.meeting.professionalsBody}</p>
           </article>
-          <PhoneFrame src={screenOffer} alt={text.alt.offerDetail} />
+          <PhoneFrame src={screenMiniJob} alt={text.alt.miniJobDetail} />
           <article class="meet-side meet-org">
             <h3>{page.meeting.organisationsTitle}</h3>
             <p>{page.meeting.organisationsBody}</p>
@@ -212,7 +212,7 @@ const footer = innerFooter(home.footer, locale);
 
     <section class="daily" data-motion="reveal" aria-labelledby="daily-title">
       <div class="wrap daily-grid">
-        <PhoneFrame src={screenFeed} alt={text.alt.feed} />
+        <PhoneFrame src={screenMessages} alt={text.alt.messages} />
         <div class="daily-copy">
           <h2 id="daily-title">{page.daily.title}</h2>
           <p class="support">{page.daily.support}</p>

@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import screenFeed from '../assets/screens/screen-feed.jpg';
-import screenNetwork from '../assets/screens/screen-network.jpg';
-import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenChat from '../assets/screens/screen-chat.jpg';
+import screenConnections from '../assets/screens/screen-connections.jpg';
+import screenMiniJobs from '../assets/screens/screen-minijobs.jpg';
 import screenProfile from '../assets/screens/screen-profile.jpg';
 import Arrow from '../components/Arrow.astro';
 import PhoneFrame from '../components/PhoneFrame.astro';
@@ -142,7 +142,7 @@ const footer = innerFooter(home.footer, locale);
           </div>
         </div>
         <figure>
-          <PhoneFrame src={screenOffers} alt={text.alt.offers} variant="offers" />
+          <PhoneFrame src={screenMiniJobs} alt={text.alt.miniJobs} variant="offers" />
           <figcaption class="phone-note">{page.opportunities.note}</figcaption>
         </figure>
       </div>
@@ -183,7 +183,7 @@ const footer = innerFooter(home.footer, locale);
           </ul>
         </div>
         <figure>
-          <PhoneFrame src={screenNetwork} alt={text.alt.profileBrowse} />
+          <PhoneFrame src={screenChat} alt={text.alt.chat} />
           <figcaption class="phone-note">{page.organisations.note}</figcaption>
         </figure>
       </div>
@@ -217,7 +217,7 @@ const footer = innerFooter(home.footer, locale);
 
     <section class="daily" data-motion="reveal" aria-labelledby="daily-title">
       <div class="wrap daily-grid">
-        <PhoneFrame src={screenFeed} alt={text.alt.onPhone} />
+        <PhoneFrame src={screenConnections} alt={text.alt.connections} />
         <div>
           <h2 id="daily-title">{page.daily.title}</h2>
           <p class="support">{page.daily.support}</p>

@@ -1,6 +1,6 @@
 ---
-import screenNetwork from '../assets/screens/screen-network.jpg';
-import screenOffers from '../assets/screens/screen-offers.jpg';
+import screenConnections from '../assets/screens/screen-connections.jpg';
+import screenWelcome from '../assets/screens/screen-welcome.jpg';
 import Arrow from './Arrow.astro';
 import PhoneFrame from './PhoneFrame.astro';
 import StoreBadges from './StoreBadges.astro';
@@ -40,13 +40,13 @@ const { hero, stores, locale } = Astro.props;
       </ul>
     </div>
     <div class="hero-visual">
-      <PhoneFrame src={screenNetwork} alt="" frameClass="back" eager variant="default" />
+      <PhoneFrame src={screenConnections} alt="" frameClass="back" eager variant="default" />
       <PhoneFrame
-        src={screenOffers}
-        alt={t(locale).alt.heroOffers}
+        src={screenWelcome}
+        alt={t(locale).alt.welcome}
         frameClass="front"
         eager
-        variant="offers"
+        variant="default"
       />
       <aside class="chip">
         <span class="chip-k">{hero.chip.kicker}</span>
