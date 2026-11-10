@@ -144,7 +144,6 @@ export const homepageFr: HomepageContent = {
     ],
     email: { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
     location: 'Cameroun',
-    linkedIn: { label: 'LinkedIn', href: siteConfig.linkedInUrl, external: true },
     copyright: '© 2026 CamPower',
   },
 };

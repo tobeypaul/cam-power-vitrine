@@ -1,15 +1,20 @@
 ---
 import Logo from './Logo.astro';
+import SocialLinks from './SocialLinks.astro';
 import type { HomepageContent } from '../content/types';
+import { route, t, type Locale } from '../i18n';
 import { sitePath } from '../lib/paths';
 
 interface Props {
   footer: HomepageContent['footer'];
+  locale: Locale;
   homeHref?: string;
   currentPath?: string;
 }
 
-const { footer, homeHref = '#accueil', currentPath } = Astro.props;
+const { footer, locale, homeHref = '#accueil', currentPath } = Astro.props;
+const text = t(locale);
+const mentionsPath = route('mentions', locale);
 ---
 
 <footer>
@@ -19,18 +24,18 @@ const { footer, homeHref = '#accueil', currentPath } = Astro.props;
         <Logo href={sitePath(homeHref)} label="CamPower" />
         <p class="tagline">{footer.tagline}</p>
       </div>
-      {footer.columns.map((column, index) => (
+      {footer.columns.map((column) => (
         <div>
           <h2>{column.title}</h2>
           {column.links.map((link) => (
             <a
               href={sitePath(link.href)}
-              id={index === footer.columns.length - 1 && link.label === 'Mentions légales' ? 'mentions' : undefined}
+              id={link.href === mentionsPath ? 'mentions' : undefined}
               aria-current={currentPath && link.href === currentPath ? 'page' : undefined}
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}
-              {link.external && <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>}
+              {link.external && <span class="sr-only">{text.newTab}</span>}
             </a>
           ))}
         </div>
@@ -39,10 +44,7 @@ const { footer, homeHref = '#accueil', currentPath } = Astro.props;
     <div class="foot-base">
       <a href={sitePath(footer.email.href)}>{footer.email.label}</a>
       <span>{footer.location}</span>
-      <a href={sitePath(footer.linkedIn.href)} target="_blank" rel="noopener noreferrer">
-        {footer.linkedIn.label}
-        <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
-      </a>
+      <SocialLinks locale={locale} />
       <span class="grow">{footer.copyright}</span>
     </div>
   </div>

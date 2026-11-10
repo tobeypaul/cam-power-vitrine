@@ -4,11 +4,21 @@ export const siteConfig = {
   applicationUrl: 'https://cam-power.net/',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.campower&hl=fr',
   appStoreUrl: 'https://apps.apple.com/app/campower/id6812945656',
-  linkedInUrl: 'https://www.linkedin.com/company/campower',
+  linkedInUrl: 'https://www.linkedin.com/company/campower/',
+  facebookUrl: 'https://www.facebook.com/people/CamPower/61591516614513/',
+  tiktokUrl: 'https://www.tiktok.com/@campower8',
   email: 'contact@cam-power.net',
 } as const;
 
-export function organizationGraph(site: URL, description: string, logoUrl: string) {
+export type SocialNetwork = 'facebook' | 'tiktok' | 'linkedin';
+
+export const socialLinks: Array<{ network: SocialNetwork; name: string; href: string }> = [
+  { network: 'facebook', name: 'Facebook', href: siteConfig.facebookUrl },
+  { network: 'tiktok', name: 'TikTok', href: siteConfig.tiktokUrl },
+  { network: 'linkedin', name: 'LinkedIn', href: siteConfig.linkedInUrl },
+];
+
+export function organizationGraph(site: URL, description: string, logoUrl: string, locale: string = siteConfig.locale) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -20,15 +30,15 @@ export function organizationGraph(site: URL, description: string, logoUrl: strin
         email: siteConfig.email,
         areaServed: {
           '@type': 'Country',
-          name: 'Cameroun',
+          name: locale === 'en' ? 'Cameroon' : 'Cameroun',
         },
-        sameAs: [siteConfig.linkedInUrl],
+        sameAs: socialLinks.map((link) => link.href),
       },
       {
         '@type': 'WebSite',
         name: siteConfig.name,
         url: site.href,
-        inLanguage: siteConfig.locale,
+        inLanguage: locale,
         description,
         publisher: {
           '@type': 'Organization',

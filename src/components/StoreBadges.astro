@@ -1,14 +1,18 @@
 ---
 import type { StoreLink } from '../content/types';
+import { t, type Locale } from '../i18n';
 
 interface Props {
   stores: StoreLink[];
+  locale: Locale;
+  compact?: boolean;
 }
 
-const { stores } = Astro.props;
+const { stores, locale, compact = false } = Astro.props;
+const text = t(locale);
 ---
 
-<div class="stores">
+<div class:list={['stores', compact && 'stores-compact']} role="group" aria-label={text.downloads}>
   {stores.map((store) => (
     <a class="play" href={store.href} target="_blank" rel="noopener noreferrer">
       {store.platform === 'ios' ? (
@@ -23,7 +27,7 @@ const { stores } = Astro.props;
       <span>
         <small>{store.kicker}</small>
         <strong>{store.name}</strong>
-        <span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+        <span class="sr-only">{text.newTab}</span>
       </span>
     </a>
   ))}

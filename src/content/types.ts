@@ -95,7 +95,6 @@ export interface HomepageContent {
     }>;
     email: LinkItem;
     location: string;
-    linkedIn: LinkItem;
     copyright: string;
   };
 }
@@ -721,8 +720,6 @@ export interface ContactContent {
     address: string;
     href: string;
     cta: string;
-    optional: string;
-    subjectPrefix: string;
   };
   aide: {
     title: string;
@@ -730,11 +727,9 @@ export interface ContactContent {
     cta: string;
     href: string;
   };
-  linkedin: {
+  social: {
     title: string;
     support: string;
-    cta: string;
-    href: string;
   };
   application: {
     title: string;

@@ -1,31 +1,43 @@
 ---
 import logo from '../assets/brand/logo.png';
+import { htmlLang, locales, ogLocale, otherLocale, route, t, type Locale, type RouteKey } from '../i18n';
+import { sitePath } from '../lib/paths';
 import { organizationGraph } from '../lib/site';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
+  locale: Locale;
+  routeKey: RouteKey;
 }
 
-const { title, description } = Astro.props;
+const { title, description, locale, routeKey } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const logoUrl = new URL(logo.src, Astro.site).href;
-const structuredData = organizationGraph(canonical, description, logoUrl);
+const structuredData = organizationGraph(canonical, description, logoUrl, htmlLang[locale]);
+const alternates = locales.map((code) => ({
+  code,
+  href: new URL(sitePath(route(routeKey, code)), Astro.site).href,
+}));
+const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={htmlLang[locale]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
+    {alternates.map((alternate) => <link rel="alternate" hreflang={htmlLang[alternate.code]} href={alternate.href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
     <link rel="icon" type="image/png" href={logo.src} />
     <meta name="theme-color" content="#1B3A8A" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale" content={ogLocale[locale]} />
+    <meta property="og:locale:alternate" content={ogLocale[otherLocale(locale)]} />
     <meta property="og:site_name" content="CamPower" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -43,7 +55,7 @@ const structuredData = organizationGraph(canonical, description, logoUrl);
     </script>
   </head>
   <body>
-    <a class="skip" href="#contenu">Aller au contenu</a>
+    <a class="skip" href="#contenu">{t(locale).skip}</a>
     <slot />
     <script>
       import '../scripts/motion.ts';

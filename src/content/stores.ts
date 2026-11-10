@@ -15,3 +15,18 @@ export const appStoresFr: StoreLink[] = [
     platform: 'ios',
   },
 ];
+
+export const appStoresEn: StoreLink[] = [
+  {
+    kicker: 'Get it on',
+    name: 'Google Play',
+    href: 'https://play.google.com/store/apps/details?id=com.campower&hl=en',
+    platform: 'android',
+  },
+  {
+    kicker: 'Download on the',
+    name: 'App Store',
+    href: siteConfig.appStoreUrl,
+    platform: 'ios',
+  },
+];

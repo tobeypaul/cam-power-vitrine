@@ -115,3 +115,4 @@ footer .foot a[aria-current="page"] { color: #fff; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .contact { scroll-behavior: auto; }
 }
+.contact .bridge-social .social { margin-top: 18px; }

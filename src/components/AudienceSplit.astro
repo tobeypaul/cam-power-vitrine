@@ -2,14 +2,16 @@
 import { Image } from 'astro:assets';
 import screenProfile from '../assets/screens/screen-profile.jpg';
 import type { HomepageContent } from '../content/types';
+import { t, type Locale } from '../i18n';
 import { sitePath } from '../lib/paths';
 
 interface Props {
   professionals: HomepageContent['professionals'];
   organisations: HomepageContent['organisations'];
+  locale: Locale;
 }
 
-const { professionals, organisations } = Astro.props;
+const { professionals, organisations, locale } = Astro.props;
 ---
 
 <section class="split" data-motion="reveal">
@@ -28,7 +30,7 @@ const { professionals, organisations } = Astro.props;
       <figure class="idcard">
         <Image
           src={screenProfile}
-          alt="Carte de profil dans l’application CamPower"
+          alt={t(locale).alt.profileCard}
           widths={[250, 500]}
           sizes="250px"
           quality={80}

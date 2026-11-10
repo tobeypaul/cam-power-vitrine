@@ -1,9 +1,21 @@
+import type { Locale } from '../i18n';
+import { aproposFr } from './a-propos';
 import { aideFr } from './aide';
 import { conditionsFr } from './conditions';
 import { confidentialiteFr } from './confidentialite';
 import { contactFr } from './contact';
-import { aproposFr } from './a-propos';
 import { decouvrirFr } from './decouvrir';
+import { aproposEn } from './en/a-propos';
+import { aideEn } from './en/aide';
+import { conditionsEn } from './en/conditions';
+import { confidentialiteEn } from './en/confidentialite';
+import { contactEn } from './en/contact';
+import { decouvrirEn } from './en/decouvrir';
+import { entreprisesEn } from './en/entreprises';
+import { homepageEn } from './en/home';
+import { mentionsEn } from './en/mentions';
+import { missionsEn } from './en/missions';
+import { talentsEn } from './en/talents';
 import { entreprisesFr } from './entreprises';
 import { homepageFr } from './fr';
 import { mentionsFr } from './mentions';
@@ -11,10 +23,10 @@ import { missionsFr } from './missions';
 import { talentsFr } from './talents';
 import type {
   AideContent,
+  AProposContent,
   ConditionsContent,
   ConfidentialiteContent,
   ContactContent,
-  AProposContent,
   DecouvrirContent,
   EntreprisesContent,
   HomepageContent,
@@ -23,140 +35,28 @@ import type {
   TalentsContent,
 } from './types';
 
-const catalogs: Record<string, HomepageContent> = {
-  fr: homepageFr,
-};
+export { defaultLocale } from '../i18n';
 
-export const defaultLocale = 'fr';
+const homepage: Record<Locale, HomepageContent> = { fr: homepageFr, en: homepageEn };
+const decouvrir: Record<Locale, DecouvrirContent> = { fr: decouvrirFr, en: decouvrirEn };
+const talents: Record<Locale, TalentsContent> = { fr: talentsFr, en: talentsEn };
+const entreprises: Record<Locale, EntreprisesContent> = { fr: entreprisesFr, en: entreprisesEn };
+const missions: Record<Locale, MissionsContent> = { fr: missionsFr, en: missionsEn };
+const apropos: Record<Locale, AProposContent> = { fr: aproposFr, en: aproposEn };
+const aide: Record<Locale, AideContent> = { fr: aideFr, en: aideEn };
+const contact: Record<Locale, ContactContent> = { fr: contactFr, en: contactEn };
+const confidentialite: Record<Locale, ConfidentialiteContent> = { fr: confidentialiteFr, en: confidentialiteEn };
+const conditions: Record<Locale, ConditionsContent> = { fr: conditionsFr, en: conditionsEn };
+const mentions: Record<Locale, MentionsContent> = { fr: mentionsFr, en: mentionsEn };
 
-export function getHomepage(locale: string = defaultLocale): HomepageContent {
-  const content = catalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-export function availableLocales(): string[] {
-  return Object.keys(catalogs);
-}
-
-const decouvrirCatalogs: Record<string, DecouvrirContent> = {
-  fr: decouvrirFr,
-};
-
-export function getDecouvrir(locale: string = defaultLocale): DecouvrirContent {
-  const content = decouvrirCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-const talentsCatalogs: Record<string, TalentsContent> = {
-  fr: talentsFr,
-};
-
-export function getTalents(locale: string = defaultLocale): TalentsContent {
-  const content = talentsCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-const entreprisesCatalogs: Record<string, EntreprisesContent> = {
-  fr: entreprisesFr,
-};
-
-const missionsCatalogs: Record<string, MissionsContent> = {
-  fr: missionsFr,
-};
-
-export function getMissions(locale: string = defaultLocale): MissionsContent {
-  const content = missionsCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-const aproposCatalogs: Record<string, AProposContent> = {
-  fr: aproposFr,
-};
-
-export function getAPropos(locale: string = defaultLocale): AProposContent {
-  const content = aproposCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-const aideCatalogs: Record<string, AideContent> = {
-  fr: aideFr,
-};
-
-export function getAide(locale: string = defaultLocale): AideContent {
-  const content = aideCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-const contactCatalogs: Record<string, ContactContent> = {
-  fr: contactFr,
-};
-
-const confidentialiteCatalogs: Record<string, ConfidentialiteContent> = {
-  fr: confidentialiteFr,
-};
-
-const conditionsCatalogs: Record<string, ConditionsContent> = {
-  fr: conditionsFr,
-};
-
-const mentionsCatalogs: Record<string, MentionsContent> = {
-  fr: mentionsFr,
-};
-
-export function getMentions(locale: string = defaultLocale): MentionsContent {
-  const content = mentionsCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-export function getConditions(locale: string = defaultLocale): ConditionsContent {
-  const content = conditionsCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-export function getConfidentialite(locale: string = defaultLocale): ConfidentialiteContent {
-  const content = confidentialiteCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-export function getContact(locale: string = defaultLocale): ContactContent {
-  const content = contactCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
-
-export function getEntreprises(locale: string = defaultLocale): EntreprisesContent {
-  const content = entreprisesCatalogs[locale];
-  if (!content) {
-    throw new Error(`Unsupported locale: ${locale}`);
-  }
-  return content;
-}
+export const getHomepage = (locale: Locale) => homepage[locale];
+export const getDecouvrir = (locale: Locale) => decouvrir[locale];
+export const getTalents = (locale: Locale) => talents[locale];
+export const getEntreprises = (locale: Locale) => entreprises[locale];
+export const getMissions = (locale: Locale) => missions[locale];
+export const getAPropos = (locale: Locale) => apropos[locale];
+export const getAide = (locale: Locale) => aide[locale];
+export const getContact = (locale: Locale) => contact[locale];
+export const getConfidentialite = (locale: Locale) => confidentialite[locale];
+export const getConditions = (locale: Locale) => conditions[locale];
+export const getMentions = (locale: Locale) => mentions[locale];

@@ -3,23 +3,25 @@ import screenFeed from '../assets/screens/screen-feed.jpg';
 import PhoneFrame from './PhoneFrame.astro';
 import StoreBadges from './StoreBadges.astro';
 import type { HomepageContent } from '../content/types';
+import { t, type Locale } from '../i18n';
 
 interface Props {
   mobile: HomepageContent['mobile'];
+  locale: Locale;
 }
 
-const { mobile } = Astro.props;
+const { mobile, locale } = Astro.props;
 ---
 
 <section class="anywhere" data-motion="reveal" aria-labelledby="anywhere-title">
   <div class="wrap anywhere-grid">
     <div class="anywhere-phone">
-      <PhoneFrame src={screenFeed} alt="Fil d’actualité dans l’application CamPower" />
+      <PhoneFrame src={screenFeed} alt={t(locale).alt.feed} />
     </div>
     <div class="anywhere-copy">
       <h2 id="anywhere-title">{mobile.title}</h2>
       <p class="dek">{mobile.dek}</p>
-      <StoreBadges stores={mobile.stores} />
+      <StoreBadges stores={mobile.stores} locale={locale} />
     </div>
   </div>
 </section>

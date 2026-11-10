@@ -56,11 +56,13 @@ npm run preview
 ```text
 src/
 ├── assets/          Authoritative logo and application screenshots
-├── components/      Homepage sections
-├── content/         French homepage copy, separate from the components
-├── layouts/         Document shell, metadata, structured data
-├── lib/             Site URLs shared by content and metadata
-├── pages/           Homepage, robots.txt
+├── components/      Shared sections, header, footer, store badges, social links
+├── content/         French copy; content/en/ holds the English copy
+├── i18n/            Locales, the French/English route map, interface strings
+├── layouts/         Document shell, metadata, hreflang, structured data
+├── lib/             Site URLs and social links shared by content and metadata
+├── pages/           One thin file per route; pages/en/ for English
+├── views/           Page templates shared by both languages
 └── styles/          Visual system from Mockup 03
 public/fonts/        Self-hosted font files
 design/              Accepted mockups. Not served by the site.
@@ -70,9 +72,29 @@ design/              Accepted mockups. Not served by the site.
 
 Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. Missions copy lives in `src/content/missions.ts`. À propos copy lives in `src/content/a-propos.ts`. Aide copy lives in `src/content/aide.ts`. Contact copy lives in `src/content/contact.ts`. Confidentialité copy lives in `src/content/confidentialite.ts`. Conditions d’utilisation copy lives in `src/content/conditions.ts`. Mentions légales copy lives in `src/content/mentions.ts`. All eleven load through `src/content/index.ts`.
 
-To change ordinary wording, edit that file. Section order and layout live in `src/pages/index.astro` and the matching component.
+English copy lives in `src/content/en/`, one file per page, with the same structure as the French file. Edit both when wording changes.
 
-`src/content/index.ts` selects copy by locale. French is the only locale shipped. Another locale can be added as a new content file without replacing Astro.
+To change ordinary wording, edit those files. Section order and layout live in `src/views/` and the matching component. Interface text that is not page copy, such as image descriptions, menu labels and the new-tab notice, lives in `src/i18n/index.ts`.
+
+## Languages
+
+French is the default and keeps its existing addresses. English lives under `/en/` with English addresses:
+
+| French | English |
+| --- | --- |
+| `/` | `/en/` |
+| `/decouvrir/` | `/en/discover/` |
+| `/talents/` | `/en/talent/` |
+| `/entreprises/` | `/en/companies/` |
+| `/missions/` | `/en/missions/` |
+| `/a-propos/` | `/en/about/` |
+| `/aide/` | `/en/help/` |
+| `/contact/` | `/en/contact/` |
+| `/confidentialite/` | `/en/privacy/` |
+| `/conditions-utilisation/` | `/en/terms/` |
+| `/mentions-legales/` | `/en/legal-notice/` |
+
+The map lives in `src/i18n/index.ts`. The FR/EN control in the header opens the same page in the other language. Each page declares both versions with `hreflang`. The English legal pages state that the French version is the reference.
 
 ## Assets
 
@@ -86,6 +108,8 @@ Calls to action labelled **Accéder à CamPower** go to `https://cam-power.net/`
 The Google Play listing is `https://play.google.com/store/apps/details?id=com.campower&hl=fr`.
 
 The App Store listing is `https://apps.apple.com/app/campower/id6812945656`.
+
+Social links: Facebook `https://www.facebook.com/people/CamPower/61591516614513/`, TikTok `https://www.tiktok.com/@campower8`, LinkedIn `https://www.linkedin.com/company/campower/`. They are defined once in `src/lib/site.ts`.
 
 This site does not call the application API.
 

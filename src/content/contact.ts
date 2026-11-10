@@ -45,8 +45,6 @@ export const contactFr: ContactContent = {
     address: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
     cta: 'Nous écrire',
-    optional: 'Aucun motif n’est obligatoire.',
-    subjectPrefix: 'Objet proposé : ',
   },
   aide: {
     title: 'Vous cherchez d’abord une réponse ?',
@@ -54,11 +52,9 @@ export const contactFr: ContactContent = {
     cta: 'Consulter l’aide',
     href: '/aide/',
   },
-  linkedin: {
+  social: {
     title: 'Suivez CamPower',
-    support: 'La page LinkedIn est une présence professionnelle. Ce n’est pas le canal d’assistance.',
-    cta: 'Suivre CamPower sur LinkedIn',
-    href: siteConfig.linkedInUrl,
+    support: 'CamPower est présent sur Facebook, TikTok et LinkedIn. Ces pages ne sont pas des canaux d’assistance : pour une demande, écrivez à l’adresse ci-dessus.',
   },
   application: {
     title: 'Vous souhaitez accéder directement à CamPower ?',

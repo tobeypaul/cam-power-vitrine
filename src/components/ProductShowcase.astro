@@ -4,12 +4,15 @@ import screenOffers from '../assets/screens/screen-offers.jpg';
 import screenProfile from '../assets/screens/screen-profile.jpg';
 import PhoneFrame from './PhoneFrame.astro';
 import type { HomepageContent } from '../content/types';
+import { t, type Locale } from '../i18n';
 
 interface Props {
   product: HomepageContent['product'];
+  locale: Locale;
 }
 
-const { product } = Astro.props;
+const { product, locale } = Astro.props;
+const alt = t(locale).alt;
 ---
 
 <section class="action" id="action" data-motion="reveal" aria-labelledby="action-title">
@@ -21,9 +24,9 @@ const { product } = Astro.props;
         {product.left.map((item) => <li>{item}</li>)}
       </ul>
       <div class="trio">
-        <PhoneFrame src={screenProfile} alt="Profil dans l’application CamPower" />
-        <PhoneFrame src={screenOffers} alt="Écran des offres dans l’application CamPower" variant="offers" />
-        <PhoneFrame src={screenNetwork} alt="Réseau professionnel dans l’application CamPower" />
+        <PhoneFrame src={screenProfile} alt={alt.profile} />
+        <PhoneFrame src={screenOffers} alt={alt.offersScreen} variant="offers" />
+        <PhoneFrame src={screenNetwork} alt={alt.network} />
       </div>
       <ul class="calls right">
         {product.right.map((item) => <li>{item}</li>)}

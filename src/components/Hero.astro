@@ -3,14 +3,18 @@ import screenNetwork from '../assets/screens/screen-network.jpg';
 import screenOffers from '../assets/screens/screen-offers.jpg';
 import Arrow from './Arrow.astro';
 import PhoneFrame from './PhoneFrame.astro';
-import type { HomepageContent } from '../content/types';
+import StoreBadges from './StoreBadges.astro';
+import type { HomepageContent, StoreLink } from '../content/types';
+import { t, type Locale } from '../i18n';
 import { sitePath } from '../lib/paths';
 
 interface Props {
   hero: HomepageContent['hero'];
+  stores: StoreLink[];
+  locale: Locale;
 }
 
-const { hero } = Astro.props;
+const { hero, stores, locale } = Astro.props;
 ---
 
 <section class="hero" data-motion="hero" aria-labelledby="hero-title">
@@ -30,6 +34,7 @@ const { hero } = Astro.props;
         <a class="btn btn-ghost" href={sitePath(hero.discover.href)}>{hero.discover.label}</a>
         <a class="btn btn-primary" href={sitePath(hero.access.href)}>{hero.access.label} <Arrow /></a>
       </div>
+      <StoreBadges stores={stores} locale={locale} compact />
       <ul class="signals">
         {hero.signals.map((signal) => <li>{signal}</li>)}
       </ul>
@@ -38,7 +43,7 @@ const { hero } = Astro.props;
       <PhoneFrame src={screenNetwork} alt="" frameClass="back" eager variant="default" />
       <PhoneFrame
         src={screenOffers}
-        alt="Écran de l’application CamPower montrant des offres"
+        alt={t(locale).alt.heroOffers}
         frameClass="front"
         eager
         variant="offers"
