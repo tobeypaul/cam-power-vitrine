@@ -12,6 +12,7 @@ export const entreprisesEn: EntreprisesContent = {
     { label: 'Talent', href: routes.talents.en },
     { label: 'Companies', href: routes.entreprises.en, current: true },
     { label: 'Missions', href: routes.missions.en },
+    { label: 'Mini-jobs', href: routes.minijobs.en },
     { label: 'About', href: routes.apropos.en },
   ],
   hero: {

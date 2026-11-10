@@ -50,7 +50,7 @@ export const conditionsEn: ConditionsContent = {
     ],
     infoTitle: 'Information, not a specific commitment',
     infoText:
-      'The content of the public website is primarily informative and presentational. Information about employment, recruitment, opportunities, Missions, talent or companies does not, on its own, constitute an employment contract, a recruitment commitment or a specific Mission contract.',
+      'The content of the public website is primarily informative and presentational. Information about employment, recruitment, opportunities, Missions, Mini-jobs, talent or companies does not, on its own, constitute an employment contract, a recruitment commitment or a specific Mission or Mini-job contract.',
   },
   use: {
     title: 'Using the public website appropriately',
@@ -121,7 +121,7 @@ export const conditionsEn: ConditionsContent = {
         text: 'This page does not form a Mission contract between the people concerned.',
       },
     ],
-    note: 'Visiting the public website does not guarantee a job, a recruitment, a candidate, a Mission, or any professional or commercial result.',
+    note: 'Visiting the public website does not guarantee a job, a recruitment, a candidate, a Mission, a Mini-job, an income, or any professional or commercial result.',
   },
   privacy: {
     title: 'Privacy',

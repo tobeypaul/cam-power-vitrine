@@ -11,6 +11,7 @@ export const aproposFr: AProposContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
+    { label: 'Mini-jobs', href: '/mini-jobs/' },
     { label: 'À propos', href: '/a-propos/', current: true },
   ],
   hero: {

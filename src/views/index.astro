@@ -5,6 +5,7 @@ import Cameroon from '../components/Cameroon.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Hero from '../components/Hero.astro';
 import HowItWorks from '../components/HowItWorks.astro';
+import MiniJobsTeaser from '../components/MiniJobsTeaser.astro';
 import MobileApp from '../components/MobileApp.astro';
 import ProductShowcase from '../components/ProductShowcase.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -30,6 +31,7 @@ const page = getHomepage(locale);
       <ProductShowcase product={page.product} locale={locale} />
       <HowItWorks steps={page.steps} />
       <AudienceSplit professionals={page.professionals} organisations={page.organisations} locale={locale} />
+      <MiniJobsTeaser minijobs={page.minijobs} />
       <Cameroon cameroon={page.cameroon} locale={locale} />
       <MobileApp mobile={page.mobile} locale={locale} />
       <FinalCta finale={page.finale} />

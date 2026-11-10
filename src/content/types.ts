@@ -5,6 +5,19 @@ export interface StoreLink {
   platform: 'android' | 'ios';
 }
 
+export type MiniJobImage =
+  | 'restaurant'
+  | 'bakery'
+  | 'shop'
+  | 'hotel'
+  | 'household'
+  | 'technician'
+  | 'delivery'
+  | 'event'
+  | 'carwash'
+  | 'tailor'
+  | 'student';
+
 export interface LinkItem {
   label: string;
   href: string;
@@ -76,6 +89,14 @@ export interface HomepageContent {
     dek: string;
     left: Array<{ title: string; body: string }>;
     right: Array<{ title: string; body: string }>;
+  };
+  minijobs: {
+    kicker: string;
+    title: string;
+    support: string;
+    tiles: Array<{ image: MiniJobImage; label: string; alt: string }>;
+    cta: LinkItem;
+    note: string;
   };
   mobile: {
     title: string;
@@ -735,5 +756,62 @@ export interface ContactContent {
     title: string;
     cta: string;
     href: string;
+  };
+}
+
+export interface MiniJobsContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  nav: NavItem[];
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    explore: LinkItem;
+    imageAlt: string;
+    caption: string;
+  };
+  needs: {
+    kicker: string;
+    title: string;
+    support: string;
+    items: Array<{ image: MiniJobImage; title: string; text: string; alt: string }>;
+  };
+  people: {
+    kicker: string;
+    title: string;
+    support: string;
+    items: Array<{ title: string; text: string }>;
+    imageAlt: string;
+  };
+  how: {
+    kicker: string;
+    title: string;
+    support: string;
+    steps: Array<{ label: string; text: string }>;
+    categoriesLabel: string;
+    categories: string[];
+    listAlt: string;
+    detailAlt: string;
+    note: string;
+  };
+  economy: {
+    kicker: string;
+    title: string;
+    support: string;
+    points: Array<{ title: string; text: string }>;
+  };
+  missions: {
+    title: string;
+    text: string;
+    cta: LinkItem;
+  };
+  stores: StoreLink[];
+  disclaimer: string;
+  finale: {
+    title: string;
+    support: string;
   };
 }

@@ -1,0 +1,196 @@
+.minijobs h1 { font-size: 50px; line-height: 1.06; letter-spacing: -0.04em; }
+.minijobs h2,
+.minijobs h3 {
+  font-family: "Sora", "Liberation Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.minijobs h2 { font-size: 40px; max-width: 16em; }
+.minijobs .kicker { margin-bottom: 14px; }
+.minijobs .support {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40em;
+}
+.minijobs .link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+.minijobs .link-more svg { width: 16px; height: 16px; }
+
+.minijobs .hero { padding: 48px 0 72px; }
+.minijobs .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(400px, 1fr) 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+.minijobs .lead { max-width: 36em; }
+.minijobs .hero-actions { align-items: center; }
+.minijobs .hero-photo img,
+.minijobs .people-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+.minijobs .hero-photo img { aspect-ratio: 16 / 10; object-fit: cover; }
+.minijobs .hero-photo figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+.minijobs .needs { background: var(--surface); padding: 88px 0; }
+.minijobs .tiles {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+}
+.minijobs .tile {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.minijobs .tile img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.minijobs .tile-copy { padding: 16px 18px 20px; }
+.minijobs .tile h3 { font-size: 19px; }
+.minijobs .tile p { margin-top: 6px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+
+.minijobs .people { padding: 88px 0; }
+.minijobs .people-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+.minijobs .people-photo img { aspect-ratio: 4 / 3; object-fit: cover; }
+.minijobs .who {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+}
+.minijobs .who li { border-left: 3px solid var(--green); padding: 4px 0 4px 14px; }
+.minijobs .who strong,
+.minijobs .points strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+}
+.minijobs .who span,
+.minijobs .points span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+
+.minijobs .how { background: #f3f7f4; padding: 88px 0; }
+.minijobs .how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.minijobs .steps-list { margin-top: 28px; display: grid; gap: 14px; list-style: none; padding: 0; }
+.minijobs .steps-list li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
+.minijobs .steps-list .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+.minijobs .steps-list strong { display: block; font-family: "Sora", sans-serif; font-weight: 600; font-size: 17px; color: var(--ink); }
+.minijobs .steps-list span { display: block; margin-top: 2px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+.minijobs .cats-label { margin-top: 28px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.minijobs .cats { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.minijobs .cats li {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.minijobs .phones { display: flex; flex-direction: column; align-items: center; }
+.minijobs .phones-row { display: flex; gap: 18px; justify-content: center; }
+.minijobs .phones-row .phone { width: 230px; }
+.minijobs .phone-note { margin-top: 14px; font-size: 14px; color: var(--muted); text-align: center; }
+
+.minijobs .economy { background: var(--navy-deep); color: #fff; padding: 88px 0; }
+.minijobs .economy h2 { color: #fff; }
+.minijobs .economy .kicker { color: #8fd3a5; }
+.minijobs .economy .support { color: rgba(255, 255, 255, 0.86); }
+.minijobs .points {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+}
+.minijobs .points li { background: rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 22px; }
+.minijobs .points strong { color: #fff; }
+.minijobs .points span { color: rgba(255, 255, 255, 0.8); }
+
+.minijobs .relation { padding: 72px 0 56px; }
+.minijobs .relation-band {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+}
+.minijobs .relation-band h2 { font-size: 30px; }
+.minijobs .relation-band p { margin-top: 12px; max-width: 46em; font-size: 17px; line-height: 1.55; color: var(--muted); }
+.minijobs .relation-band .link-more { margin-top: 16px; }
+.minijobs .relation-band .link-more .arrow { width: 16px; height: 16px; }
+.minijobs .disclaimer { margin-top: 20px; max-width: 52em; font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+.minijobs .finale h2 { font-size: 42px; }
+.minijobs .finale .stores { justify-content: center; }
+
+@media (max-width: 1100px) {
+  .minijobs .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .minijobs .tiles { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 980px) {
+  .minijobs .people-grid,
+  .minijobs .how-grid { grid-template-columns: 1fr; gap: 36px; }
+  .minijobs .points { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .minijobs h1 { font-size: 36px; }
+  .minijobs h2 { font-size: 30px; }
+  .minijobs .needs,
+  .minijobs .people,
+  .minijobs .how,
+  .minijobs .economy { padding: 64px 0; }
+  .minijobs .tiles { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .minijobs .tile-copy { padding: 12px 14px 16px; }
+  .minijobs .tile h3 { font-size: 16px; }
+  .minijobs .tile p { font-size: 14px; }
+  .minijobs .who { grid-template-columns: 1fr; }
+  .minijobs .phones-row .phone { width: calc((100% - 14px) / 2); max-width: 210px; }
+  .minijobs .phones-row { gap: 14px; width: 100%; }
+  .minijobs .relation-band { padding: 24px; }
+}
+@media (max-width: 400px) {
+  .minijobs .tiles { grid-template-columns: 1fr; }
+}

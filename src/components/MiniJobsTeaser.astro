@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import Arrow from './Arrow.astro';
+import type { HomepageContent } from '../content/types';
+import { minijobImages } from '../lib/minijob-images';
+import { sitePath } from '../lib/paths';
+
+interface Props {
+  minijobs: HomepageContent['minijobs'];
+}
+
+const { minijobs } = Astro.props;
+---
+
+<section class="mj" id="mini-jobs" aria-labelledby="mj-title">
+  <div class="wrap">
+    <div class="mj-head" data-motion="reveal">
+      <div>
+        <p class="kicker">{minijobs.kicker}</p>
+        <h2 id="mj-title">{minijobs.title}</h2>
+      </div>
+      <div>
+        <p class="dek">{minijobs.support}</p>
+        <a class="btn btn-primary" href={sitePath(minijobs.cta.href)}>{minijobs.cta.label} <Arrow /></a>
+      </div>
+    </div>
+    <ul class="mj-tiles">
+      {minijobs.tiles.map((tile, index) => (
+        <li data-motion="reveal" style={`--motion-i:${index}`}>
+          <Image
+            src={minijobImages[tile.image]}
+            alt={tile.alt}
+            widths={[320, 480, 640]}
+            sizes="(max-width: 720px) 50vw, 280px"
+            quality={72}
+          />
+          <span>{tile.label}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mj-note">{minijobs.note}</p>
+  </div>
+</section>

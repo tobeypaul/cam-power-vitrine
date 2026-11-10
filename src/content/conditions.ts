@@ -49,7 +49,7 @@ export const conditionsFr: ConditionsContent = {
     ],
     infoTitle: 'Des informations, pas un engagement particulier',
     infoText:
-      'Les contenus du Site Vitrine sont avant tout informatifs et de présentation. La présence d’informations sur l’emploi, le recrutement, les opportunités, les Missions, les talents ou les entreprises ne constitue pas, à elle seule, un contrat d’emploi, un engagement de recrutement ou un contrat de Mission déterminé.',
+      'Les contenus du Site Vitrine sont avant tout informatifs et de présentation. La présence d’informations sur l’emploi, le recrutement, les opportunités, les Missions, les Mini-jobs, les talents ou les entreprises ne constitue pas, à elle seule, un contrat d’emploi, un engagement de recrutement ou un contrat de Mission ou de Mini-job déterminé.',
   },
   use: {
     title: 'Utiliser le Site Vitrine de manière appropriée',
@@ -122,7 +122,7 @@ export const conditionsFr: ConditionsContent = {
         text: 'Cette page ne forme pas un contrat de Mission entre les personnes concernées.',
       },
     ],
-    note: 'La visite du Site Vitrine ne garantit ni un emploi, ni un recrutement, ni un candidat, ni une Mission, ni un résultat professionnel ou commercial.',
+    note: 'La visite du Site Vitrine ne garantit ni un emploi, ni un recrutement, ni un candidat, ni une Mission, ni un Mini-job, ni un revenu, ni un résultat professionnel ou commercial.',
   },
   privacy: {
     title: 'Confidentialité',

@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import screenMiniJob from '../assets/screens/screen-minijob.jpg';
+import screenMiniJobs from '../assets/screens/screen-minijobs.jpg';
+import Arrow from '../components/Arrow.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import StoreBadges from '../components/StoreBadges.astro';
+import { getHomepage, getMiniJobs } from '../content';
+import { innerFooter, route, type Locale } from '../i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/paths';
+import { minijobHero, minijobImages } from '../lib/minijob-images';
+import '../styles/mini-jobs.css';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const home = getHomepage(locale);
+const page = getMiniJobs(locale);
+const footer = innerFooter(home.footer, locale);
+---
+
+<BaseLayout title={page.meta.title} description={page.meta.description} locale={locale} routeKey="minijobs">
+  <SiteHeader nav={page.nav} access={home.hero.access} logoHref={route('home', locale)} locale={locale} routeKey="minijobs" />
+  <main id="contenu" class="minijobs">
+    <section class="hero" data-motion="hero" aria-labelledby="minijobs-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">{page.hero.eyebrow}</p>
+          <h1 id="minijobs-title">{page.hero.title}</h1>
+          <p class="lead">{page.hero.lead}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
+            <a class="link-more" href={sitePath(page.hero.explore.href)}>
+              {page.hero.explore.label}
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 3v10M4.2 9.2 8 13l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+          <StoreBadges stores={page.stores} locale={locale} compact />
+        </div>
+        <figure class="hero-photo">
+          <Image
+            src={minijobHero}
+            alt={page.hero.imageAlt}
+            widths={[560, 840, 1120]}
+            sizes="(max-width: 1100px) 100vw, 600px"
+            quality={78}
+            loading="eager"
+          />
+          <figcaption>{page.hero.caption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="needs" id="besoins" aria-labelledby="needs-title">
+      <div class="wrap">
+        <p class="kicker">{page.needs.kicker}</p>
+        <h2 id="needs-title">{page.needs.title}</h2>
+        <p class="support">{page.needs.support}</p>
+        <ul class="tiles">
+          {page.needs.items.map((item, index) => (
+            <li class="tile" data-motion="reveal" style={`--motion-i:${index % 4}`}>
+              <Image
+                src={minijobImages[item.image]}
+                alt={item.alt}
+                widths={[320, 480, 640]}
+                sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 280px"
+                quality={72}
+              />
+              <div class="tile-copy">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="people" data-motion="reveal" aria-labelledby="people-title">
+      <div class="wrap people-grid">
+        <figure class="people-photo">
+          <Image
+            src={minijobImages.student}
+            alt={page.people.imageAlt}
+            widths={[480, 720, 960]}
+            sizes="(max-width: 980px) 100vw, 480px"
+            quality={75}
+          />
+        </figure>
+        <div>
+          <p class="kicker">{page.people.kicker}</p>
+          <h2 id="people-title">{page.people.title}</h2>
+          <p class="support">{page.people.support}</p>
+          <ul class="who">
+            {page.people.items.map((item) => (
+              <li><strong>{item.title}</strong><span>{item.text}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" data-motion="reveal" aria-labelledby="how-title">
+      <div class="wrap how-grid">
+        <div>
+          <p class="kicker">{page.how.kicker}</p>
+          <h2 id="how-title">{page.how.title}</h2>
+          <p class="support">{page.how.support}</p>
+          <ol class="steps-list">
+            {page.how.steps.map((step, index) => (
+              <li>
+                <span class="num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <div><strong>{step.label}</strong><span>{step.text}</span></div>
+              </li>
+            ))}
+          </ol>
+          <p class="cats-label">{page.how.categoriesLabel}</p>
+          <ul class="cats">
+            {page.how.categories.map((category) => <li>{category}</li>)}
+          </ul>
+        </div>
+        <figure class="phones">
+          <div class="phones-row">
+            <PhoneFrame src={screenMiniJobs} alt={page.how.listAlt} variant="offers" />
+            <PhoneFrame src={screenMiniJob} alt={page.how.detailAlt} />
+          </div>
+          <figcaption class="phone-note">{page.how.note}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="economy" data-motion="reveal" aria-labelledby="economy-title">
+      <div class="wrap">
+        <p class="kicker">{page.economy.kicker}</p>
+        <h2 id="economy-title">{page.economy.title}</h2>
+        <p class="support">{page.economy.support}</p>
+        <ul class="points">
+          {page.economy.points.map((point) => (
+            <li><strong>{point.title}</strong><span>{point.text}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="relation" data-motion="reveal" aria-labelledby="relation-title">
+      <div class="wrap">
+        <div class="relation-band">
+          <h2 id="relation-title">{page.missions.title}</h2>
+          <p>{page.missions.text}</p>
+          <a class="link-more" href={sitePath(page.missions.cta.href)}>{page.missions.cta.label} <Arrow /></a>
+        </div>
+        <p class="disclaimer">{page.disclaimer}</p>
+      </div>
+    </section>
+
+    <section class="finale" data-motion="reveal" aria-labelledby="finale-title">
+      <h2 id="finale-title">{page.finale.title}</h2>
+      <p>{page.finale.support}</p>
+      <a class="btn btn-primary" href={sitePath(home.hero.access.href)}>{home.hero.access.label} <Arrow /></a>
+      <StoreBadges stores={page.stores} locale={locale} compact />
+    </section>
+  </main>
+  <SiteFooter footer={footer} locale={locale} homeHref={route('home', locale)} currentPath={route('minijobs', locale)} />
+</BaseLayout>

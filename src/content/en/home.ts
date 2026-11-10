@@ -20,6 +20,7 @@ export const homepageEn: HomepageContent = {
     { label: 'Talent', href: routes.talents.en },
     { label: 'Companies', href: routes.entreprises.en },
     { label: 'Missions', href: routes.missions.en },
+    { label: 'Mini-jobs', href: routes.minijobs.en },
     { label: 'About', href: routes.apropos.en },
   ],
   hero: {
@@ -105,6 +106,20 @@ export const homepageEn: HomepageContent = {
       { title: 'Opportunities', body: 'Jobs and missions together on CamPower.' },
     ],
   },
+  minijobs: {
+    kicker: 'Mini-jobs · Informal sector',
+    title: 'Small everyday needs keep the economy moving.',
+    support:
+      'Restaurants, shops, bakeries, hotels, households and craftspeople post their short-term needs. Students, young people and anyone available respond and are paid for the task.',
+    tiles: [
+      { image: 'restaurant', label: 'Restaurants', alt: 'Kitchen help in a small restaurant' },
+      { image: 'shop', label: 'Small shops', alt: 'A shopkeeper serving a customer in a neighbourhood shop' },
+      { image: 'delivery', label: 'Deliveries', alt: 'A delivery rider on a motorbike handing over a parcel' },
+      { image: 'household', label: 'Household help', alt: 'A household helper in a family living room' },
+    ],
+    cta: { label: 'Discover Mini-jobs', href: routes.minijobs.en },
+    note: 'AI-generated illustrations. People and businesses are fictional.',
+  },
   mobile: {
     title: 'CamPower, wherever you are.',
     dek: 'Check your profile, your opportunities and your missions from your phone.',
@@ -125,6 +140,7 @@ export const homepageEn: HomepageContent = {
           { label: 'Talent', href: routes.talents.en },
           { label: 'Companies', href: routes.entreprises.en },
           { label: 'Missions', href: routes.missions.en },
+          { label: 'Mini-jobs', href: routes.minijobs.en },
         ],
       },
       {

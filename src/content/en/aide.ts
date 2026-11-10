@@ -95,6 +95,14 @@ export const aideEn: AideContent = {
         terms: 'difference job employment mission need skill duration missions',
       },
       {
+        question: 'What is a mini-job?',
+        answer:
+          'A mini-job is a short-term everyday task posted by a business, an establishment or a household: an extra pair of hands, a delivery, cleaning, home tutoring. Mini-jobs are in the Offers tab of the app. Find out more on the ',
+        link: { label: 'Mini-jobs page', href: routes.minijobs.en },
+        after: '.',
+        terms: 'mini-job mini-jobs informal sector short-term task restaurant shop cleaning delivery student missions opportunities',
+      },
+      {
         question: 'Where can I access CamPower?',
         answer: 'The application is available at ',
         link: { label: 'cam-power.net', href: siteConfig.applicationUrl },

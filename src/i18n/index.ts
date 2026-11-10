@@ -12,6 +12,7 @@ export const routes = {
   talents: { fr: '/talents/', en: '/en/talent/' },
   entreprises: { fr: '/entreprises/', en: '/en/companies/' },
   missions: { fr: '/missions/', en: '/en/missions/' },
+  minijobs: { fr: '/mini-jobs/', en: '/en/mini-jobs/' },
   apropos: { fr: '/a-propos/', en: '/en/about/' },
   aide: { fr: '/aide/', en: '/en/help/' },
   contact: { fr: '/contact/', en: '/en/contact/' },

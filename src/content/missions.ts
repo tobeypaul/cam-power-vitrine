@@ -11,6 +11,7 @@ export const missionsFr: MissionsContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/', current: true },
+    { label: 'Mini-jobs', href: '/mini-jobs/' },
     { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
@@ -112,6 +113,7 @@ export const missionsFr: MissionsContent = {
       { label: 'Réseau' },
       { label: 'Emploi' },
       { label: 'Missions', current: true },
+      { label: 'Mini-jobs' },
       { label: 'Entreprises' },
     ],
   },

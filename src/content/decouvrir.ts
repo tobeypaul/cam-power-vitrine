@@ -12,6 +12,7 @@ export const decouvrirFr: DecouvrirContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
+    { label: 'Mini-jobs', href: '/mini-jobs/' },
     { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {

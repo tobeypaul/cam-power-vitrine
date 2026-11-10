@@ -19,6 +19,7 @@ export const homepageFr: HomepageContent = {
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
+    { label: 'Mini-jobs', href: '/mini-jobs/' },
     { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
@@ -104,6 +105,20 @@ export const homepageFr: HomepageContent = {
       { title: 'Opportunités', body: 'Emplois et missions réunis sur CamPower.' },
     ],
   },
+  minijobs: {
+    kicker: 'Mini-jobs · Secteur informel',
+    title: 'Les petits besoins du quotidien font tourner l’économie.',
+    support:
+      'Restaurants, boutiques, boulangeries, hôtels, familles et artisans publient leurs besoins ponctuels. Étudiants, jeunes et personnes disponibles y répondent et sont rémunérés pour la tâche.',
+    tiles: [
+      { image: 'restaurant', label: 'Restaurants', alt: 'Aide en cuisine dans un petit restaurant' },
+      { image: 'shop', label: 'Petits commerces', alt: 'Commerçante servant une cliente dans une boutique de quartier' },
+      { image: 'delivery', label: 'Livraisons', alt: 'Livreur à moto remettant un colis' },
+      { image: 'household', label: 'Besoins domestiques', alt: 'Aide ménagère dans un salon familial' },
+    ],
+    cta: { label: 'Découvrir les Mini-jobs', href: '/mini-jobs/' },
+    note: 'Illustrations générées par IA. Personnes et commerces fictifs.',
+  },
   mobile: {
     title: 'CamPower, partout avec vous.',
     dek: 'Consultez votre profil, vos opportunités et vos missions depuis votre téléphone.',
@@ -124,6 +139,7 @@ export const homepageFr: HomepageContent = {
           { label: 'Talents', href: '/talents/' },
           { label: 'Entreprises', href: '/entreprises/' },
           { label: 'Missions', href: '/missions/' },
+          { label: 'Mini-jobs', href: '/mini-jobs/' },
         ],
       },
       {

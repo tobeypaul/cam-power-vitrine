@@ -93,6 +93,14 @@ export const aideFr: AideContent = {
         terms: 'différence emploi mission besoin compétence durée missions',
       },
       {
+        question: 'Qu’est-ce qu’un mini-job ?',
+        answer:
+          'Un mini-job est une tâche ponctuelle du quotidien, publiée par un commerce, un établissement ou une famille : un coup de main, une livraison, un ménage, un cours à domicile. Les Mini-jobs se trouvent dans l’onglet Offres de l’application. En savoir plus sur la page ',
+        link: { label: 'Mini-jobs', href: '/mini-jobs/' },
+        after: '.',
+        terms: 'mini-job mini-jobs secteur informel tâche ponctuelle restaurant boutique ménage livraison étudiant missions opportunités',
+      },
+      {
         question: 'Où puis-je accéder à CamPower ?',
         answer: 'L’application est accessible à l’adresse ',
         link: { label: 'cam-power.net', href: siteConfig.applicationUrl },

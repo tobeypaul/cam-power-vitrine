@@ -87,6 +87,7 @@ French is the default and keeps its existing addresses. English lives under `/en
 | `/talents/` | `/en/talent/` |
 | `/entreprises/` | `/en/companies/` |
 | `/missions/` | `/en/missions/` |
+| `/mini-jobs/` | `/en/mini-jobs/` |
 | `/a-propos/` | `/en/about/` |
 | `/aide/` | `/en/help/` |
 | `/contact/` | `/en/contact/` |
@@ -96,10 +97,15 @@ French is the default and keeps its existing addresses. English lives under `/en
 
 The map lives in `src/i18n/index.ts`. The FR/EN control in the header opens the same page in the other language. Each page declares both versions with `hreflang`. The English legal pages state that the French version is the reference.
 
+## Mini-jobs
+
+On 10 November 2026 the Owner added the informal sector as a service: restaurants, small shops, bakeries, hotels, households, technicians and student jobs post short-term needs as Mini-jobs, the name used in the app. The earlier rule that kept Mini-jobs away from the Missions story is lifted. Mini-jobs have their own page and a homepage section. Missions stay described as a professional skill for a defined need. The site does not promise a task or an income.
+
 ## Assets
 
 - Logo: `src/assets/brand/logo.png` — the accepted CamPower logo. Do not redraw, recolour, or substitute it.
 - Screens: `src/assets/screens/` — application screenshots supplied by the Owner on 10 November 2026. `screen-messages.jpg`, `screen-chat.jpg`, `screen-connections.jpg`, `screen-suggestions.jpg` and `screen-notifications.jpg` are anonymised: real users’ names, photos and private messages were replaced with fictional ones. The app interface itself is unchanged. Companies shown posting public job offers are kept.
+- Mini-jobs illustrations: `src/assets/minijobs/` — AI-generated photographs of fictional people and businesses (restaurants, bakeries, shops, hotels, households, technicians, deliveries, events, car wash, tailoring, tutoring). The Mini-jobs page and the homepage section say so next to the images. Do not present them as real customers or partners.
 
 ## Application boundary
 

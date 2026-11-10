@@ -12,6 +12,7 @@ export const talentsFr: TalentsContent = {
     { label: 'Talents', href: '/talents/', current: true },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
+    { label: 'Mini-jobs', href: '/mini-jobs/' },
     { label: 'À propos', href: '/a-propos/' },
   ],
   hero: {
