@@ -1,0 +1,83 @@
+---
+import Arrow from './Arrow.astro';
+import Logo from './Logo.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+import SocialLinks from './SocialLinks.astro';
+import StoreBadges from './StoreBadges.astro';
+import { getHomepage } from '../content';
+import { appStoresFr } from '../content/stores';
+import { innerFooter, route } from '../i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/paths';
+import { siteConfig } from '../lib/site';
+import '../styles/not-found.css';
+
+interface Block {
+  title: string;
+  text: string;
+  links?: Array<{ label: string; href: string }>;
+}
+
+interface Props {
+  code: string;
+  title: string;
+  fr: Block;
+  en: Block;
+  minimal?: boolean;
+}
+
+const { code, title, fr, en, minimal = false } = Astro.props;
+const home = getHomepage('fr');
+const footer = innerFooter(home.footer, 'fr');
+const blocks = [
+  { lang: 'fr', ...fr },
+  { lang: 'en', ...en },
+];
+---
+
+<BaseLayout title={`${title} — CamPower`} description={`${fr.text} ${en.text}`} locale="fr" routeKey="home" noindex>
+  {minimal ? (
+    <header class="site-header">
+      <div class="bar wrap status-bar">
+        <Logo href={siteConfig.applicationUrl} label="CamPower" />
+      </div>
+    </header>
+  ) : (
+    <SiteHeader nav={home.nav} access={home.hero.access} logoHref={route('home', 'fr')} locale="fr" routeKey="home" />
+  )}
+  <main id="contenu" class="not-found">
+    <section class="hero" data-motion="hero" aria-labelledby="status-title">
+      <div class="wrap">
+        <p class="eyebrow">{code}</p>
+        <h1 id="status-title">{fr.title} <span lang="en">· {en.title}</span></h1>
+        <div class="nf-grid">
+          {blocks.map((block) => (
+            <article class="nf-block" lang={block.lang}>
+              <h2>{block.title}</h2>
+              <p>{block.text}</p>
+              {block.links && (
+                <ul>
+                  {block.links.map((link) => (
+                    <li><a href={link.href.startsWith('/') ? sitePath(link.href) : link.href}>{link.label} <Arrow /></a></li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          ))}
+        </div>
+        <div class="status-actions">
+          <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
+          <a class="status-mail" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        </div>
+        {minimal && (
+          <div class="status-extra">
+            <StoreBadges stores={appStoresFr} locale="fr" compact />
+            <SocialLinks locale="fr" tone="light" />
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+  {!minimal && <SiteFooter footer={footer} locale="fr" homeHref={route('home', 'fr')} />}
+</BaseLayout>

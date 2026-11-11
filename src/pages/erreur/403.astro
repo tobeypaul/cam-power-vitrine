@@ -1,0 +1,25 @@
+---
+import StatusPage from '../../components/StatusPage.astro';
+import { route } from '../../i18n';
+---
+
+<StatusPage
+  code="403"
+  title="Accès refusé · Access denied"
+  fr={{
+    title: 'Accès refusé',
+    text: 'Cette adresse n’est pas accessible au public.',
+    links: [
+      { label: 'Accueil', href: route('home', 'fr') },
+      { label: 'Aide', href: route('aide', 'fr') },
+    ],
+  }}
+  en={{
+    title: 'Access denied',
+    text: 'This address is not open to the public.',
+    links: [
+      { label: 'Home', href: route('home', 'en') },
+      { label: 'Help', href: route('aide', 'en') },
+    ],
+  }}
+/>

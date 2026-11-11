@@ -1,18 +1,12 @@
 ---
-import Arrow from '../components/Arrow.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import { getHomepage } from '../content';
-import { innerFooter, route } from '../i18n';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { sitePath } from '../lib/paths';
-import '../styles/not-found.css';
+import StatusPage from '../components/StatusPage.astro';
+import { route } from '../i18n';
+---
 
-const home = getHomepage('fr');
-const footer = innerFooter(home.footer, 'fr');
-const blocks = [
-  {
-    lang: 'fr',
+<StatusPage
+  code="404"
+  title="Page introuvable · Page not found"
+  fr={{
     title: 'Page introuvable',
     text: 'Cette page n’existe pas ou a changé d’adresse.',
     links: [
@@ -20,9 +14,8 @@ const blocks = [
       { label: 'Mini-jobs', href: route('minijobs', 'fr') },
       { label: 'Aide', href: route('aide', 'fr') },
     ],
-  },
-  {
-    lang: 'en',
+  }}
+  en={{
     title: 'Page not found',
     text: 'This page does not exist or has moved.',
     links: [
@@ -30,39 +23,5 @@ const blocks = [
       { label: 'Mini-jobs', href: route('minijobs', 'en') },
       { label: 'Help', href: route('aide', 'en') },
     ],
-  },
-];
----
-
-<BaseLayout
-  title="Page introuvable · Page not found — CamPower"
-  description="Cette page n’existe pas. This page does not exist."
-  locale="fr"
-  routeKey="home"
-  noindex
->
-  <SiteHeader nav={home.nav} access={home.hero.access} logoHref={route('home', 'fr')} locale="fr" routeKey="home" />
-  <main id="contenu" class="not-found">
-    <section class="hero" data-motion="hero" aria-labelledby="nf-title">
-      <div class="wrap">
-        <p class="eyebrow">404</p>
-        <h1 id="nf-title">Page introuvable <span lang="en">· Page not found</span></h1>
-        <div class="nf-grid">
-          {blocks.map((block) => (
-            <article class="nf-block" lang={block.lang}>
-              <h2>{block.title}</h2>
-              <p>{block.text}</p>
-              <ul>
-                {block.links.map((link) => (
-                  <li><a href={sitePath(link.href)}>{link.label} <Arrow /></a></li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-        <a class="btn btn-primary" href={home.hero.access.href}>{home.hero.access.label} <Arrow /></a>
-      </div>
-    </section>
-  </main>
-  <SiteFooter footer={footer} locale="fr" homeHref={route('home', 'fr')} />
-</BaseLayout>
+  }}
+/>

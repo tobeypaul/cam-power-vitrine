@@ -149,7 +149,21 @@ The live subdomain is `https://site.cam-power.net`:
 BASE_PATH=/ SITE_URL=https://site.cam-power.net npm run build
 ```
 
-Not-found page: `dist/404.html`. `public/.htaccess` sets it for Apache. On Nginx, add `error_page 404 /404.html;` to the server block.
+Error pages, all bilingual, `noindex` and left out of the sitemap:
+
+| Status | Page |
+| --- | --- |
+| 403 | `/erreur/403/` |
+| 404 | `/404.html` |
+| 500 | `/erreur/500/` |
+| 502, 504 | `/erreur/503/` |
+| 503 | `/maintenance/` |
+
+`public/.htaccess` wires them for Apache. On Nginx, add `error_page 403 /erreur/403/index.html; error_page 404 /404.html; error_page 500 /erreur/500/index.html; error_page 502 504 /erreur/503/index.html; error_page 503 /maintenance/index.html;` to the server block.
+
+### Maintenance mode
+
+Open `.htaccess` on the server and remove the `# ` at the start of the ten maintenance lines. Every page then answers `503 Service Unavailable` with the maintenance page and a `Retry-After` header, so search engines come back later instead of dropping the site. Put the `# ` back to end maintenance. The rules are wrapped in `IfModule`, so a server without `mod_rewrite` or `mod_headers` ignores them rather than failing.
 
 ## Search engines
 

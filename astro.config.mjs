@@ -9,5 +9,5 @@ export default defineConfig({
   base,
   output: 'static',
   trailingSlash: 'ignore',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !/\/(erreur|maintenance)\//.test(page) })],
 });

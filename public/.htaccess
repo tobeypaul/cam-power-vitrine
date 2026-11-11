@@ -1,1 +1,24 @@
+# CamPower Site Vitrine — Apache rules for the root of site.cam-power.net.
+
+ErrorDocument 403 /erreur/403/index.html
 ErrorDocument 404 /404.html
+ErrorDocument 500 /erreur/500/index.html
+ErrorDocument 502 /erreur/503/index.html
+ErrorDocument 503 /maintenance/index.html
+ErrorDocument 504 /erreur/503/index.html
+
+# Maintenance mode is OFF.
+# To turn it ON, remove the "# " at the start of the ten lines below.
+# To turn it OFF again, put the "# " back.
+# Every page then answers "503 Service Unavailable" with the maintenance page,
+# which tells search engines to come back later instead of dropping the site.
+# Retry-After is in seconds.
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{REQUEST_URI} !^/maintenance/
+#   RewriteCond %{REQUEST_URI} !^/(_astro|fonts|og)/
+#   RewriteRule ^ - [R=503,L]
+# </IfModule>
+# <IfModule mod_headers.c>
+#   Header always set Retry-After "3600"
+# </IfModule>

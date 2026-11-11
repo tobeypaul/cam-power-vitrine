@@ -1,0 +1,25 @@
+---
+import StatusPage from '../../components/StatusPage.astro';
+import { route } from '../../i18n';
+---
+
+<StatusPage
+  code="500"
+  title="Erreur du serveur · Server error"
+  fr={{
+    title: 'Erreur du serveur',
+    text: 'Un problème est survenu de notre côté. Réessayez dans quelques instants.',
+    links: [
+      { label: 'Accueil', href: route('home', 'fr') },
+      { label: 'Contact', href: route('contact', 'fr') },
+    ],
+  }}
+  en={{
+    title: 'Server error',
+    text: 'Something went wrong on our side. Please try again in a moment.',
+    links: [
+      { label: 'Home', href: route('home', 'en') },
+      { label: 'Contact', href: route('contact', 'en') },
+    ],
+  }}
+/>

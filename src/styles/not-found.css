@@ -35,3 +35,9 @@
 @media (max-width: 640px) {
   .not-found .nf-grid { grid-template-columns: 1fr; }
 }
+
+.status-bar { grid-template-columns: 1fr; }
+.not-found .status-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.not-found .status-mail { color: var(--navy); font-weight: 600; text-decoration: none; }
+.not-found .status-extra { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.not-found .status-extra .stores { margin-top: 0; }
