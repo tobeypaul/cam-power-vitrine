@@ -13,12 +13,13 @@ interface Props {
 }
 
 const { title, description, locale, routeKey } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const logoUrl = new URL(logo.src, Astro.site).href;
+const absolute = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
+const canonical = absolute(Astro.url.pathname);
+const logoUrl = absolute(logo.src);
 const structuredData = organizationGraph(canonical, description, logoUrl, htmlLang[locale]);
 const alternates = locales.map((code) => ({
   code,
-  href: new URL(sitePath(route(routeKey, code)), Astro.site).href,
+  href: absolute(sitePath(route(routeKey, code))),
 }));
 const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
 ---
@@ -30,7 +31,7 @@ const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical.href} />
+    <link rel="canonical" href={canonical} />
     {alternates.map((alternate) => <link rel="alternate" hreflang={htmlLang[alternate.code]} href={alternate.href} />)}
     <link rel="alternate" hreflang="x-default" href={xDefault} />
     <link rel="icon" type="image/png" href={logo.src} />
@@ -41,7 +42,7 @@ const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
     <meta property="og:site_name" content="CamPower" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical.href} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:image" content={logoUrl} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />

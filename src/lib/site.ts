@@ -18,14 +18,14 @@ export const socialLinks: Array<{ network: SocialNetwork; name: string; href: st
   { network: 'linkedin', name: 'LinkedIn', href: siteConfig.linkedInUrl },
 ];
 
-export function organizationGraph(site: URL, description: string, logoUrl: string, locale: string = siteConfig.locale) {
+export function organizationGraph(pageUrl: string, description: string, logoUrl: string, locale: string = siteConfig.locale) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Organization',
         name: siteConfig.name,
-        url: site.href,
+        url: pageUrl,
         logo: logoUrl,
         email: siteConfig.email,
         areaServed: {
@@ -37,7 +37,7 @@ export function organizationGraph(site: URL, description: string, logoUrl: strin
       {
         '@type': 'WebSite',
         name: siteConfig.name,
-        url: site.href,
+        url: pageUrl,
         inLanguage: locale,
         description,
         publisher: {

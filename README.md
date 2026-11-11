@@ -123,15 +123,25 @@ This site does not call the application API.
 
 Copy `.env.example` if you need a local override.
 
-`SITE_URL` is the public origin of this marketing site. It is used for the canonical URL, Open Graph tags, and the sitemap. Set it before a production build.
+`SITE_URL` is the public origin of this marketing site. It is used for the canonical URL, `hreflang` links, Open Graph tags, and the sitemap. Set it before a production build.
 
 Do not set `SITE_URL` to `https://cam-power.net/`. That address is the application, not this site.
 
-If `SITE_URL` is omitted, the build uses `http://localhost:4321`.
+If `SITE_URL` is omitted, those links are written as root-relative paths and no sitemap is generated.
+
+`BASE_PATH` is the path the site is served from. It defaults to `/cam-power-vitrine` for the GitHub Pages project site. Use `/` for the root of a subdomain.
 
 ## Deployment
 
-No hosting target is configured in this repository. A production deploy is a static publish of the `dist/` directory from `npm run build`, with `SITE_URL` set to the real marketing domain.
+GitHub Pages: `.github/workflows/deploy.yml` builds with `SITE_URL=https://tobeypaul.github.io` and the default base path.
+
+Subdomain or any static host at the root of a domain:
+
+```bash
+BASE_PATH=/ SITE_URL=https://your-subdomain.example npm run build
+```
+
+Upload the contents of `dist/`. Each page is a folder with an `index.html`, so the server must serve `index.html` for directory requests, which Apache and Nginx do by default.
 
 ## Architecture notes
 
