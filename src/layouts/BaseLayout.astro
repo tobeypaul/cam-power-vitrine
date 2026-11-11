@@ -10,12 +10,17 @@ interface Props {
   description: string;
   locale: Locale;
   routeKey: RouteKey;
+  noindex?: boolean;
 }
 
-const { title, description, locale, routeKey } = Astro.props;
+const { title, description, locale, routeKey, noindex: pageNoindex = false } = Astro.props;
+const noindex = pageNoindex || String(import.meta.env.SITE_NOINDEX) === 'true';
 const absolute = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
 const canonical = absolute(Astro.url.pathname);
 const logoUrl = absolute(logo.src);
+const shareImage = absolute(sitePath(`/og/campower-${locale}.jpg`));
+const googleVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
+const bingVerification = import.meta.env.BING_SITE_VERIFICATION;
 const structuredData = organizationGraph(canonical, description, logoUrl, htmlLang[locale]);
 const alternates = locales.map((code) => ({
   code,
@@ -31,9 +36,17 @@ const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {alternates.map((alternate) => <link rel="alternate" hreflang={htmlLang[alternate.code]} href={alternate.href} />)}
-    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    {noindex ? (
+      <meta name="robots" content="noindex" />
+    ) : (
+      <>
+        <link rel="canonical" href={canonical} />
+        {alternates.map((alternate) => <link rel="alternate" hreflang={htmlLang[alternate.code]} href={alternate.href} />)}
+        <link rel="alternate" hreflang="x-default" href={xDefault} />
+      </>
+    )}
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
     <link rel="icon" type="image/png" href={logo.src} />
     <meta name="theme-color" content="#1B3A8A" />
     <meta property="og:type" content="website" />
@@ -43,11 +56,14 @@ const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={logoUrl} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t(locale).shareAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={logoUrl} />
+    <meta name="twitter:image" content={shareImage} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <script is:inline>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

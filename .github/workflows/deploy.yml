@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_URL: https://tobeypaul.github.io
+      SITE_NOINDEX: 'true'
 
     steps:
       - name: Checkout repository

@@ -133,7 +133,7 @@ If `SITE_URL` is omitted, those links are written as root-relative paths and no 
 
 ## Deployment
 
-GitHub Pages: `.github/workflows/deploy.yml` builds with `SITE_URL=https://tobeypaul.github.io` and the default base path.
+GitHub Pages: `.github/workflows/deploy.yml` builds with `SITE_URL=https://tobeypaul.github.io`, `SITE_NOINDEX=true` and the default base path. It is a preview, not the indexed site.
 
 Subdomain or any static host at the root of a domain:
 
@@ -142,6 +142,24 @@ BASE_PATH=/ SITE_URL=https://your-subdomain.example npm run build
 ```
 
 Upload the contents of `dist/`. Each page is a folder with an `index.html`, so the server must serve `index.html` for directory requests, which Apache and Nginx do by default.
+
+The live subdomain is `https://site.cam-power.net`:
+
+```bash
+BASE_PATH=/ SITE_URL=https://site.cam-power.net npm run build
+```
+
+Not-found page: `dist/404.html`. `public/.htaccess` sets it for Apache. On Nginx, add `error_page 404 /404.html;` to the server block.
+
+## Search engines
+
+- Sitemap: `https://site.cam-power.net/sitemap-index.xml`, listed in `robots.txt`. Submit it in Google Search Console and Bing Webmaster Tools.
+- Verification by meta tag: set `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` to the content values before building.
+- Verification by file: put the file Google or Bing provides (for example `google1234abcd.html`) in `public/` and rebuild.
+- Verification by DNS TXT record needs no change to the site.
+- Sharing image: `public/og/campower-fr.jpg` and `public/og/campower-en.jpg` (1200×630), used for Open Graph and Twitter cards.
+- The 404 page is `noindex` and is left out of the sitemap.
+- The GitHub Pages copy is a preview. Its workflow sets `SITE_NOINDEX=true`, so every page there is `noindex` and `robots.txt` lists no sitemap. Only `site.cam-power.net` should be indexed.
 
 ## Architecture notes
 
