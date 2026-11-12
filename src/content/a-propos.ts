@@ -4,7 +4,7 @@ export const aproposFr: AProposContent = {
   meta: {
     title: 'À propos — Pourquoi CamPower existe',
     description:
-      'CamPower est né d’une ambition : mieux connecter les talents, les compétences, les entreprises et les opportunités au Cameroun, dans un espace professionnel pensé pour accompagner les parcours et les besoins dans la durée.',
+      'CamPower est né d’une ambition : mieux connecter talents, compétences, entreprises et opportunités au Cameroun, dans un espace professionnel pensé pour durer.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },

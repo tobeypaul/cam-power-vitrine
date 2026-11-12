@@ -18,33 +18,100 @@ export const socialLinks: Array<{ network: SocialNetwork; name: string; href: st
   { network: 'linkedin', name: 'LinkedIn', href: siteConfig.linkedInUrl },
 ];
 
-export function organizationGraph(pageUrl: string, description: string, logoUrl: string, locale: string = siteConfig.locale) {
+type JsonLd = Record<string, unknown>;
+
+interface GraphInput {
+  /** Absolute URL of the French home page, the site's reference origin. */
+  siteUrl: string;
+  /** Absolute URL of the home page in the current language. */
+  homeUrl: string;
+  /** Absolute canonical URL of the current page. */
+  pageUrl: string;
+  pageName: string;
+  homeName: string;
+  description: string;
+  logoUrl: string;
+  locale: string;
+  isHome: boolean;
+  /** Extra page-level nodes, for example an FAQPage. */
+  extra?: JsonLd[];
+}
+
+/**
+ * Structured data for one page.
+ * Organization and WebSite always point at the home page, never the current page.
+ * The home page also describes the mobile application; inner pages get a breadcrumb.
+ */
+export function structuredDataGraph(input: GraphInput) {
+  const organizationId = `${input.siteUrl}#organization`;
+  const websiteId = `${input.homeUrl}#website`;
+  const graph: JsonLd[] = [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: siteConfig.name,
+      url: input.siteUrl,
+      logo: input.logoUrl,
+      email: siteConfig.email,
+      areaServed: { '@type': 'Country', name: input.locale === 'en' ? 'Cameroon' : 'Cameroun' },
+      sameAs: [siteConfig.applicationUrl, ...socialLinks.map((link) => link.href)],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      name: siteConfig.name,
+      url: input.homeUrl,
+      inLanguage: input.locale,
+      publisher: { '@id': organizationId },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${input.pageUrl}#webpage`,
+      url: input.pageUrl,
+      name: input.pageName,
+      description: input.description,
+      inLanguage: input.locale,
+      isPartOf: { '@id': websiteId },
+      about: { '@id': organizationId },
+      ...(input.isHome ? {} : { breadcrumb: { '@id': `${input.pageUrl}#breadcrumb` } }),
+    },
+  ];
+
+  if (input.isHome) {
+    graph.push({
+      '@type': 'MobileApplication',
+      '@id': `${input.siteUrl}#app`,
+      name: siteConfig.name,
+      operatingSystem: 'Android, iOS',
+      applicationCategory: 'BusinessApplication',
+      url: siteConfig.applicationUrl,
+      downloadUrl: [siteConfig.playStoreUrl, siteConfig.appStoreUrl],
+      publisher: { '@id': organizationId },
+    });
+  } else {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${input.pageUrl}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: input.homeName, item: input.homeUrl },
+        { '@type': 'ListItem', position: 2, name: input.pageName, item: input.pageUrl },
+      ],
+    });
+  }
+
+  graph.push(...(input.extra ?? []));
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+/** FAQPage node from question/answer pairs written as plain text. */
+export function faqPage(pageUrl: string, items: Array<{ question: string; answer: string }>): JsonLd {
   return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        name: siteConfig.name,
-        url: pageUrl,
-        logo: logoUrl,
-        email: siteConfig.email,
-        areaServed: {
-          '@type': 'Country',
-          name: locale === 'en' ? 'Cameroon' : 'Cameroun',
-        },
-        sameAs: socialLinks.map((link) => link.href),
-      },
-      {
-        '@type': 'WebSite',
-        name: siteConfig.name,
-        url: pageUrl,
-        inLanguage: locale,
-        description,
-        publisher: {
-          '@type': 'Organization',
-          name: siteConfig.name,
-        },
-      },
-    ],
+    '@type': 'FAQPage',
+    '@id': `${pageUrl}#faq`,
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
   };
 }

@@ -4,7 +4,7 @@ export const missionsFr: MissionsContent = {
   meta: {
     title: 'Missions — Un besoin, une compétence, une mission sur CamPower',
     description:
-      'Une mission CamPower relie un besoin professionnel défini et une compétence à mettre en pratique. Elle complète l’emploi, dans le même écosystème que les profils, le réseau et les entreprises.',
+      'Une mission CamPower relie un besoin professionnel défini et une compétence à mettre en pratique. Elle complète l’emploi, dans le même écosystème.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },

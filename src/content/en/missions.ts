@@ -5,7 +5,7 @@ export const missionsEn: MissionsContent = {
   meta: {
     title: 'Missions — A need, a skill, a mission on CamPower',
     description:
-      'A CamPower mission connects a defined professional need with a skill to put into practice. It complements employment, within the same ecosystem as profiles, the network and companies.',
+      'A CamPower mission connects a defined professional need with a skill to put into practice. It complements employment, within the same ecosystem.',
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },

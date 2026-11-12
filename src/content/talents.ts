@@ -5,7 +5,7 @@ export const talentsFr: TalentsContent = {
   meta: {
     title: 'Talents — Votre parcours professionnel sur CamPower',
     description:
-      'CamPower vous aide à présenter qui vous êtes, à faire connaître vos compétences et à élargir votre réseau. L’emploi et les missions s’y inscrivent, sans résumer la plateforme.',
+      'Présentez qui vous êtes, faites connaître vos compétences et élargissez votre réseau professionnel au Cameroun. L’emploi et les missions en font partie.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },

@@ -5,7 +5,7 @@ export const entreprisesEn: EntreprisesContent = {
   meta: {
     title: 'Companies — Needs, talent and skills on CamPower',
     description:
-      'CamPower helps your organisation express a need, discover professionals and draw on a skill. Recruitment and missions are two ways forward, within the same ecosystem.',
+      'Express a need, discover professionals and draw on a skill in Cameroon. Recruitment and missions move forward within the same CamPower ecosystem.',
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },

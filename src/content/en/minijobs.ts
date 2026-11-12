@@ -6,7 +6,7 @@ export const minijobsEn: MiniJobsContent = {
   meta: {
     title: 'Mini-jobs — Everyday short-term needs on CamPower',
     description:
-      'Restaurants, shops, bakeries, hotels, households: post a short-term need on CamPower. Students, young people and anyone available can respond and be paid for the task.',
+      'Restaurants, shops, bakeries, hotels, households: post a short-term need on CamPower. Students and anyone available can respond and be paid for the task.',
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },

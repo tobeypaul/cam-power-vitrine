@@ -6,7 +6,7 @@ export const decouvrirEn: DecouvrirContent = {
   meta: {
     title: 'Discover CamPower — The professional ecosystem',
     description:
-      'CamPower connects your professional identity, your skills, your network, opportunities, recruitment and missions. See how these parts work together, in Cameroon.',
+      'CamPower connects your professional identity, skills, network, opportunities, recruitment and missions. See how they work together, in Cameroon.',
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en, current: true },

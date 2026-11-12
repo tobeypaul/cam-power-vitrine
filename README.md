@@ -173,6 +173,9 @@ Open `.htaccess` on the server and remove the `# ` at the start of the ten maint
 - Verification by DNS TXT record needs no change to the site.
 - Sharing image: `public/og/campower-fr.jpg` and `public/og/campower-en.jpg` (1200×630), used for Open Graph and Twitter cards.
 - The 404 page is `noindex` and is left out of the sitemap.
+- Structured data (`src/lib/site.ts`, `structuredDataGraph`): Organization and WebSite always point at the home page. Every page has a WebPage node. The home page adds MobileApplication. Inner pages add a BreadcrumbList. Aide/Help adds an FAQPage built from its questions. `noindex` pages carry no structured data.
+- Meta descriptions stay at 160 characters or fewer so results do not cut them off.
+- `.htaccess` redirects `www.site.cam-power.net` to `site.cam-power.net` and sends HSTS. The http → https redirect is commented out until it is tested behind the hosting proxy; see the note in the file.
 - The GitHub Pages copy is a preview. Its workflow sets `SITE_NOINDEX=true`, so every page there is `noindex` and `robots.txt` lists no sitemap. Only `site.cam-power.net` should be indexed.
 
 ## Architecture notes

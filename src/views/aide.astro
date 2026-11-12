@@ -6,6 +6,7 @@ import { innerFooter, route, type Locale } from '../i18n';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/aide.css';
 import { sitePath } from '../lib/paths';
+import { faqPage } from '../lib/site';
 
 interface Props {
   locale: Locale;
@@ -15,9 +16,17 @@ const { locale } = Astro.props;
 const home = getHomepage(locale);
 const page = getAide(locale);
 const footer = innerFooter(home.footer, locale);
+const pageUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const faqSchema = faqPage(
+  pageUrl,
+  page.faq.items.map((item) => ({
+    question: item.question,
+    answer: `${item.answer}${item.link?.label ?? ''}${item.after ?? ''}`.trim(),
+  })),
+);
 ---
 
-<BaseLayout title={page.meta.title} description={page.meta.description} locale={locale} routeKey="aide">
+<BaseLayout title={page.meta.title} description={page.meta.description} locale={locale} routeKey="aide" schema={[faqSchema]}>
   <SiteHeader nav={home.nav} access={home.hero.access} logoHref={route('home', locale)} locale={locale} routeKey="aide" />
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>

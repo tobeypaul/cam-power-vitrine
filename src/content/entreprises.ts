@@ -4,7 +4,7 @@ export const entreprisesFr: EntreprisesContent = {
   meta: {
     title: 'Entreprises — Besoins, talents et compétences sur CamPower',
     description:
-      'CamPower aide votre organisation à exprimer un besoin, à découvrir des professionnels et à mobiliser une compétence. Le recrutement et les missions sont deux façons d’avancer, dans le même écosystème.',
+      'Exprimez un besoin, découvrez des professionnels et mobilisez une compétence au Cameroun. Recrutement et missions avancent dans le même écosystème CamPower.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },

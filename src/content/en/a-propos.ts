@@ -5,7 +5,7 @@ export const aproposEn: AProposContent = {
   meta: {
     title: 'About — Why CamPower exists',
     description:
-      'CamPower was born from an ambition: to better connect talent, skills, companies and opportunities in Cameroon, in a professional space designed to support careers and needs over time.',
+      'CamPower was born from one ambition: to better connect talent, skills, companies and opportunities in Cameroon, in a professional space built to last.',
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },

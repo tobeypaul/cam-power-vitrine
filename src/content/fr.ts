@@ -12,7 +12,7 @@ export const homepageFr: HomepageContent = {
   meta: {
     title: 'CamPower — Talents, entreprises et opportunités au Cameroun',
     description:
-      'CamPower connecte les talents, les entreprises, les compétences et les opportunités au Cameroun. Développez votre réseau professionnel, trouvez des opportunités, recrutez ou proposez une mission.',
+      'CamPower connecte talents, entreprises et opportunités au Cameroun. Développez votre réseau, trouvez des opportunités, recrutez ou proposez une mission.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },

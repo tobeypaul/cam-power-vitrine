@@ -2,7 +2,7 @@
 import logo from '../assets/brand/logo.png';
 import { htmlLang, locales, ogLocale, otherLocale, route, t, type Locale, type RouteKey } from '../i18n';
 import { sitePath } from '../lib/paths';
-import { organizationGraph } from '../lib/site';
+import { structuredDataGraph } from '../lib/site';
 import '../styles/global.css';
 
 interface Props {
@@ -11,9 +11,13 @@ interface Props {
   locale: Locale;
   routeKey: RouteKey;
   noindex?: boolean;
+  /** Short page name for the breadcrumb. Defaults to the part of the title before the dash. */
+  pageName?: string;
+  /** Extra JSON-LD nodes for this page, for example an FAQPage. */
+  schema?: Record<string, unknown>[];
 }
 
-const { title, description, locale, routeKey, noindex: pageNoindex = false } = Astro.props;
+const { title, description, locale, routeKey, noindex: pageNoindex = false, pageName, schema = [] } = Astro.props;
 const noindex = pageNoindex || String(import.meta.env.SITE_NOINDEX) === 'true';
 const absolute = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
 const canonical = absolute(Astro.url.pathname);
@@ -21,12 +25,23 @@ const logoUrl = absolute(logo.src);
 const shareImage = absolute(sitePath(`/og/campower-${locale}.jpg`));
 const googleVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
 const bingVerification = import.meta.env.BING_SITE_VERIFICATION;
-const structuredData = organizationGraph(canonical, description, logoUrl, htmlLang[locale]);
 const alternates = locales.map((code) => ({
   code,
   href: absolute(sitePath(route(routeKey, code))),
 }));
 const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
+const structuredData = structuredDataGraph({
+  siteUrl: absolute(sitePath(route('home', 'fr'))),
+  homeUrl: absolute(sitePath(route('home', locale))),
+  pageUrl: canonical,
+  pageName: pageName ?? title.split(' — ')[0]!,
+  homeName: t(locale).homeName,
+  description,
+  logoUrl,
+  locale: htmlLang[locale],
+  isHome: routeKey === 'home',
+  extra: schema,
+});
 ---
 
 <!doctype html>
@@ -64,7 +79,7 @@ const xDefault = alternates.find((alternate) => alternate.code === 'fr')!.href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={shareImage} />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     <script is:inline>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion-ready');

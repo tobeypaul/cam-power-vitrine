@@ -7,6 +7,32 @@ ErrorDocument 502 /erreur/503/index.html
 ErrorDocument 503 /maintenance/index.html
 ErrorDocument 504 /erreur/503/index.html
 
+# One address per page: send www.site.cam-power.net to site.cam-power.net.
+# Safe behind the hosting proxy because it only looks at the host name.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.site\.cam-power\.net$ [NC]
+  RewriteRule ^ https://site.cam-power.net%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Tell browsers to use HTTPS only. Browsers ignore this header on plain http.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on' || %{HTTP:X-Forwarded-Proto} == 'https'"
+</IfModule>
+
+# http -> https is OFF until it is tested on the live host.
+# The site sits behind a caching proxy ("Portail", Varnish). If the proxy talks
+# to Apache over plain http and does not send X-Forwarded-Proto, this rule
+# would redirect forever. Prefer the host panel's "Force HTTPS" switch.
+# Otherwise remove the "# " from the four lines below, then check that
+# `curl -I http://site.cam-power.net/` answers 301 and
+# `curl -I https://site.cam-power.net/` answers 200.
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} !=on
+#   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+#   RewriteRule ^ https://site.cam-power.net%{REQUEST_URI} [R=301,L]
+# </IfModule>
+
 # Maintenance mode is OFF.
 # To turn it ON, remove the "# " at the start of the ten lines below.
 # To turn it OFF again, put the "# " back.

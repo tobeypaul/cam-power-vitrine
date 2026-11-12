@@ -5,7 +5,7 @@ export const decouvrirFr: DecouvrirContent = {
   meta: {
     title: 'Découvrir CamPower — L’écosystème professionnel',
     description:
-      'CamPower relie votre identité professionnelle, vos compétences, votre réseau, les opportunités, le recrutement et les missions. Découvrez comment ces parties avancent ensemble, au Cameroun.',
+      'CamPower relie identité professionnelle, compétences, réseau, opportunités, recrutement et missions. Découvrez comment tout avance ensemble, au Cameroun.',
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/', current: true },

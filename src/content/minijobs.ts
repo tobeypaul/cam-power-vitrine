@@ -6,7 +6,7 @@ export const minijobsFr: MiniJobsContent = {
   meta: {
     title: 'Mini-jobs — Les besoins ponctuels du quotidien sur CamPower',
     description:
-      'Restaurants, boutiques, boulangeries, hôtels, familles : publiez un besoin ponctuel sur CamPower. Étudiants, jeunes et personnes disponibles peuvent y répondre et être rémunérés pour la tâche.',
+      'Restaurants, boutiques, boulangeries, hôtels, familles : publiez un besoin ponctuel sur CamPower. Étudiants et personnes disponibles peuvent y répondre.',
   },
   nav: [
     { label: 'Découvrir', href: routes.decouvrir.fr },
