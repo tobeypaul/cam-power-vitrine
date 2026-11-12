@@ -5,6 +5,8 @@ import { conditionsFr } from './conditions';
 import { confidentialiteFr } from './confidentialite';
 import { contactFr } from './contact';
 import { decouvrirFr } from './decouvrir';
+import { guidesFr } from './emploi';
+import { guidesEn } from './en/emploi';
 import { aproposEn } from './en/a-propos';
 import { aideEn } from './en/aide';
 import { conditionsEn } from './en/conditions';
@@ -31,6 +33,8 @@ import type {
   ContactContent,
   DecouvrirContent,
   EntreprisesContent,
+  GuideContent,
+  GuideKey,
   HomepageContent,
   MentionsContent,
   MiniJobsContent,
@@ -65,3 +69,6 @@ export const getContact = (locale: Locale) => contact[locale];
 export const getConfidentialite = (locale: Locale) => confidentialite[locale];
 export const getConditions = (locale: Locale) => conditions[locale];
 export const getMentions = (locale: Locale) => mentions[locale];
+
+const guides: Record<Locale, Record<GuideKey, GuideContent>> = { fr: guidesFr, en: guidesEn };
+export const getGuide = (key: GuideKey, locale: Locale) => guides[locale][key];

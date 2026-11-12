@@ -15,9 +15,11 @@ interface Props {
   pageName?: string;
   /** Extra JSON-LD nodes for this page, for example an FAQPage. */
   schema?: Record<string, unknown>[];
+  /** Pages between home and this one for the breadcrumb, as site paths. */
+  trail?: Array<{ name: string; path: string }>;
 }
 
-const { title, description, locale, routeKey, noindex: pageNoindex = false, pageName, schema = [] } = Astro.props;
+const { title, description, locale, routeKey, noindex: pageNoindex = false, pageName, schema = [], trail = [] } = Astro.props;
 const noindex = pageNoindex || String(import.meta.env.SITE_NOINDEX) === 'true';
 const absolute = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
 const canonical = absolute(Astro.url.pathname);
@@ -40,6 +42,7 @@ const structuredData = structuredDataGraph({
   logoUrl,
   locale: htmlLang[locale],
   isHome: routeKey === 'home',
+  trail: trail.map((crumb) => ({ name: crumb.name, url: absolute(sitePath(crumb.path)) })),
   extra: schema,
 });
 ---

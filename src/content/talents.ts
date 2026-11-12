@@ -9,6 +9,7 @@ export const talentsFr: TalentsContent = {
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },
+    { label: 'Emplois', href: '/emploi-cameroun/' },
     { label: 'Talents', href: '/talents/', current: true },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },

@@ -33,6 +33,8 @@ interface GraphInput {
   logoUrl: string;
   locale: string;
   isHome: boolean;
+  /** Pages between the home page and this one, as absolute URLs. */
+  trail?: Array<{ name: string; url: string }>;
   /** Extra page-level nodes, for example an FAQPage. */
   extra?: JsonLd[];
 }
@@ -93,9 +95,10 @@ export function structuredDataGraph(input: GraphInput) {
       '@type': 'BreadcrumbList',
       '@id': `${input.pageUrl}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: input.homeName, item: input.homeUrl },
-        { '@type': 'ListItem', position: 2, name: input.pageName, item: input.pageUrl },
-      ],
+        { name: input.homeName, url: input.homeUrl },
+        ...(input.trail ?? []),
+        { name: input.pageName, url: input.pageUrl },
+      ].map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.name, item: crumb.url })),
     });
   }
 

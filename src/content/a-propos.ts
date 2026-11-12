@@ -8,6 +8,7 @@ export const aproposFr: AProposContent = {
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },
+    { label: 'Emplois', href: '/emploi-cameroun/' },
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },

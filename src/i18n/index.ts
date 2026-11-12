@@ -19,6 +19,7 @@ export const routes = {
   confidentialite: { fr: '/confidentialite/', en: '/en/privacy/' },
   conditions: { fr: '/conditions-utilisation/', en: '/en/terms/' },
   mentions: { fr: '/mentions-legales/', en: '/en/legal-notice/' },
+  emploi: { fr: '/emploi-cameroun/', en: '/en/jobs-in-cameroon/' },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type RouteKey = keyof typeof routes;
@@ -38,6 +39,8 @@ export const ui = {
     menuClose: 'Fermer le menu',
     homeLabel: 'CamPower, accueil',
     homeName: 'Accueil',
+    breadcrumb: 'Fil d’Ariane',
+    onThisPage: 'Sur cette page',
     newTab: ' (s’ouvre dans un nouvel onglet)',
     switchLabel: 'English version',
     switchText: 'EN',
@@ -80,6 +83,8 @@ export const ui = {
     menuClose: 'Close menu',
     homeLabel: 'CamPower, home',
     homeName: 'Home',
+    breadcrumb: 'Breadcrumb',
+    onThisPage: 'On this page',
     newTab: ' (opens in a new tab)',
     switchLabel: 'Version française',
     switchText: 'FR',

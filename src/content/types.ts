@@ -815,3 +815,44 @@ export interface MiniJobsContent {
     support: string;
   };
 }
+
+export type GuideKey = 'emploi';
+export type GuideScreen = 'welcome' | 'profile' | 'minijobs' | 'connections' | 'chat' | 'messages';
+
+/** Search-focused guide pages. Today only the employment page. */
+export interface GuideContent {
+  meta: { title: string; description: string };
+  /** Short name used in the breadcrumb. */
+  crumb: string;
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    points: string[];
+    /** Label of the main button, which opens the CamPower application. */
+    cta: string;
+    /** Short line under the buttons. */
+    note: string;
+    screen: GuideScreen;
+  };
+  sections: Array<{
+    id: string;
+    kicker?: string;
+    title: string;
+    paragraphs: string[];
+    list?: string[];
+    steps?: Array<{ label: string; text: string }>;
+    /** Show the CamPower button and the store badges after this section. */
+    cta?: boolean;
+  }>;
+  related: {
+    title: string;
+    support?: string;
+    links: Array<{ label: string; text: string; href: string }>;
+  };
+  faq: {
+    title: string;
+    items: Array<{ question: string; answer: string }>;
+  };
+  finale: { title: string; support: string };
+}

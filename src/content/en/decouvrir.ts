@@ -10,6 +10,7 @@ export const decouvrirEn: DecouvrirContent = {
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en, current: true },
+    { label: 'Jobs', href: routes.emploi.en },
     { label: 'Talent', href: routes.talents.en },
     { label: 'Companies', href: routes.entreprises.en },
     { label: 'Missions', href: routes.missions.en },

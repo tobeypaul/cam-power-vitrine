@@ -10,6 +10,7 @@ export const minijobsFr: MiniJobsContent = {
   },
   nav: [
     { label: 'Découvrir', href: routes.decouvrir.fr },
+    { label: 'Emplois', href: routes.emploi.fr },
     { label: 'Talents', href: routes.talents.fr },
     { label: 'Entreprises', href: routes.entreprises.fr },
     { label: 'Missions', href: routes.missions.fr },

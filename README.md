@@ -72,6 +72,8 @@ design/              Accepted mockups. Not served by the site.
 
 Homepage copy lives in `src/content/fr.ts`. Découvrir copy lives in `src/content/decouvrir.ts`. Talents copy lives in `src/content/talents.ts`. Entreprises copy lives in `src/content/entreprises.ts`. Missions copy lives in `src/content/missions.ts`. À propos copy lives in `src/content/a-propos.ts`. Aide copy lives in `src/content/aide.ts`. Contact copy lives in `src/content/contact.ts`. Confidentialité copy lives in `src/content/confidentialite.ts`. Conditions d’utilisation copy lives in `src/content/conditions.ts`. Mentions légales copy lives in `src/content/mentions.ts`. All eleven load through `src/content/index.ts`.
 
+The employment page `/emploi-cameroun/` (English `/en/jobs-in-cameroon/`) answers searches such as « emploi Cameroun ». Job offers are not public yet, so the page sends people to CamPower to see them rather than listing offers. It uses the template `src/views/guide.astro`; its copy lives in `src/content/emploi.ts` and `src/content/en/emploi.ts`. It carries an FAQ and a breadcrumb in its structured data. Do not add pages that promise local job listings, such as one page per city, until offers are public. The copy states no figures and promises no job, task or income.
+
 English copy lives in `src/content/en/`, one file per page, with the same structure as the French file. Edit both when wording changes.
 
 To change ordinary wording, edit those files. Section order and layout live in `src/views/` and the matching component. Interface text that is not page copy, such as image descriptions, menu labels and the new-tab notice, lives in `src/i18n/index.ts`.

@@ -9,6 +9,7 @@ export const decouvrirFr: DecouvrirContent = {
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/', current: true },
+    { label: 'Emplois', href: '/emploi-cameroun/' },
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },

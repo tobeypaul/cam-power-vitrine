@@ -17,6 +17,7 @@ export const homepageEn: HomepageContent = {
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },
+    { label: 'Jobs', href: routes.emploi.en },
     { label: 'Talent', href: routes.talents.en },
     { label: 'Companies', href: routes.entreprises.en },
     { label: 'Missions', href: routes.missions.en },
@@ -136,6 +137,7 @@ export const homepageEn: HomepageContent = {
       {
         title: 'Discover',
         links: [
+          { label: 'Jobs in Cameroon', href: routes.emploi.en },
           { label: 'About', href: routes.apropos.en },
           { label: 'Talent', href: routes.talents.en },
           { label: 'Companies', href: routes.entreprises.en },

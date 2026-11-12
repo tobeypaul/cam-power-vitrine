@@ -1,0 +1,176 @@
+---
+import type { ImageMetadata } from 'astro';
+import screenChat from '../assets/screens/screen-chat.jpg';
+import screenConnections from '../assets/screens/screen-connections.jpg';
+import screenMessages from '../assets/screens/screen-messages.jpg';
+import screenMiniJobs from '../assets/screens/screen-minijobs.jpg';
+import screenProfile from '../assets/screens/screen-profile.jpg';
+import screenWelcome from '../assets/screens/screen-welcome.jpg';
+import Arrow from '../components/Arrow.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import StoreBadges from '../components/StoreBadges.astro';
+import { getGuide, getHomepage } from '../content';
+import { appStoresEn, appStoresFr } from '../content/stores';
+import type { GuideKey, GuideScreen } from '../content/types';
+import { innerFooter, route, t, type Locale } from '../i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/paths';
+import { faqPage } from '../lib/site';
+import '../styles/guide.css';
+
+interface Props {
+  locale: Locale;
+  guide: GuideKey;
+}
+
+const { locale, guide } = Astro.props;
+const home = getHomepage(locale);
+const page = getGuide(guide, locale);
+const text = t(locale);
+const footer = innerFooter(home.footer, locale);
+const stores = locale === 'en' ? appStoresEn : appStoresFr;
+
+const screens: Record<GuideScreen, { src: ImageMetadata; alt: string }> = {
+  welcome: { src: screenWelcome, alt: text.alt.welcome },
+  profile: { src: screenProfile, alt: text.alt.profile },
+  minijobs: { src: screenMiniJobs, alt: text.alt.miniJobs },
+  connections: { src: screenConnections, alt: text.alt.connections },
+  chat: { src: screenChat, alt: text.alt.chat },
+  messages: { src: screenMessages, alt: text.alt.messages },
+};
+const screen = screens[page.hero.screen];
+
+const pageUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const faqSchema = faqPage(pageUrl, page.faq.items);
+const titleId = `${guide}-title`;
+// Mark this page's menu item, for example "Emplois" / "Jobs", as current.
+const nav = home.nav.map((item) => (item.href === route(guide, locale) ? { ...item, current: true } : item));
+const appHref = home.hero.access.href;
+---
+
+<BaseLayout
+  title={page.meta.title}
+  description={page.meta.description}
+  locale={locale}
+  routeKey={guide}
+  pageName={page.crumb}
+  schema={[faqSchema]}
+>
+  <SiteHeader nav={nav} access={home.hero.access} logoHref={route('home', locale)} locale={locale} routeKey={guide} />
+  <main id="contenu" class="guide">
+    <section class="hero" data-motion="hero" aria-labelledby={titleId}>
+      <div class="wrap hero-grid">
+        <div>
+          <nav class="crumbs" aria-label={text.breadcrumb}>
+            <ol>
+              <li><a href={sitePath(route('home', locale))}>{text.homeName}</a></li>
+              <li aria-current="page">{page.crumb}</li>
+            </ol>
+          </nav>
+          <p class="eyebrow">{page.hero.eyebrow}</p>
+          <h1 id={titleId}>{page.hero.title}</h1>
+          <p class="lead">{page.hero.lead}</p>
+          <ul class="points">
+            {page.hero.points.map((point) => <li>{point}</li>)}
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href={appHref}>{page.hero.cta} <Arrow /></a>
+          </div>
+          <div class="hero-stores">
+            <StoreBadges stores={stores} locale={locale} compact />
+          </div>
+          <p class="hero-note">{page.hero.note}</p>
+        </div>
+        <div class="hero-phone">
+          <PhoneFrame src={screen.src} alt={screen.alt} eager />
+        </div>
+      </div>
+    </section>
+
+    <nav class="toc" aria-label={text.onThisPage}>
+      <div class="wrap">
+        <p>{text.onThisPage}</p>
+        <ul>
+          {page.sections.map((section) => <li><a href={`#${section.id}`}>{section.title}</a></li>)}
+        </ul>
+      </div>
+    </nav>
+
+    {page.sections.map((section, index) => (
+      <section class:list={['g-sec', index % 2 === 1 && 'g-sec-alt']} id={section.id} data-motion="reveal" aria-labelledby={`${section.id}-title`}>
+        <div class="wrap">
+          <div class="g-body">
+            {section.kicker && <p class="kicker">{section.kicker}</p>}
+            <h2 id={`${section.id}-title`}>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.list && (
+              <ul class="g-list">
+                {section.list.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </div>
+          {section.steps && (
+            <ol class="g-steps">
+              {section.steps.map((step, stepIndex) => (
+                <li data-motion="reveal" style={`--motion-i:${stepIndex}`}>
+                  <strong>{step.label}</strong>
+                  <span>{step.text}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+          {section.cta && (
+            <div class="g-cta">
+              <a class="btn btn-primary btn-lg" href={appHref}>{page.hero.cta} <Arrow /></a>
+              <StoreBadges stores={stores} locale={locale} compact />
+            </div>
+          )}
+        </div>
+      </section>
+    ))}
+
+    <section class="g-related" data-motion="reveal" aria-labelledby={`${guide}-related`}>
+      <div class="wrap">
+        <h2 id={`${guide}-related`}>{page.related.title}</h2>
+        {page.related.support && <p class="support">{page.related.support}</p>}
+        <ul class="g-cards">
+          {page.related.links.map((link) => (
+            <li>
+              <a href={sitePath(link.href)}>
+                <strong>{link.label}</strong>
+                <span>{link.text}</span>
+                <Arrow />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="g-faq" id="questions" aria-labelledby={`${guide}-faq`}>
+      <div class="wrap">
+        <h2 id={`${guide}-faq`}>{page.faq.title}</h2>
+        <div class="faq-list">
+          {page.faq.items.map((item, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>{item.question}</summary>
+              <p class="answer">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="finale" data-motion="reveal" aria-labelledby={`${guide}-finale`}>
+      <h2 id={`${guide}-finale`}>{page.finale.title}</h2>
+      <p>{page.finale.support}</p>
+      <a class="btn btn-primary" href={appHref}>{page.hero.cta} <Arrow /></a>
+      <div class="finale-stores">
+        <StoreBadges stores={stores} locale={locale} compact />
+      </div>
+    </section>
+  </main>
+  <SiteFooter footer={footer} locale={locale} homeHref={route('home', locale)} currentPath={route(guide, locale)} />
+</BaseLayout>

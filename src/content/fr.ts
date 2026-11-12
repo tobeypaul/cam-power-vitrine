@@ -16,6 +16,7 @@ export const homepageFr: HomepageContent = {
   },
   nav: [
     { label: 'Découvrir', href: '/decouvrir/' },
+    { label: 'Emplois', href: '/emploi-cameroun/' },
     { label: 'Talents', href: '/talents/' },
     { label: 'Entreprises', href: '/entreprises/' },
     { label: 'Missions', href: '/missions/' },
@@ -135,6 +136,7 @@ export const homepageFr: HomepageContent = {
       {
         title: 'Découvrir',
         links: [
+          { label: 'Emploi au Cameroun', href: '/emploi-cameroun/' },
           { label: 'À propos', href: '/a-propos/' },
           { label: 'Talents', href: '/talents/' },
           { label: 'Entreprises', href: '/entreprises/' },

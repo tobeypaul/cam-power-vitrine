@@ -9,6 +9,7 @@ export const entreprisesEn: EntreprisesContent = {
   },
   nav: [
     { label: 'Discover', href: routes.decouvrir.en },
+    { label: 'Jobs', href: routes.emploi.en },
     { label: 'Talent', href: routes.talents.en },
     { label: 'Companies', href: routes.entreprises.en, current: true },
     { label: 'Missions', href: routes.missions.en },
